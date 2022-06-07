@@ -3,7 +3,12 @@
     @click="open = !open"
     @keydown.escape.window="open = false"
     @click.away="open = false"
-    class="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
+    class="inline-flex items-center p-2 rounded-lg
+    hover:bg-gray-100 
+    focus:bg-gray-100 
+    dark:hover:bg-gray-900 
+    dark:focus:bg-gray-900 
+    ">
      <span class="sr-only">Menú</span>
       <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
         <span class="font-semibold">Tron Simmons</span>
@@ -25,9 +30,13 @@
     x-transition:leave="transition ease-in duration-75"
     x-transition:leave-start="transform opacity-100 scale-100"
     x-transition:leave-end="transform opacity-0 scale-95"
-    class="absolute right-0 top-15 flex flex-col w-60 mt-2 border border-gray-100 shadow-lg bg-white">
-    <a class="flex items-center h-8 px-3 py-6 text-sm hover:bg-gray-200" href="#">Settings</a>
-    <a class="flex items-center h-8 px-3 py-6 text-sm hover:bg-gray-200" href="#">Support</a>
-    <a class="flex items-center h-8 px-3 py-6 text-sm hover:bg-gray-200" href="#">Sign Out</a>
+    class="absolute right-0 top-15 flex flex-col w-60 mt-2 border shadow-lg border-gray-100  
+    bg-white
+    dark:border-gray-800  
+    dark:bg-gray-900
+    ">
+    <a class="flex items-center h-8 px-3 py-6 text-sm hover:bg-gray-200 dark:hover:bg-gray-700" href="#">Settings</a>
+    <a class="flex items-center h-8 px-3 py-6 text-sm hover:bg-gray-200 dark:hover:bg-gray-700" href="#">Support</a>
+    <a class="flex items-center h-8 px-3 py-6 text-sm hover:bg-gray-200 dark:hover:bg-gray-700" href="#">Sign Out</a>
   </div>
 </div>

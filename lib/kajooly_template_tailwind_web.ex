@@ -31,7 +31,8 @@ defmodule KajoolyTemplateTailwindWeb do
     quote do
       use Phoenix.View,
         root: "lib/kajooly_template_tailwind_web/templates",
-        namespace: KajoolyTemplateTailwindWeb
+        namespace: KajoolyTemplateTailwindWeb,
+        pattern: "**/*"
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
