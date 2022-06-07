@@ -1,43 +1,45 @@
-<div x-data="{ open: false }" class="relative p-2 text-left">
-  <button
-    @click="open = !open"
-    @keydown.escape.window="open = false"
-    @click.away="open = false"
-    class="relative p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
-      <span class="sr-only">Notifications</span>
-      <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
-      <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
-      <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-      </svg>
-  </button>
-  <div
-    x-cloak
-    x-show="open"
-    x-transition:enter="transition ease-out duration-100"
-    x-transition:enter-start="transform opacity-0 scale-95"
-    x-transition:enter-end="transform opacity-100 scale-100"
-    x-transition:leave="transition ease-in duration-75"
-    x-transition:leave-start="transform opacity-100 scale-100"
-    x-transition:leave-end="transform opacity-0 scale-95"
-    class="absolute top-16 right-0 flex flex-col w-96 mt-1 border border-gray-100 shadow bg-white">
-    <h3 class="text-xl px-4 py-5 mb-6 ">
-      Notificaciones
-      <span class="bg-purple-100 text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900 absolute right-0 top-11">+99</span>
-    </h3>
-    <a class="flex items-center h-8 px-3 py-10 text-sm hover:bg-gray-200" href="#">
-      <div class="w-4 h-4 flex-shrink-0 rounded-full border-indigo-400 border-2 mt-1 mr-2"></div>
-        <div class="flex-grow">
-          <h3 class="text-sm mb-1">Cronut distillery selfies, hella shabby chic</h3>
-          <h4 class="text-xs text-indigo-300 italic">10 min ago</h4>
-        </div>
-        <button class="text-indigo-300 flex-shrink-0 ml-2">
-          <svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="1"/>
-            <circle cx="19" cy="12" r="1"/>
-            <circle cx="5" cy="12" r="1"/>
-          </svg>
-        </button>
-    </a>
+<div class="border-l pl-3 ml-3 space-x-1">
+  <div x-data="{ open: false }" class="relative p-2 text-left">
+    <button
+      @click="open = !open"
+      @keydown.escape.window="open = false"
+      @click.away="open = false"
+      class="relative p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
+        <span class="sr-only">Notifications</span>
+        <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
+        <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
+        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        </svg>
+    </button>
+    <div
+      x-cloak
+      x-show="open"
+      x-transition:enter="transition ease-out duration-100"
+      x-transition:enter-start="transform opacity-0 scale-95"
+      x-transition:enter-end="transform opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-75"
+      x-transition:leave-start="transform opacity-100 scale-100"
+      x-transition:leave-end="transform opacity-0 scale-95"
+      class="absolute top-16 right-0 flex flex-col w-96 mt-1 border border-gray-100 shadow bg-white">
+      <h3 class="text-xl px-4 py-5 mb-6 ">
+        Notificaciones
+        <span class="bg-purple-100 text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900 absolute right-0 top-11">+99</span>
+      </h3>
+      <a class="flex items-center h-8 px-3 py-10 text-sm hover:bg-gray-200" href="#">
+        <div class="w-4 h-4 flex-shrink-0 rounded-full border-indigo-400 border-2 mt-1 mr-2"></div>
+          <div class="flex-grow">
+            <h3 class="text-sm mb-1">Cronut distillery selfies, hella shabby chic</h3>
+            <h4 class="text-xs text-indigo-300 italic">10 min ago</h4>
+          </div>
+          <button class="text-indigo-300 flex-shrink-0 ml-2">
+            <svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="1"/>
+              <circle cx="19" cy="12" r="1"/>
+              <circle cx="5" cy="12" r="1"/>
+            </svg>
+          </button>
+      </a>
+    </div>
   </div>
 </div>
