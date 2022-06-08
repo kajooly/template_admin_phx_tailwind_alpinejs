@@ -13,9 +13,28 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.ButtonGroup do
 
   ## Examples
 
-      <.button_group>
-          Breadcrum title
-      </.button_group>
+    <.button_group
+      buttons={[
+          %{
+            title: "Borrador",
+            to: "#",
+            borderradius: "left",
+            border: "border-red-500 dark:border-red-500",
+            class: "border-b-4"
+          }
+        ]}
+    />
+    ---
+    <.button_group>
+      <buttons {%{
+            to: "#",
+            borderradius: "left",
+            border: "border-red-500 dark:border-red-500",
+            class: "border-b-4"
+          }} >
+        Título del botón
+      </.buttons>
+    </.button_group>
 
   """
   def button_group(assigns) do
