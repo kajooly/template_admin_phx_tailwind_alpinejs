@@ -18,6 +18,11 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+
+    live "/layout/list", LayoutsLive.Index, :index
+    live "/layout/resumen", LayoutsLive.Index, :index
+
   end
 
   # Other scopes may use custom stacks.

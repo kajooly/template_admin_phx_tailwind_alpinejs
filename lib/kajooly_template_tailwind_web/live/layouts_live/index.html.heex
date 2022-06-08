@@ -1,0 +1,280 @@
+<.breadcrum pages={[
+    %{ 
+      title: "Home", 
+      to: "#home",
+      icon: "home"
+    },
+    %{ 
+      title: "Lista de ejemplo", 
+      to: "#list",
+      icon: "chevron"
+    },
+    %{ 
+      title: "Lista general", 
+      to: nil,
+      icon: "chevron"
+    }
+    ]} />
+<!-- top buttons -->
+<div class="flex mt-4 mb-4">
+  <div class="flex-1">
+    <.button_group 
+      buttons={[
+          %{ 
+            title: "Borrador", 
+            to: "#",
+            borderradius: "left",
+            border: "border-red-500 dark:border-red-500",
+            class: "border-b-4 border-x-0 border-t-0"
+          },
+          %{ 
+            title: "Venta", 
+            to: "#",
+            borderradius: "center",
+            border: "border-indigo-500 dark:border-indigo-500",
+            class: "border-b-4 border-x-0 border-t-0 hidden lg:inline",
+          },
+          %{ 
+            title: "REDD", 
+            to: "#",
+            borderradius: "center",
+            border: "border-orange-500 dark:border-orange-500",
+            class: "border-b-4 border-x-0 border-t-0"
+          },
+          %{ 
+            title: "Cotización", 
+            to: "#",
+            borderradius: "center",
+            border: "border-indigo-500 dark:border-indigo-500",
+            class: "border-b-4 border-x-0 border-t-0 hidden lg:inline"
+          },
+          %{ 
+            title: "Preprensa", 
+            to: "#",
+            borderradius: "center",
+            border: "border-blue-500 dark:border-blue-500",
+            class: "border-b-4 border-x-0 border-t-0 hidden lg:inline"
+          },
+          %{ 
+            title: "Cliente", 
+            to: "#",
+            borderradius: "center",
+            border: "border-green-500 dark:border-green-500",
+            class: "border-b-4 border-x-0 border-t-0 hidden lg:inline"
+          },
+          %{ 
+            title: "Final", 
+            to: "#",
+            borderradius: "right",
+            border: "border-green-500 dark:border-green-500",
+            class: "border-b-4 border-x-0 border-t-0"
+          }
+        ]}
+    />
+  </div>
+  <!-- New button-->
+  <.button  {%{
+    title: "+ Nuevo",
+    borderradius: "only",
+    class: " flex-initial",
+    border: "border-green-500 dark:border-green-500",
+    to: "#new"
+  }} />
+</div>
+<!-- Table -->
+<.table rows={@list}>
+  <!-- Column head -->
+  <:head class="w-4/12 lg:w-5/12">
+   <.button_group >
+      <:buttons {
+          %{ 
+            to: "#",
+            borderradius: "left",
+            border: "border-gray-100 dark:border-gray-700",
+            class: "-b-0 text-xs w-30 flex"
+          }}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-0 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span class="flex-1">Abierto</span>
+      </:buttons>
+      <:buttons {
+          %{ 
+            to: "#",
+            borderradius: "right",
+            border: "border-gray-100 dark:border-gray-700",
+            class: "-b-0 text-xs w-30 flex"
+          }}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-0 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span class="flex-1">Cerrado</span>
+      </:buttons>
+    </.button_group>
+  </:head>
+  <:head class="w-6/12 lg:w-11/12 hidden lg:block">
+    <.dropdown {%{
+      title: "Creado",
+      buttons: [
+          %{ 
+            title: "Sara Bautizta", 
+            to: "#"
+          },
+          %{ 
+            title: "MIRIAM", 
+            to: "#"
+          },
+          %{ 
+            title: "Alex", 
+            to: "#"
+          },
+          %{ 
+            title: "Steph", 
+            to: "#"
+          },
+          %{ 
+            title: "Tessy", 
+            to: "#"
+          },
+          %{ 
+            title: "VALERIA", 
+            to: "#"
+          },
+          %{ 
+            title: "Todos", 
+            to: "#"
+          },
+      ]
+    }} />
+  </:head>
+  <:head class="w-6/12 lg:w-2/12 ">
+    <.dropdown {%{
+      title: "Estado",
+      buttons: [
+          %{ 
+            title: "Abierto", 
+            to: "#"
+          },
+          %{ 
+            title: "Revisión", 
+            to: "#"
+          },
+          %{ 
+            title: "Cerrado", 
+            to: "#"
+          }
+      ]
+    }} />
+  </:head>
+  <:head class="w-1/12  ">
+    <.dropdown {%{
+      title: "Orden",
+      buttons: [
+          %{ 
+            title: "El más nuevo", 
+            to: "#"
+          },
+          %{ 
+            title: "El más antiguo", 
+            to: "#"
+          },
+          %{ 
+            title: "Recién actualizado", 
+            to: "#"
+          }
+      ]
+    }} />
+  </:head>
+  <!-- Column data -->
+  <:col let={item} th={true} class="w-4/12 lg:w-5/12 border border-l-4 border-y-0 border-r-0 border-red-500 ">
+    <%= item.title %><br/><em><%= item.subtitle %></em>
+  </:col>
+  <:col let={item} class="w-6/12 lg:w-11/12 hidden lg:block">
+    <%= item.created_by %>
+    <br/>
+    <small><%= String.slice(to_string(item.created), 0, 10) %>
+    <em class="hidden xl:inline"><%= String.slice(to_string(item.created), 11, 5) %> hrs.</em></small>
+  </:col>
+  <:col let={item} class="w-6/12 lg:w-3/12 ">
+    <.badge color="warning">
+      <%= item.status %> 
+    </.badge> 
+    <.badge color="danger">
+      <%= item.state %>
+    </.badge>
+    <br class="hidden md:block"/>
+    <small class="hidden md:inline"><%= String.slice(to_string(item.update), 0, 10) %><em class="hidden xl:inline"><%= String.slice(to_string(item.update), 11, 5) %> hrs.</em></small>
+  </:col>
+  <:col let={item} class="w-1/12 text-right">
+    <.dropdown {%{
+        buttons: [
+          %{ 
+            title: "Botón", 
+            to: "#"
+          },
+      ]}} />
+  </:col>
+</.table>
+<!-- Paginate -->
+<div class="flex mt-4 mb-4">
+  <div class="flex-1">
+  <.dropdown {%{
+      title: "Mostrando 100 resultados por página",
+      class: "hidden md:inline",
+      classdrop: "bottom-0 left-0",
+      buttons: [
+          %{ 
+            title: "Ver 100 por página", 
+            to: "#"
+          },
+          %{ 
+            title: "Ver 500 por página", 
+            to: "#"
+          },
+          %{ 
+            title: "Ver 1000 por página", 
+            to: "#"
+          }
+      ]
+    }} />
+  </div>
+  <div class="flex-0">
+    <.button_group 
+      buttons={[
+          %{ 
+            title: "< Anterior", 
+            to: "#",
+            borderradius: "left",
+          },
+          %{ 
+            title: "1", 
+            to: "#",
+            borderradius: "center",
+          },
+          %{ 
+            title: "2", 
+            to: "#",
+            borderradius: "center",
+          },
+          %{ 
+            title: "3", 
+            to: "#",
+            borderradius: "center",
+          },
+          %{ 
+            title: "...", 
+            class: "hidden md:block",
+            to: "#",
+            borderradius: "center",
+          },
+          %{ 
+            title: "Siguente >", 
+            to: "#",
+            borderradius: "right",
+          }
+        ]}
+    />
+  </div>
+</div>
