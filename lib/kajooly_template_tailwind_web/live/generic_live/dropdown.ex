@@ -33,18 +33,19 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
   """
   def dropdown(assigns) do
     ~H"""
-    <div x-data="{ open: false }" class="relative text-left">
+    <div x-data="{ open: false }" class={"relative text-left #{assigns[:class]}"}>
       <button
         @click="open = !open"
         @keydown.escape.window="open = false"
         @click.away="open = false"
-        class="inline-flex items-center p-2 rounded-lg
+        class={"inline-flex items-center p-2 rounded-lg
         hover:bg-gray-100
         focus:bg-gray-100
         dark:hover:bg-gray-900
         dark:focus:bg-gray-900
         min-w-33
-        ">
+        #{assigns[:classbutton]}
+        "}>
         <span class="sr-only">Options</span>
         <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
           <span class="font-semibold min-w-50">
