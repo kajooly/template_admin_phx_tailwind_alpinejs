@@ -24,7 +24,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <%= for head <- @head do %>
-              <th scope="col"  colspan={head[:colspan]||"1"} class={"px-4 py-1 #{head[:class]}"}>
+              <th scope="col"  colspan={head[:colspan]||"1"} class={"px-4 py-0 #{head[:class]}"}>
                 <%= assigns[:label] || render_slot(head) %>
               </th>
             <% end %>
@@ -32,14 +32,14 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
         </thead>
         <tbody>
           <%= for row <- @rows do %>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 md:leading-4">
               <%= for col <- @col do %>
                 <%= if col[:th]!=nil do %>
-                  <th scope="row" class={"px-4 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap #{col[:class]}"}>
+                  <th scope="row" class={"px-4 py-3 md:py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap #{col[:class]}"}>
                     <%= render_slot(col, row) %>
                   </th>
                 <% else %>
-                <td class={"px-4 py-2 #{col[:class]}"}>
+                <td class={"px-4 py-3 md:py-0  dark:text-gray-100 text-gray-900 #{col[:class]}"}>
                     <%= render_slot(col, row) %>
                   </td>
                 <% end %>
