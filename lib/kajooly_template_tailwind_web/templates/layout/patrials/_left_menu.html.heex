@@ -1,11 +1,31 @@
-<nav class="p-4 space-y-2 font-medium text-gray-500">
+<nav 
+    class="space-y-2 font-medium text-gray-400 dark:text-gray-600 border-t border-b dark:border-gray-700 border-gray-200 "
+     :class="isCompactMode ? 'p-0' : 'p-2'"
+    >
+
+    <button class="flex w-full items-center h-10 px-3 text-gray-400 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400 hover:bg-gray-600 hover:bg-opacity-25 rounded-lg transition-colors duration-50 ease-in-out focus:outline-none focus:shadow-outline border-t-1 border-gray-200" @click="isSidebarExpanded = !isSidebarExpanded">
+        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 transform" :class="isSidebarExpanded ? 'rotate-180' : 'rotate-0'">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <line x1="4" y1="6" x2="14" y2="6" />
+            <line x1="4" y1="18" x2="14" y2="18" />
+            <path d="M4 12h17l-3 -3m0 6l3 -3" />
+        </svg>
+        <span class="ml-2 duration-50 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0 hidden'">Contraer menú</span>
+
+    </button>
+</nav>
+<nav 
+    class="space-y-2 font-medium text-gray-400 dark:text-gray-600"
+     :class="isCompactMode ? 'p-0' : 'p-2'"
+    >
     <%= for item   <- @list  do %>
-        <%= link to: item[:to] || "#", class: "flex items-center h-10 px-3 #{ if item[:active] != nil do "text-white bg-blue-600" else "text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-blue-600 hover:bg-opacity-25" end } rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline" do %>
+        <%= link to: item[:to] || "#", class: "flex items-center h-10 px-3 #{ if item[:active] != nil do "text-white bg-blue-600" else "text-gray-400 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-blue-600 hover:bg-opacity-25" end } rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline" do %>
             <%= raw item.icon %>
             <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">
                 <%= raw item.title %>
             </span>
-    <% end %>
+        <% end %>
+
     <% end %>
 </nav>
 <%= render "patrials/_left_menu_settings.html", conn: @conn %>
