@@ -206,16 +206,19 @@
     }} />
   </:head>
   <!-- Column data -->
-  <:col let={item} th={true} class="w-4/12 lg:w-5/12 border border-l-4 border-y-0 border-r-0 border-red-500 ">
-    <%= item.title %>
-    <br class="xl:hidden"/><span class="hidden xl:inline">-</span>
-    <em><%= item.subtitle %></em>
+  <:col let={item} th={nil} class="w-4/12 lg:w-5/12 border border-l-4 border-y-0 border-r-0 border-red-500 ">
+    <em class="font-semibold"><%= item.subtitle %></em>
+    <span class="text-gray-700 dark:text-gray-300"><%= item.title %></span>
+    <br/>
+    <small class="text-gray-500 dark:text-gray-400">Creado por <em class="text-gray-500 dark:text-gray-200"><%= item.created_by %></em> <span x-data={"{ date: '#{item.created}'}"} x-timeago="date">
+    <!-- will be something like "about 3 hours ago" for example -->
+</span></small>
   </:col>
   <:col let={item} class="w-6/12 lg:w-11/12 hidden md:inline">
   <div class="flex">
     <div class="w-1/2  hidden lg:block">
-    <%= item.created_by %>
-    <br class="xl:hidden"/><span class="hidden xl:inline">-</span>
+    
+    <br/>
     <small><%= String.slice(to_string(item.created), 0, 10) %>
     <em class="hidden xl:inline"><%= String.slice(to_string(item.created), 11, 5) %> hrs.</em></small>
  
@@ -227,7 +230,7 @@
     <.badge color="danger">
       <%= item.state %>
     </.badge>
-        <br class="xl:hidden"/><span class="hidden xl:inline">-</span>
+    <br/>
 
     <small class="hidden md:inline"><%= String.slice(to_string(item.update), 0, 10) %><em class="hidden xl:inline"><%= String.slice(to_string(item.update), 11, 5) %> hrs.</em></small>
 
