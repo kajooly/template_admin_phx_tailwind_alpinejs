@@ -29,10 +29,15 @@ import init_templet from "./template"
 
 import Alpine from "alpinejs"
 import persist from '@alpinejs/persist'
+import TimeAgo from "./timeago.js"
+import { es } from 'date-fns/locale';
 
 
 window.Alpine = Alpine
 Alpine.plugin(persist);
+Alpine.plugin(TimeAgo.configure({
+    locale: es,
+}));
 Alpine.start();
 console.log("Alpine");
 
