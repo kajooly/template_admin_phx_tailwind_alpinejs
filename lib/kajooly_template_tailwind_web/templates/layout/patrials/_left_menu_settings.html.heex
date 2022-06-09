@@ -30,22 +30,16 @@
     ">
     <button 
         @click="isCompactMode = !isCompactMode"
-        @keydown.escape.window="isCompactMode = false"
-        @click.away="isCompactMode = false" 
         class="flex items-center h-8 px-3 py-6 text-sm rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
         x-text="isCompactMode ? 'Vista amplia':'Vista Compacta'"
     ></button>
     <button 
         @click="isSidebarExpanded = !isSidebarExpanded"
-        @keydown.escape.window="isSidebarExpanded = false"
-        @click.away="isSidebarExpanded = false" 
         class="flex items-center h-8 px-3 py-6 text-sm rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
         x-text="isSidebarExpanded ? 'Menu contraido':'Menu extendido'"
     ></button>
     <button 
         @click="isLiquidPage = !isLiquidPage"
-        @keydown.escape.window="isLiquidPage = false"
-        @click.away="isLiquidPage = false" 
         class="flex items-center h-8 px-3 py-6 text-sm rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
         x-text="isLiquidPage ? 'Contenido liquido':'Contenido fijo'"
     ></button>
