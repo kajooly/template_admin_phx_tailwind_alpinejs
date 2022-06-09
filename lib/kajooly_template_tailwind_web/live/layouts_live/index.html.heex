@@ -99,72 +99,13 @@
 <!-- Table -->
 <.table rows={@list}>
   <!-- Column head -->
-  <:head class="w-4/12 lg:w-5/12">
-   <.button_group >
-      <:buttons {
-          %{ 
-            to: "#",
-            borderradius: "left",
-            border: "border-gray-100 dark:border-gray-700",
-            class: "-b-0 text-xs w-30 flex"
-          }}
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-0 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <span class="flex-1">Abierto</span>
-      </:buttons>
-      <:buttons {
-          %{ 
-            to: "#",
-            borderradius: "right",
-            border: "border-gray-100 dark:border-gray-700",
-            class: "-b-0 text-xs w-30 flex"
-          }}
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-0 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <span class="flex-1">Cerrado</span>
-      </:buttons>
-    </.button_group>
+  <:head class="w-4/12 lg:w-5/12 text-gray-700 dark:text-gray-300 text-lg">
+  <small>Lista: </small><em>Borrador</em>
   </:head>
   <:head class="w-6/12 lg:w-11/12 hidden md:block" colspan="2">
     <div class="flex">
-    <div class="w-1/2 hidden lg:block">
-    <.dropdown {%{
-      title: "Creado",
-      buttons: [
-          %{ 
-            title: "Sara Bautizta", 
-            to: "#"
-          },
-          %{ 
-            title: "MIRIAM", 
-            to: "#"
-          },
-          %{ 
-            title: "Alex", 
-            to: "#"
-          },
-          %{ 
-            title: "Steph", 
-            to: "#"
-          },
-          %{ 
-            title: "Tessy", 
-            to: "#"
-          },
-          %{ 
-            title: "VALERIA", 
-            to: "#"
-          },
-          %{ 
-            title: "Todos", 
-            to: "#"
-          },
-      ]
-    }} /> 
+    <div class="w-1/2 hidden lg:block py-3 text-left">
+    Planeaciones del brief
     </div>
     <div class="w-1/2">
 
@@ -220,11 +161,14 @@
   <:col let={item} class="w-6/12 lg:w-11/12 hidden md:inline">
   <div class="flex">
     <div class="w-1/2  hidden lg:block">
-    
-    <br/>
-    <small><%= String.slice(to_string(item.created), 0, 10) %>
-    <em class="hidden xl:inline"><%= String.slice(to_string(item.created), 11, 5) %> hrs.</em></small>
- 
+
+      <div class="flex -space-x-4 ml-6">
+          <a class="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800" href="#">A</a>
+          <a class="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800" href="#">B</a>
+          <a class="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800" href="#">C</a>
+          <a class="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800" href="#">D</a>
+      </div>
+   
     </div>
     <div class="w-1/2 ">
     <.badge color="warning">
