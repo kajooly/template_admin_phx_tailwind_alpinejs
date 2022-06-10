@@ -30,7 +30,7 @@ config :tailwind,
     args: ~w(
       --config=tailwind.config.js
       --input=../priv/static/assets/app.tailwind.css
-      --output=../priv/static/assets/app.css
+      --output=../priv/static/assets/template/template.css
     ),
     cd: Path.expand("../assets", __DIR__)
   ]
