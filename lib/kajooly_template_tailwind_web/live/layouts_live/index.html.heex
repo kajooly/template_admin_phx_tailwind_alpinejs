@@ -111,6 +111,7 @@
 
     <.dropdown {%{
       title: "Estado",
+      class: "ml-6",
       buttons: [
           %{ 
             title: "Abierto", 
@@ -154,9 +155,7 @@
     <em class="font-semibold"><%= item.subtitle %></em>
     <span class="text-gray-700 dark:text-gray-300"><%= item.title %></span>
     <br/>
-    <small class="text-gray-500 dark:text-gray-400">Creado por <em class="text-gray-500 dark:text-gray-200"><%= item.created_by %></em> <span x-data={"{ date: '#{item.created}'}"} x-timeago="date">
-    <!-- will be something like "about 3 hours ago" for example -->
-</span></small>
+    <small class="text-gray-500 dark:text-gray-400">Creado por <em class="text-gray-500 dark:text-gray-200"><%= item.created_by %></em> <span x-data={"{ date: '#{item.created}'}"} x-timeago="date"></span>.</small>
   </:col>
   <:col let={item} class="w-6/12 lg:w-11/12 hidden md:inline">
   <div class="flex">
@@ -178,14 +177,13 @@
       <%= item.state %>
     </.badge>
     <br/>
-
-    <small class="hidden md:inline"><%= String.slice(to_string(item.update), 0, 10) %><em class="hidden xl:inline"><%= String.slice(to_string(item.update), 11, 5) %> hrs.</em></small>
-
+    <small class="text-gray-500 dark:text-gray-400">Actualizado  <span x-data={"{ date: '#{item.update}'}"} x-timeago="date"></span>.</small>
     </div>
     </div>
   </:col>
   <:col let={item} class="w-1/12 text-right">
     <.dropdown {%{
+      title: "",
         buttons: [
           %{ 
             title: "Ver", 
@@ -208,6 +206,8 @@
   <.dropdown {%{
       title: "Mostrando 100 resultados por página",
       class: "hidden md:inline",
+      classbutton: "dark:text-gray-500 text-gray-400",
+      classbuttontitle: "dark:text-gray-500 text-gray-400",
       classdrop: "bottom-0 left-0",
       buttons: [
           %{ 
@@ -232,32 +232,38 @@
             title: "< Anterior", 
             to: "#",
             borderradius: "left",
+            class: "dark:text-gray-300"
           },
           %{ 
             title: "1", 
             to: "#",
             borderradius: "center",
+            class: "dark:text-gray-300"
           },
           %{ 
             title: "2", 
             to: "#",
             borderradius: "center",
+            class: "dark:text-gray-300"
           },
           %{ 
             title: "3", 
             to: "#",
             borderradius: "center",
+            class: "dark:text-gray-300"
           },
           %{ 
             title: "...", 
             class: "hidden md:block",
             to: "#",
             borderradius: "center",
+            class: "dark:text-gray-300"
           },
           %{ 
             title: "Siguente >", 
             to: "#",
             borderradius: "right",
+            class: "dark:text-gray-300"
           }
         ]}
     />
