@@ -50,6 +50,7 @@ config :kajooly_template_tailwind, KajoolyTemplateTailwindWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/gettext/.*(po)$",
       ~r"lib/kajooly_template_tailwind_web/(live|views)/.*(ex)$",
       ~r"lib/kajooly_template_tailwind_web/templates/.*(eex)$"
     ]
