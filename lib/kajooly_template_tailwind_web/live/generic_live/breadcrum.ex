@@ -36,56 +36,60 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Breadcrum do
   def breadcrum(assigns) do
     assigns = assign_new(assigns, :page, fn -> assigns[:pages] || [] end)
     ~H"""
-    <nav class="flex mb-6" aria-label="Breadcrumb"
+    <span
     x-data="{  isCompactMode: $persist(false).as('isCompactMode')  }"
     >
-      <%=  if assigns[:title] != nil do %>
-        <h1 class="text-2xl">
-          <%= assigns[:title]  %>
-          <br :class="isCompactMode ? 'hidden' : ''" /><span class="text-gray-500" :class="!isCompactMode ? 'hidden' : ''"> | </span>
-          <small><%= assigns[:subtitle]  %></small>
-        </h1>
-      <% end %>
-      <ol class="inline-flex items-center space-x-1 md:space-x-3 ml-auto mb-auto font-medium"
-          >
-        <%= if @page != nil do %>
-          <%= for item <- @page do %>
-            <%= if item[:to] != nil do %>
-              <li>
-                <div class="flex items-center">
-                <%= live_patch to: item[:to], class: " flex text-gray-700 hover:text-gray-900  dark:text-gray-400 dark:hover:text-white" do %>
-                  <%=  if item[:icon] == "home" do %>
-                    <.icons_home class="flex-0 w-4 h-4 ml-3"/>
-                  <% end %>
-                  <%=  if item[:icon] == "chevron" do %>
-                    <.icons_chevron_right class="flex-0 w-6 h-6 text-gray-400"/>
-                  <% end %>
-                    <span class="flex-1 mt-1"
-                    :class=" isCompactMode ? 'text-xs':'text-base' "
-                    ><%= item[:title] || render_slot(item) %></span>
-                  <% end %>
-                </div>
-              </li>
-            <% else %>
-              <li aria-current="page">
-                <div class="flex items-center">
-                  <%=  if item[:icon] == "home" do %>
-                    <.icons_home class="mr-2 w-4 h-4"/>
-                  <% end %>
-                  <%=  if item[:icon] == "chevron" do %>
-                    <.icons_chevron_right class="w-6 h-6 text-gray-400"/>
-                  <% end %>
-                  <span
-                    class="ml-1  text-gray-400 dark:text-gray-500 md:ml-2 dark:text-gray-400"
-                    :class=" isCompactMode ? 'text-xs':'text-base' "
-                    > <%= item[:title] || render_slot(item) %></span>
-                </div>
-              </li>
+      <nav class="flex" aria-label="Breadcrumb"
+      :class=" isCompactMode ? 'mb-2' : 'mb-6'"
+      >
+        <%=  if assigns[:title] != nil do %>
+          <h1 class="text-2xl">
+            <%= assigns[:title]  %>
+            <br :class="isCompactMode ? 'hidden' : ''" /><span class="text-gray-500" :class="!isCompactMode ? 'hidden' : ''"> | </span>
+            <small><%= assigns[:subtitle]  %></small>
+          </h1>
+        <% end %>
+        <ol class="inline-flex items-center space-x-1 md:space-x-3 ml-auto mb-auto font-medium"
+            >
+          <%= if @page != nil do %>
+            <%= for item <- @page do %>
+              <%= if item[:to] != nil do %>
+                <li>
+                  <div class="flex items-center">
+                  <%= live_patch to: item[:to], class: " flex text-gray-700 hover:text-gray-900  dark:text-gray-400 dark:hover:text-white" do %>
+                    <%=  if item[:icon] == "home" do %>
+                      <.icons_home class="flex-0 w-4 h-4 ml-3"/>
+                    <% end %>
+                    <%=  if item[:icon] == "chevron" do %>
+                      <.icons_chevron_right class="flex-0 w-6 h-6 text-gray-400"/>
+                    <% end %>
+                      <span class="flex-1 mt-1"
+                      :class=" isCompactMode ? 'text-xs':'text-base' "
+                      ><%= item[:title] || render_slot(item) %></span>
+                    <% end %>
+                  </div>
+                </li>
+              <% else %>
+                <li aria-current="page">
+                  <div class="flex items-center">
+                    <%=  if item[:icon] == "home" do %>
+                      <.icons_home class="mr-2 w-4 h-4"/>
+                    <% end %>
+                    <%=  if item[:icon] == "chevron" do %>
+                      <.icons_chevron_right class="w-6 h-6 text-gray-400"/>
+                    <% end %>
+                    <span
+                      class="ml-1  text-gray-400 dark:text-gray-500 md:ml-2 dark:text-gray-400"
+                      :class=" isCompactMode ? 'text-xs':'text-base' "
+                      > <%= item[:title] || render_slot(item) %></span>
+                  </div>
+                </li>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-      </ol>
-    </nav>
+        </ol>
+      </nav>
+    </span>
     """
   end
 
