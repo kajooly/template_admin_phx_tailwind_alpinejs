@@ -7,6 +7,7 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.Index do
   import KajoolyTemplateTailwindWeb.GenericLive.ButtonGroup
   import KajoolyTemplateTailwindWeb.GenericLive.Dropdown
   import KajoolyTemplateTailwindWeb.GenericLive.Badges
+  import KajoolyTemplateTailwindWeb.GenericLive.Search
 
   import KajoolyTemplateTailwindWeb.LayoutsLive.FakeDb
 
