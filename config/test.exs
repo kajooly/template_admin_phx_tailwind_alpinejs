@@ -7,9 +7,6 @@ config :kajooly_template_tailwind, KajoolyTemplateTailwindWeb.Endpoint,
   secret_key_base: "tBsfTRPk8f5O8vt/ddnt6sUDWmLg3OPXo5/BN8KxvhmQYzAjZ91EDPiMsK+usLUv",
   server: false
 
-# In test we don't send emails.
-config :kajooly_template_tailwind, KajoolyTemplateTailwind.Mailer,
-  adapter: Swoosh.Adapters.Test
 
 # Print only warnings and errors during test
 config :logger, level: :warn
