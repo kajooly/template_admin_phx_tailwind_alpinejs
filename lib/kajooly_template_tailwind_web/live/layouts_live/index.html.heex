@@ -1,3 +1,4 @@
+<div x-data="{ isCompactMode: $persist(false).as('isCompactMode') }" >
 <.breadcrum
   title="Preventa"
   subtitle="Listado de Briefs."
@@ -19,7 +20,10 @@
       }
       ]} />
 <!-- top buttons -->
-<div class="flex flex-wrap mt-4 mb-4">
+<div 
+  class="flex flex-wrap "
+  :class=" isCompactMode ? 'mt-2 mb-0': 'mt-4 mb-4'"
+>
   <div class="w-full mb-3 md:flex-1">
     <.button_group 
       buttons={[
@@ -81,6 +85,7 @@
     borderradius: "only",
     class: " w-full lg:w-24 md:flex-initial pt-2.5 md:mb-3",
     border: "border-green-500 dark:border-green-500",
+    color_class: "text-green-700 bg-green-400   focus:ring-green-700 focus:text-green-7 hover:text-green-800 dark:bg-green-700  dark:text-white dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-500 dark:focus:text-white dark:text-green-300 hover:text-green-700",
     to: "#new"
   }} />
 </div>
@@ -284,4 +289,5 @@
         ]}
     />
   </div>
+</div>
 </div>
