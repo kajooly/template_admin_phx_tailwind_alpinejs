@@ -14,9 +14,12 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
 
 
     <.button {%{
-      title: "+ nuevo",
-      borderradius: "only",
-      class: ""
+        title: "+ Nuevo",
+        borderradius: "only",
+        class: " w-full lg:w-24 md:flex-initial pt-2.5 md:mb-3",
+        border: "border-green-500 dark:border-green-500",
+        color_class: "text-green-700 bg-green-400   focus:ring-green-700 focus:text-green-7 hover:text-green-800 dark:bg-green-700  dark:text-white dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-500 dark:focus:text-white dark:text-green-300 hover:text-green-700",
+        to: "#new"
     }} />
     -----
     <.button %{
@@ -31,8 +34,8 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
   """
   def button(assigns) do
     ~H"""
-    <span x-data="{ isCompactMode: $persist(false).as('isCompactMode') }" >
-    <%= live_patch to: assigns[:to], class: " px-4 text-center  font-medium text-gray-900 bg-white  focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700  dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white dark:border-gray-600 #{assigns[:border] || " border-gray-200 hover:bg-gray-100 "} dark:text-gray-300 hover:text-blue-700 focus:z-10 #{assigns[:class]} #{
+    <span x-data="{ isCompactModeButton: $persist(false).as('isCompactMode') }" >
+    <%= live_patch to: assigns[:to], class: " px-4 text-center  font-medium focus:ring-2 focus:z-10   #{assigns[:color_class] || "text-gray-900 bg-white   focus:ring-gray-700 focus:text-gray-700 dark:bg-gray-700  dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-500 dark:focus:text-white dark:text-gray-300 hover:text-gray-700 "} #{assigns[:border] || " dark:border-gray-600 border-gray-200 hover:bg-gray-100 "}   #{assigns[:class]} #{
       case assigns[:borderradius] do
       "left" ->  "rounded-l-lg border border-r-0"
       "center" -> "border-t border-b"
@@ -40,7 +43,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
       "only" -> "rounded-lg border"
       _ -> " border"
       end}",
-      ":class": "isCompactMode ? 'pt-1 pb-1.5 text-xs':'py-2 text-sm'",
+      ":class": "isCompactModeButton ? 'pt-1 pb-2 text-xs':'py-2 text-sm'",
       type: "button"
       do %>
       <%= assigns[:title] || render_slot(@inner_block) %>
