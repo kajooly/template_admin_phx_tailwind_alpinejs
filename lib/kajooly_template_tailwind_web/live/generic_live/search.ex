@@ -57,7 +57,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Search do
           :class=" !openSearch ? '':'hidden' "
           class="flex-0"
           >
-        <button type="button" class="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-4  text-center mr-2  dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-gray-600 dark:hover:bg-yellow-400 dark:focus:ring-yellow-900 "
+        <button type="button" class="text-purple-600 hover:text-white border border-purple-600 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-4  text-center mr-2  dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-gray-600 dark:hover:bg-yellow-400 dark:focus:ring-yellow-900 "
         :class=" isCompactMode ? 'max-h-8 py-1.5' : 'max-h-10 py-2.5 mb-1'"
         @click="openSearch = !openSearch"
 

@@ -50,5 +50,23 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.ButtonGroup do
     </div>
     """
   end
+  def button_circle_group(assigns) do
+      ~H"""
+        <span x-data="{ isCompactMode: $persist(false).as('isCompactMode') }" >
+          <div
+            class={"flex -space-x-4 ml-6 #{assigns[:class]}"}
+            :class="isCompactMode ? '-space-x-2':'-space-x-3'"
+            role="group">
+            <%= if @buttons != nil do %>
+              <%= for item <- @buttons do %>
+                <.circle_button {item} >
+                  <%= item[:title] || render_slot(item) %>
+                </.circle_button>
+                <% end %>
+              <% end %>
+          </div>
+        </span>
+      """
+    end
 
 end

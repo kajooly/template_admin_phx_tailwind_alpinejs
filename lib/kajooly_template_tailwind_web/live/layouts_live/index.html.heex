@@ -93,7 +93,7 @@
       <form class="flex">
         <input type="search" id="default-search" class="flex-1 block py-0 px-2.5 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-purple-500 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-purple-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500 max-h-10" placeholder="Buscar en borrador" required/>
         <button type="button" class="flex-0 text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-1 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900  max-h-10">
-          <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
         </button>
 
       </form>
@@ -153,7 +153,7 @@
   <!-- Column data -->
   <:col let={item} th={nil} class="w-4/12 lg:w-5/12 border border-l-4 border-y-0 border-r-0 border-red-500 ">
     <em class="font-semibold"><%= item.subtitle %></em>
-    <span class="text-gray-700 dark:text-gray-300"><%= item.title %></span>
+    <span class="text-gray-700 dark:text-gray-300 "><%= item.title %></span>
     <br/>
     <small class="text-gray-500 dark:text-gray-400">Creado por <em class="text-gray-500 dark:text-gray-200"><%= item.created_by %></em> <span x-data={"{ date: '#{item.created}'}"} x-timeago="date"></span>.</small>
   </:col>
@@ -161,12 +161,28 @@
     <div class="flex">
     <div class="w-1/2  hidden lg:block">
 
-      <div class="flex -space-x-4 ml-6">
-          <a class="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800" href="#">A</a>
-          <a class="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800" href="#">B</a>
-          <a class="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800" href="#">C</a>
-          <a class="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800" href="#">D</a>
-      </div>
+      <.button_circle_group 
+      buttons={[
+          %{ 
+            title: "A", 
+            to: "#",
+            class: "ring-2 ring-success-300 dark:ring-success-500",
+            color_class: "text-purple-600 dark:text-white bg-purple-300 dark:bg-purple-700 hover:bg-purple-600 dark:hover:bg-purple-600 hover:text-purple-100"
+          },
+          %{ 
+            title: "B", 
+            to: "#",
+            class: "ring-2 ring-yellow-300 dark:ring-yellow-500",
+            color_class: "text-blue-600 dark:text-white bg-blue-300 dark:bg-blue-700 hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-blue-100"
+          },
+          %{ 
+            title: "C", 
+            to: "#",
+            class: "ring-2 ring-red-300 dark:ring-red-500",
+            color_class: "text-green-600 dark:text-white bg-green-300 dark:bg-green-700 hover:bg-green-600 dark:hover:bg-green-600 hover:text-purple-100"
+          }
+        ]}
+    />
    
     </div>
     <div class="w-1/2 ">
@@ -232,38 +248,38 @@
             title: "< Anterior", 
             to: "#",
             borderradius: "left",
-            class: "dark:text-gray-300"
+            class: ""
           },
           %{ 
             title: "1", 
             to: "#",
             borderradius: "center",
-            class: "dark:text-gray-300"
+            class: ""
           },
           %{ 
             title: "2", 
             to: "#",
             borderradius: "center",
-            class: "dark:text-gray-300"
+            class: ""
           },
           %{ 
             title: "3", 
             to: "#",
             borderradius: "center",
-            class: "dark:text-gray-300"
+            class: ""
           },
           %{ 
             title: "...", 
             class: "hidden md:block",
             to: "#",
             borderradius: "center",
-            class: "dark:text-gray-300"
+            class: ""
           },
           %{ 
             title: "Siguente >", 
             to: "#",
             borderradius: "right",
-            class: "dark:text-gray-300"
+            class: ""
           }
         ]}
     />
