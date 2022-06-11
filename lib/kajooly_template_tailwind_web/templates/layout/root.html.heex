@@ -1,95 +1,26 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang={"#{ assigns[:lang] || "es" }"}>
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= csrf_meta_tag() %>
-    <%= live_title_tag assigns[:page_title] || "KajoolyTemplateTailwind", suffix: " · Phoenix Framework" %>
-    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/template/style.css")}/>
-    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/template/app.js")}></script>
+    <%= render "patrials/_head_meta.html", conn: @conn, assigns: assigns  %>
+    <%= live_title_tag assigns[:page_title] || assigns[:head][:title] || "KajoolyTemplateTailwind", suffix: assigns[:head][:suffix] || " · Phoenix Framework" %>
+    <%= render "patrials/_head_css_scripts.html", conn: @conn, assigns: assigns  %>
   </head>
   <body>
     <div 
       class="flex bg-gray-100 text-gray-600 dark:bg-gray-800 h-screen" 
-      x-data="{   isSidebarExpanded: $persist(true).as('isSidebarExpanded') , isCompactMode: $persist(false).as('isCompactMode') , isLiquidPage: $persist(false).as('isLiquidPage') }"         _estados
-      >
-      <aside class="flex flex-col text-gray-300 bg-white dark:text-gray-400 dark:bg-gray-800 transition-all duration-200 ease-in-out z-50" :class="isSidebarExpanded ? isCompactMode ? 'w-80 md:w-40 text-xs absolute top-0 left-0 min-h-full md:relative' : 'w-80 md:w-64 absolute top-0 left-0 min-h-full md:relative'  : isCompactMode ? 'w-12 hidden md:block' : 'w-16 hidden md:block'">
-          <a href="#" 
-            class="flex items-center px-2 bg-white text-gray-600 dark:text-gray-300  dark:bg-gray-800 hover:text-gray-700 
-            hover:bg-opacity-50 focus:outline-none focus:text-gray-900   focus:bg-opacity-50 overflow-hidden"
-            :class="isCompactMode ? 'h-10' : 'h-12'"
-            >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" 
-              class=" flex-shrink-0 bi bi-robot" 
-               :class="isCompactMode ? 'h-6 w-6 mx-1' : 'h-8 w-8 mx-2'"
-              viewBox="0 0 16 16">
-              <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25.286 25.286 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135Z"/>
-              <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z"/>
-            </svg>
-            <span 
-              class=" font-medium duration-200 ease-in-out --hidden --md:inline ml-2 md:ml-0" 
-              :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0', isCompactMode ? 'ml-1 text-md' : 'ml-2 text-xl' ">Kjaooly UI Dash</span>
-         
-          </a>
-          <%= render "patrials/_left_menu.html", conn: @conn, list: [
-            %{
-            title: "Usuarios",
-            active: nil,
-            to: Routes.static_path(@conn, "/"),
-            icon: "<svg viewBox=\"0 0 20 20\" fill=\"currentColor\" class=\"h-6 w-6 flex-shrink-0\">
-              <path d=\"M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z\" />
-              </svg>",
-            }, %{
-            title: "Lista de",
-            active: nil,
-            to: Routes.layouts_index_path(@conn, :index),
-            icon: "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6 flex-shrink-0\" viewBox=\"0 0 20 20\" fill=\"currentColor\">
-              <path fill-rule=\"evenodd\" d=\"M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z\" clip-rule=\"evenodd\" />
-            </svg>",
-            }
-          ] %>
-      </aside>
+      x-data={"{ isSidebarExpanded: $persist(#{assigns["default_ui"]["isSidebarExpanded"]||"false"}).as('isSidebarExpanded') , isCompactMode: $persist(#{assigns["default_ui"]["isCompactMode"]||"false"}).as('isCompactMode') , isLiquidPage: $persist(#{assigns["default_ui"]["isLiquidPage"]||"false"}).as('isLiquidPage') }"}>
+      <%= render "patrials/_left_menu.html", conn: @conn, list: assigns.left_aside.menu.list %>
       <div class="flex-1 flex flex-col">
-        <header 
-          class="flex items-center pr-0 md:pr-6 bg-white dark:bg-gray-800 dark:text-gray-300 "
-          :class="isCompactMode ? 'h-10' : 'h-12 '"
-          >
-          <a href="#" 
-            class="flex items-center px-2 bg-white text-gray-600 dark:text-gray-300  dark:bg-gray-800 hover:text-gray-700 
-            hover:bg-opacity-50 focus:outline-none focus:text-gray-900   focus:bg-opacity-50 overflow-hidden md:hidden"
-            :class="isCompactMode ? 'h-10' : 'h-12'"
-            >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" 
-              class=" flex-shrink-0 bi bi-robot" 
-               :class="isCompactMode ? 'h-6 w-6 mx-1' : 'h-8 w-8 mx-2'"
-              viewBox="0 0 16 16">
-              <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25.286 25.286 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135Z"/>
-              <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z"/>
-            </svg>
-          </a>
-          <%= render "patrials/_top_new_menu.html", conn: @conn %>
-          <span class="font-medium mr-auto">&nbsp;</span>
-          <%= render "patrials/_top_apps_menu.html", conn: @conn %>
-          <%= render "patrials/_top_dark_mode_menu.html", conn: @conn %>
-          <%= render "patrials/_top_notification_menu.html", conn: @conn %>
-          <%= render "patrials/_top_user_menu.html", conn: @conn %>
-          <button class="flex  items-center h-10 px-3 text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-400 hover:bg-gray-600 hover:bg-opacity-25 rounded-lg transition-colors duration-50 ease-in-out focus:outline-none focus:shadow-outline border-t-1 border-gray-200 md:hidden" @click="isSidebarExpanded = !isSidebarExpanded">
-            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 transform" :class="isSidebarExpanded ? 'rotate-180' : 'rotate-0'">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <line x1="4" y1="6" x2="14" y2="6" />
-              <line x1="4" y1="18" x2="14" y2="18" />
-              <path d="M4 12h17l-3 -3m0 6l3 -3" />
-            </svg> 
-          </button>
-        </header>
+        <%= render "patrials/_body_header.html", conn: @conn %>
         <div class="flex-1 p-4 overflow-auto dark:bg-gray-900 dark:text-gray-300">
-          <main 
-              class="m-auto"
-              :class="isLiquidPage ? 'container sm:px-8 md:px-10':''"
-            >
+          <main class="m-auto" :class="isLiquidPage ? 'container sm:px-8 md:px-10':''">
             <%= @inner_content %>
-            <%#= render "patrials/_footer.html", conn: @conn %>
+            <%= render "patrials/_cookies.html", conn: @conn, assigns: assigns  %>
+            <%= render "patrials/_footer.html", conn: @conn, assigns: assigns  %>
           </main>
         </div>
       </div>

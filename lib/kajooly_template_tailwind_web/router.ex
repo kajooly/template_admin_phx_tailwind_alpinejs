@@ -1,5 +1,6 @@
 defmodule KajoolyTemplateTailwindWeb.Router do
   use KajoolyTemplateTailwindWeb, :router
+  import KajoolyTemplateTailwindWeb.TemplateConfig
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -14,12 +15,10 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", KajoolyTemplateTailwindWeb do
+  scope "/", KajoolyTemplateTailwindWeb, assigns: template_config(%{}) do
     pipe_through :browser
 
     get "/", PageController, :index
-
-
     live "/layout/list", LayoutsLive.Index, :index
     live "/layout/resumen", LayoutsLive.Index, :index
 
