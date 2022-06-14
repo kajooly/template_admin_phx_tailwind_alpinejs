@@ -41,7 +41,8 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
       "center" -> "border-t border-b"
       "right" -> "rounded-r-md border border-l-0"
       "only" -> "rounded-lg border"
-      _ -> " border"
+      "box" -> " border"
+      _ -> ""
       end}",
       style: assigns[:style] || "__no_style: false;",
       ":class": "isCompactModeButton ? 'pt-2 pb-2 text-xs':'py-2 text-sm'",
