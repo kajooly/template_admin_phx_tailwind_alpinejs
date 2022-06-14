@@ -39,14 +39,14 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
               <%= for col <- @col do %>
                 <%= if col[:th]!=nil do %>
                   <th scope="row"
-                      style={assigns[:style] || "__no_style: false;"}
+                      style={col[:style] || "__no_style: false;"}
                       class={"px-4 py-3 md:py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap #{col[:class]}"}
                     >
                     <%= render_slot(col, row) %>
                   </th>
                 <% else %>
                 <td
-                  style={assigns[:style] || "__no_style: false;"}
+                  style={col[:style] || "__no_style: false;"}
                   class={"px-4 py-3 md:py-0  dark:text-gray-100 text-gray-900 #{col[:class]}"}>
                     <%= render_slot(col, row) %>
                   </td>
