@@ -43,6 +43,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
       "only" -> "rounded-lg border"
       _ -> " border"
       end}",
+      style: assigns["style"] || "",
       ":class": "isCompactModeButton ? 'pt-2 pb-2 text-xs':'py-2 text-sm'",
       type: "button"
       do %>
