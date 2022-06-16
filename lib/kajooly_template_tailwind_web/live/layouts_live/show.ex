@@ -8,6 +8,7 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.Show do
   import KajoolyTemplateTailwindWeb.GenericLive.Dropdown
   import KajoolyTemplateTailwindWeb.GenericLive.Badges
   import KajoolyTemplateTailwindWeb.GenericLive.Search
+  import KajoolyTemplateTailwindWeb.GenericLive.Icons
 
   import KajoolyTemplateTailwindWeb.LayoutsLive.FakeDb
 
