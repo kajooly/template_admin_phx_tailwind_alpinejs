@@ -4,7 +4,7 @@ defmodule KajoolyTemplateTailwindWeb.TemplateConfig do
     %{
       lang: "es",
       head: %{
-        title:  "Kajooly template site",
+        title:  "TPK site",
         suffix: " · Phoenix Framework"
       },
       default_ui: %{
@@ -22,7 +22,7 @@ defmodule KajoolyTemplateTailwindWeb.TemplateConfig do
             <path d=\"M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z\"/>
         </svg>
         ",
-        logotipo_text: "Kajooly UI Admin", # nil to show logotipo_svg
+        logotipo_text: "Panel TPK", # nil to show logotipo_svg
         logotipo_svg: "",
       },
       left_aside: %{
