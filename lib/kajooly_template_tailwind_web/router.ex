@@ -21,6 +21,7 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     get "/", PageController, :index
     live "/layout/list", LayoutsLive.Index, :index
     live "/layout/resumen", LayoutsLive.Show, :index
+    live "/layout/sitemap", LayoutsLive.Sitemap, :index
 
   end
 

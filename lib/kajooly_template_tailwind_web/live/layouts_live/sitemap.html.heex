@@ -1,0 +1,35 @@
+<div x-data="{ isCompactMode: $persist(false).as('isCompactMode') }" >
+<.breadcrum
+  title="Accordion"
+  subtitle="Ejemplo de Accordion."
+  pages={[
+      %{ 
+        title: "", 
+        to: "#home",
+        icon: "home"
+      },
+      %{ 
+        title: "Collapse", 
+        to: "#list",
+        icon: "chevron"
+      },
+      %{ 
+        title: "Lista general", 
+        to: nil,
+        icon: "chevron"
+      }
+      ]} />
+<!-- top title / buttons -->
+<div class="flex">
+  <.accordion
+    class="flex-0 min-w-[33%] mx-auto"
+    accordions={@list}
+    />
+  <.accordion
+    class="flex-0 min-w-[33%] mx-auto"
+    border={true}
+    accordions={@list}
+    />
+
+</div>
+</div>

@@ -104,5 +104,88 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.FakeDb do
       }
     ]
   end
+ def  accordion() do
 
+    [
+      %{
+        title: "Titulo 1",
+        expanded: "true",
+        list: [
+          %{
+            title: "Título 1.1",
+            to: "#",
+          },
+          %{
+            title: "Título 1.2",
+            to: "#",
+          },
+        ]
+      },
+      %{
+        title: "Titulo 2",
+        class: "",
+        list: [
+          %{
+            title: "Titulo 2.1",
+            to: "#",
+            class: ""
+          },
+          %{
+            title: "Titulo 2.2",
+            to: "#",
+            class: ""
+          }
+        ]
+      },
+      %{
+        title: "Titulo 3",
+        expanded: "true",
+        list: [
+          %{
+            title: "Título 3.1",
+            expanded: "true",
+            list: [
+              %{
+                title: "Título 3.1.1",
+                to: "#"
+              },
+              %{
+                title: "Título 3.1.2",
+                list: [
+                  %{
+                    title: "Título 3.1.1",
+                    expanded: "true",
+                    list: [
+                      %{
+                        title: "Título 3.1.1.1",
+                        to: "#"
+                      },
+                      %{
+                        title: "Título 3.1.1.2",
+                        to: "#"
+                      }
+                    ]
+                  }]
+              }
+            ]
+          },
+          %{
+            title: "Título 3.2",
+            expanded: "true",
+            list: [
+              %{
+                title: "Título 3.2.1",
+                to: "#"
+              },
+              %{
+                title: "Título 3.2.2",
+                to: "#"
+              }
+            ]
+          },
+        ]
+      },
+    ]
+
+ end
 end
