@@ -1,0 +1,259 @@
+<div x-data="{ isCompactMode: $persist(false).as('isCompactMode') }" >
+<.breadcrum
+  title="Tabla"
+  subtitle="Tabla genérica ejemplo."
+  pages={[
+      %{ 
+        title: "", 
+        to: "#home",
+        icon: "home"
+      },
+      %{ 
+        title: "Lista de ejemplo", 
+        to: "#list",
+        icon: "chevron"
+      },
+      %{ 
+        title: "Lista general", 
+        to: nil,
+        icon: "chevron"
+      }
+      ]} />
+<!-- top buttons -->
+<!-- Table -->
+<.table rows={@list} >
+  <!-- Column head -->
+  <:head class="w-4/12 lg:w-5/12 text-gray-700 dark:text-gray-300  pt-1">
+    
+  </:head>
+  <:head class="w-6/12 lg:w-11/12 hidden md:block" colspan="2">
+    <div class="flex" x-data="{ isCompactMode: $persist(false).as('isCompactMode') }">
+      <div class="w-1/2 hidden lg:block  text-left "
+          :class=" isCompactMode ? 'pt-2' : 'pt-4'"
+      >
+        Planeaciones del brief
+      </div>
+      <div class="w-1/2"
+          :class=" isCompactMode ? 'pt-1' : 'pt-1'"
+      >
+        <.dropdown {%{
+          title: "Estado",
+          class: "ml-6",
+          buttons: [
+              %{ 
+                title: "Abierto", 
+                to: "#"
+              },
+              %{ 
+                title: "Revisión", 
+                to: "#"
+              },
+              %{ 
+                title: "Cerrado", 
+                to: "#"
+              }
+          ]
+        }} />
+      </div>
+    </div>
+  </:head>
+  <:head class="w-1/12  ">
+    <.dropdown {%{
+      title: "Orden",
+      buttons: [
+          %{ 
+            title: "El más nuevo", 
+            to: "#"
+          },
+          %{ 
+            title: "El más antiguo", 
+            to: "#"
+          },
+          %{ 
+            title: "Recién actualizado", 
+            to: "#"
+          }
+      ]
+    }} />
+  </:head>
+  <!-- Column data -->
+  <:col let={item} th={nil} class="w-4/12 lg:w-5/12 border border-l-4 border-y-0 border-r-0 border-red-500 ">
+    <em class="font-semibold"><%= item.subtitle %></em>
+    <span class="text-gray-700 dark:text-gray-300 "><%= item.title %></span>
+    <br/>
+    <small class="text-gray-500 dark:text-gray-400">Creado por <em class="text-gray-500 dark:text-gray-200"><%= item.created_by %></em> <span x-data={"{ date: '#{item.created}'}"} x-timeago="date"></span>.</small>
+  </:col>
+  <:col let={item} class="w-6/12 lg:w-11/12 hidden md:inline">
+    <div class="flex">
+      <div class="w-1/2  hidden lg:block">
+
+      Text
+    
+      </div>
+      <div class="w-1/2 ">
+      <.badge color="warning">
+        <%= item.status %> 
+      </.badge> 
+      <.badge color="danger">
+        <%= item.state %>
+      </.badge>
+      <br/>
+      <small class="text-gray-500 dark:text-gray-400">Actualizado  <span x-data={"{ date: '#{item.update}'}"} x-timeago="date"></span>.</small>
+      </div>
+    </div>
+  </:col>
+  <:col let={item} class="w-1/12 text-right">
+    <.dropdown {%{
+      title: "",
+        buttons: [
+          %{ 
+            title: "Ver", 
+            to: "#"
+          },
+          %{ 
+            title: "Editar", 
+            to: "#"
+          },
+          %{ 
+            title: "Borrar", 
+            to: "#"
+          },
+      ]}} />
+  </:col>
+</.table>
+<!-- Paginate -->
+<div class="flex mt-4 mb-4">
+  <div class="flex-1">
+  <.dropdown {%{
+      title: "Mostrando 100 resultados por página",
+      class: "hidden md:inline",
+      classbutton: "dark:text-gray-500 text-gray-400",
+      classbuttontitle: "dark:text-gray-500 text-gray-400 text-xs",
+      classdrop: "bottom-0 left-0",
+      buttons: [
+          %{ 
+            title: "Ver 100 por página", 
+            to: "#"
+          },
+          %{ 
+            title: "Ver 500 por página", 
+            to: "#"
+          },
+          %{ 
+            title: "Ver 1000 por página", 
+            to: "#"
+          }
+      ]
+    }} />
+  </div>
+  <div class="flex-0">
+    <.button_group 
+      buttons={[
+          %{ 
+            title: "< Anterior", 
+            to: "#",
+            borderradius: "left",
+            class: ""
+          },
+          %{ 
+            title: "1", 
+            to: "#",
+            borderradius: "center",
+            class: ""
+          },
+          %{ 
+            title: "2", 
+            to: "#",
+            borderradius: "center",
+            class: ""
+          },
+          %{ 
+            title: "3", 
+            to: "#",
+            borderradius: "center",
+            class: ""
+          },
+          %{ 
+            title: "...", 
+            class: "hidden md:block",
+            to: "#",
+            borderradius: "center",
+            class: ""
+          },
+          %{ 
+            title: "Siguente >", 
+            to: "#",
+            borderradius: "right",
+            class: ""
+          }
+        ]}
+    />
+  </div>
+</div>
+</div>
+
+<hr class="my-8" />
+
+
+
+<.breadcrum
+  title="Tabla"
+  
+  subtitle="Tabla simple ejemplo."
+  pages={[
+      %{ 
+        title: "", 
+        to: "#home",
+        icon: "home"
+      },
+      %{ 
+        title: "Lista de ejemplo", 
+        to: "#list",
+        icon: "chevron"
+      },
+      %{ 
+        title: "Lista general", 
+        to: nil,
+        icon: "chevron"
+      }
+      ]} />
+<!-- top buttons -->
+<!-- Table -->
+<.table rows={@list} >
+  <!-- Column head -->
+  <:head class="w-6/12 lg:w-11/12 hidden md:block" colspan="2">
+    
+  </:head>
+  <:head class="w-1/12  ">
+    <.dropdown {%{
+      title: "Orden",
+      buttons: [
+          %{ 
+            title: "El más nuevo", 
+            to: "#"
+          },
+          %{ 
+            title: "El más antiguo", 
+            to: "#"
+          },
+          %{ 
+            title: "Recién actualizado", 
+            to: "#"
+          }
+      ]
+    }} />
+  </:head>
+  <!-- Column data -->
+  <:col let={item} th={nil}>
+    <div class="py-3 px-5">
+    <%= item.title %>
+    </div>
+  </:col>
+  <:col let={item} >
+    <div class="py-3 px-5">
+
+    <%= item.state %> 
+    </div>
+  </:col>
+  
+</.table>
