@@ -22,6 +22,10 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     live "/layout/list", LayoutsLive.Index, :index
     live "/layout/resumen", LayoutsLive.Show, :index
     live "/layout/sitemap", LayoutsLive.Sitemap, :index
+    live "/layout/settings", LayoutsLive.Setting, :index
+    live "/layout/table", LayoutsLive.Table, :index
+
+    live "/layout/step-a", LayoutsLive.Stepa, :index
 
   end
 

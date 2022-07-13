@@ -64,7 +64,7 @@ defmodule KajoolyTemplateTailwindWeb.TemplateConfig do
         }
       },
       footer: %{
-        display: true,
+        display: false,
         raw: "<a href=\"#\" class=\"text-blue-600 hover:underline\">Phoneix framework</a> with <a href=\"https://tailwindcss.com/\" class=\"text-teal-400 hover:underline\">Tailwind CSS</a> by boscotron, <a href=\"https://kajooly.com/\" class=\"text-blue-600 hover:underline\">Kajooly</a> with love"
       },
       cookies: %{
