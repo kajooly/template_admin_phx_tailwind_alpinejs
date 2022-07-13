@@ -19,7 +19,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
   """
   def table(assigns) do
     ~H"""
-    <div class={"relative overflow-x-auto shadow-md sm:rounded-lg z-0 pb-10 #{assigns[:class]}"} x-data="{ isCompactModeButton: $persist(false).as('isCompactMode') }">
+    <div class={"relative shadow-md sm:rounded-lg z-0 pb-10 #{assigns[:class]}"} x-data="{ isCompactModeButton: $persist(false).as('isCompactMode') }">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
