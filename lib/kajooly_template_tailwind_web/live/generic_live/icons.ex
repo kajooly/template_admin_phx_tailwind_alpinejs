@@ -372,7 +372,17 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Icons do
   end
   def icons_chevron_right (assigns) do
     ~H"""
-    <svg  id={assigns[:id]||"icons_unlock_fill#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"currentColor"}  class={" #{assigns[:class]}"} fill="currentColor" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+    <svg  id={assigns[:id]||"icons_unlock_fill#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"currentColor"}  class={" #{assigns[:class]}"} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+    """
+  end
+  def icons_view_list (assigns) do
+    ~H"""
+    <svg xmlns="http://www.w3.org/2000/svg" id={assigns[:id]||"icons_unlock_fill#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"currentColor"}  class={" #{assigns[:class]}"}  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
+    """
+  end
+  def icons_users (assigns) do
+    ~H"""
+    <svg xmlns="http://www.w3.org/2000/svg"  id={assigns[:id]||"icons_unlock_fill#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"currentColor"}  class={" #{assigns[:class]}"}  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path fill="transparent" stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
     """
   end
 end
