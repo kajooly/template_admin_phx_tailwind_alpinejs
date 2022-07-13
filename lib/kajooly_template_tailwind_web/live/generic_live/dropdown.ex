@@ -32,6 +32,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
 
   """
   def dropdown(assigns) do
+    IO.inspect assigns
     ~H"""
     <div x-data="{ open: false, isCompactMode: $persist(false).as('isCompactMode') }"
         class={"relative w-full text-left #{assigns[:class]}"}>
@@ -50,6 +51,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
         :class="isCompactMode ? 'p-0 px-2' : 'p-2'"
         >
         <div class="flex w-full">
+          <%= if  assigns[:title] != "" do %>
           <div class="flex-1 pt-1 min-w-[60%]">
             <span class="sr-only"><%= assigns[:title] || "Options"  %></span>
             <div class=" md:flex md:flex-col md:items-end md:leading-tight">
@@ -58,6 +60,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
               </span>
             </div>
           </div>
+          <% end %>
           <div class="flex-0 mx-2 pt-0 mt-0">
 
             <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor"
@@ -86,14 +89,20 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
         "}>
         <%= if @buttons != nil do %>
           <%= for item <- @buttons do %>
-          <%= if item[:group_title] != nil do %>
-              <h2 class=" flex items-center h-8 px-3  text-sm text-xs text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 capitalize"
-              :class="isCompactMode ? 'py-2':'py-6"  >
-              <%= item[:group_title] %>
-            </h2>
-          <% end %>
-            <%= live_patch to: item[:to], class: "flex items-center h-8 px-3  text-sm hover:bg-gray-200 dark:hover:bg-gray-700 capitalize", ":class": "isCompactMode ? 'py-2':'py-6" do %>
-              <%= item[:title] || render_slot(item) %>
+            <%= if item[:group_title] != nil do %>
+                <h2 class=" flex items-center h-8 px-3  text-sm text-xs text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 capitalize"
+                :class="isCompactMode ? 'py-2':'py-6"  >
+                <%= item[:group_title] %>
+              </h2>
+            <% end %>
+            <%= if item[:to] != nil do %>
+              <%= live_patch to: item[:to], class: "flex items-center h-8 px-3  text-sm hover:bg-gray-200 dark:hover:bg-gray-700 capitalize", ":class": "isCompactMode ? 'py-2':'py-6" do %>
+                <%= item[:title] || render_slot(item) %>
+              <% end %>
+            <% else %>
+              <div class="flex items-center h-8 px-3  text-sm hover:bg-gray-200 dark:hover:bg-gray-700 capitalize">
+                <%= item[:title] || render_slot(item) %>
+              </div>
             <% end %>
           <% end %>
         <% end %>
