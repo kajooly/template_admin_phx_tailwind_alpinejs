@@ -188,4 +188,25 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.FakeDb do
     ]
 
  end
+
+ def members_access() do
+  [
+    %{
+      title: "Boscotron",
+      subtitle_a: "boscotron",
+      subtitle_b: "Admin",
+      to: "#boscotron-link",
+      to_edit: "#boscotron-link-edit",
+      to_remove: "#boscotron-link-remove"
+    },
+    %{
+      title: "KaJoos",
+      subtitle_a: "@kajoos | 6 members",
+      subtitle_b: "Write",
+      to: "#boscotron-link",
+      to_edit: "#boscotron-link-edit",
+      to_remove: "#boscotron-link-remove"
+    }
+  ]
+ end
 end
