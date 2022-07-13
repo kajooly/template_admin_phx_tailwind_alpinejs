@@ -104,7 +104,7 @@
   </:col>
   <:col let={item} class="w-1/12 text-right">
     <.dropdown {%{
-      title: "",
+      title: "opciones",
         buttons: [
           %{ 
             title: "Ver", 
@@ -118,7 +118,11 @@
             title: "Borrar", 
             to: "#"
           },
-      ]}} />
+      ]}} >
+      <:buttons to={nil}>
+        <%= link "Delete", to: "#", phx_click: "delete", phx_value_id: "xxx111", data: [confirm: "Are you sure?"], class: "w-full h-full pt-2" %>
+      </:buttons>
+      </.dropdown>
   </:col>
 </.table>
 <!-- Paginate -->
