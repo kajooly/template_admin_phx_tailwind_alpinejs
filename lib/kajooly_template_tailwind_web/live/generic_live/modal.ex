@@ -57,10 +57,11 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Modal do
     </div>
     """
   end
+  @impl true
   def modal_footer(assigns) do
     assigns = assign_new(assigns, :return_to, fn -> nil end)
     ~H"""
-      <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+      <div class="flex items-end pt-2 mt-4 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
 
           <%= render_slot(@inner_block) %>
           <%
