@@ -705,6 +705,11 @@ select {
   bottom: 0px;
 }
 
+.inset-x-3 {
+  left: 0.75rem;
+  right: 0.75rem;
+}
+
 .right-0 {
   right: 0px;
 }
@@ -743,6 +748,10 @@ select {
 
 .top-11 {
   top: 2.75rem;
+}
+
+.top-2 {
+  top: 0.5rem;
 }
 
 .z-50 {
