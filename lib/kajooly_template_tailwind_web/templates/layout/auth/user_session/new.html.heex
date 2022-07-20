@@ -1,0 +1,42 @@
+<%
+  # 
+  # assigns = %{
+  #   form_action: "#",
+  #   forgot_password_title: "Forgot your password?",
+  #   forgot_password_to: "#",
+  #   singup_title: "Create account",
+  #   singup_to: "#",
+  #   remember_me_title: "Keep me logged in for 60 days",
+  #   log_in_title: "Log_in"
+  # }
+ %>
+
+<div class="flex justify-items-center pt-8">
+  <div class="py-6 px-6 mx-auto mt-8 lg:px-8 bg-white rounded-lg shadow dark:bg-gray-700" style="min-width: 320px">
+    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Log in</h3>
+      <.form let={f} for={@conn} action={@assigns[:form_action]} as={:user} class="space-y-6" >
+        <div>
+          <%= label f, :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+          <%= email_input f, :email, required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" %>
+        </div>
+        <div>
+          <%= label f, :password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+          <%= password_input f, :password, required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"%>
+        </div>
+        <div class="flex justify-between">
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <%= checkbox f, :remember_me, class: "w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800" %>
+            </div>
+            <%= label f, :remember_me, @assigns[:remember_me_title], class: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+          </div>&nbsp;
+          <%= link @assigns[:forgot_password_title], to: @assigns[:forgot_password_to], class: "text-sm text-blue-700 hover:underline dark:text-blue-500" %>
+        </div>
+      <%= submit @assigns[:log_in_title], class: "w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
+      <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+          Not registered? 
+          <%= link @assigns[:singup_title], to: @assigns[:singup_to], class: "text-blue-700 hover:underline dark:text-blue-500" %> 
+      </div>
+  </.form>
+  </div>
+</div>
