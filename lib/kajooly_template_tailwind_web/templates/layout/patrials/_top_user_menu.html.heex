@@ -1,3 +1,4 @@
+<%= if @assigns[:display] do %>
 <div x-data="{ open: false }" class="relative text-left">
   <button
     @click="open = !open"
@@ -11,8 +12,8 @@
     ">
      <span class="sr-only">Menú</span>
       <div class="hidden 2xl:flex 2xl:flex-col 2xl:items-end 2xl:leading-tight">
-        <span class="text-sm font-semibold">Tron Simmons</span>
-        <span class="text-xs text-gray-600">user@mail.com</span>
+        <span class="text-sm font-semibold"><%= @assigns[:name_user] %></span>
+        <span class="text-xs text-gray-600"><%= @assigns[:email] %></span>
       </div>
       <span class="h-7 w-7 text-gray-400 dark:text-gray-400  bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
         <svg xmlns="http://www.w3.org/2000/svg" class=" h-full w-full object-cover" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -34,8 +35,9 @@
     dark:border-gray-800  
     dark:bg-gray-900
     ">
-    <a class="flex items-center h-8 px-3 py-6 text-sm hover:bg-gray-200 dark:hover:bg-gray-700" href="#">Settings</a>
-    <a class="flex items-center h-8 px-3 py-6 text-sm hover:bg-gray-200 dark:hover:bg-gray-700" href="#">Support</a>
-    <a class="flex items-center h-8 px-3 py-6 text-sm hover:bg-gray-200 dark:hover:bg-gray-700" href="#">Sign Out</a>
+    <%= for item <- @assigns[:list] do %>
+      <%= link item[:title], to: item[:to], class: "flex items-center h-8 px-3 py-6 text-sm hover:bg-gray-200 dark:hover:bg-gray-700" %>
+    <% end %>
   </div>
 </div>
+<% end %>

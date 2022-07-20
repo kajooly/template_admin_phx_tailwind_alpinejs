@@ -4,7 +4,7 @@ defmodule KajoolyTemplateTailwindWeb.TemplateConfig do
     %{
       lang: "es",
       head: %{
-        title:  "TPK site",
+        title:  "Kajooly site",
         suffix: " · Phoenix Framework"
       },
       default_ui: %{
@@ -22,8 +22,104 @@ defmodule KajoolyTemplateTailwindWeb.TemplateConfig do
             <path d=\"M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z\"/>
         </svg>
         ",
-        logotipo_text: "Panel TPK", # nil to show logotipo_svg
+        logotipo_text: "Panel Kajooly", # nil to show logotipo_svg
         logotipo_svg: "",
+      },
+      blank_page: false,
+      top_user_menu: %{
+        display: true,
+        name_user: "Tron Simmons.",
+        email: "user@mail.com.",
+        list: [
+          %{
+            title: "Profile",
+            to: "#"
+          },
+          %{
+            title: "Setting",
+            to: "#"
+          },
+          %{
+            title: "Log out",
+            to: "#"
+          }
+        ]
+
+      },
+      top_notification_menu: %{
+        display: true,
+        title: "Notification",
+        title_empty: "Empty list.",
+        to_all: "#",
+        title_all: "View all.",
+        list: [
+          %{
+            title: "Cronut distillery selfies, hella shabby chic",
+            timestamp: "2022-12-31 23:59:59",
+            to: "#"
+          },
+          %{
+            title: "Cronut distillery selfies, hella shabby chic",
+            timestamp: "2022-12-31 23:59:59",
+            to: "#"
+          },
+          %{
+            title: "Cronut distillery selfies, hella shabby chic",
+            timestamp: "2022-12-31 23:59:59",
+            to: "#"
+          },
+        ]
+
+      },
+      top_new_menu: %{
+        display: true,
+        title: "Notification",
+        title_empty: "Empty list.",
+        to_all: "#",
+        title_all: "View all.",
+        list: [
+          %{
+            title: "Cronut distillery selfies, hella shabby chic",
+            timestamp: "2022-12-31 23:59:59",
+            to: "#"
+          },
+          %{
+            title: "Cronut distillery selfies, hella shabby chic",
+            timestamp: "2022-12-31 23:59:59",
+            to: "#"
+          },
+          %{
+            title: "Cronut distillery selfies, hella shabby chic",
+            timestamp: "2022-12-31 23:59:59",
+            to: "#"
+          },
+        ]
+
+      },
+      top_apps_menu: %{
+        display: true,
+        title: "Notification",
+        title_empty: "Empty list.",
+        to_all: "#",
+        title_all: "View all.",
+        list: [
+          %{
+            title: "Cronut distillery selfies, hella shabby chic",
+            timestamp: "2022-12-31 23:59:59",
+            to: "#"
+          },
+          %{
+            title: "Cronut distillery selfies, hella shabby chic",
+            timestamp: "2022-12-31 23:59:59",
+            to: "#"
+          },
+          %{
+            title: "Cronut distillery selfies, hella shabby chic",
+            timestamp: "2022-12-31 23:59:59",
+            to: "#"
+          },
+        ]
+
       },
       left_aside: %{
         expand_button: %{

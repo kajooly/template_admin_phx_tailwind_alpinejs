@@ -1,10 +1,11 @@
+<%= if @assigns[:display] do %>
+
 <div class="border-l border-gray-200 dark:border-gray-700 pl-3 ml-3 space-x-1">
   <div x-data="{ open: false }" 
     class="relative text-left mr-2"
     :class="isCompactMode ? 'p-0' : 'p-0'"
     >
-    <button
-      @click="open = !open"
+    <button  @click="open = !open"
       @keydown.escape.window="open = false"
       @click.away="open = false"
       class="relative  
@@ -22,22 +23,27 @@
         "
         :class="isCompactMode ? 'p-0.5 mr-1' : 'p-2'"
         >
-        <span class="sr-only">Notifications</span>
-        <span 
-          class="absolute top-0 right-0  bg-red-500 rounded-full"
-          
-          :class="isCompactMode ? 'h-2 w-2 mt-0 mr-0' : 'h-2 w-2 mt-0 mr-0'"
+        <span class="sr-only"><%= @assigns[:title] %></span>
+        <%= if length(@assigns[:list]) > 0 do %>
+
+          <span 
+            class="absolute top-0 right-0  bg-red-500 rounded-full"
+            
+            :class="isCompactMode ? 'h-2 w-2 mt-0 mr-0' : 'h-2 w-2 mt-0 mr-0'"
+            ></span>
+          <span 
+            class="absolute top-0 right-0  bg-red-500 rounded-full animate-ping"
+            
+            :class="isCompactMode ? 'h-2 w-2 mt-0 mr-0' : 'h-2 w-2 mt-0 mr-0'"
           ></span>
-        <span 
-          class="absolute top-0 right-0  bg-red-500 rounded-full animate-ping"
-          
-          :class="isCompactMode ? 'h-2 w-2 mt-0 mr-0' : 'h-2 w-2 mt-0 mr-0'"
-          ></span>
+        <% end %>
+
         <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" 
           :class="isCompactMode ? 'h-5 w-5 mt-1' : 'h-6 w-6'"
           >
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
         </svg>
+        
     </button>
     <div
       x-cloak
@@ -55,14 +61,18 @@
       dark:bg-gray-900
       ">
       <h3 class="text-xl px-4 py-5 mb-6 ">
-        Notificaciones
-        <span class="bg-purple-100 text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900 absolute right-0 top-11">+0</span>
+        <%= @assigns[:title] %>
+        <%= if length(@assigns[:list]||0) > 0 do %>
+          <span class="bg-purple-100 text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900 absolute right-0 top-11"><%= length(@assigns[:list]) %></span>
+        <% end %>
       </h3>
-      <a class="flex items-center h-8 px-3 py-10 text-sm hover:bg-gray-200 dark:hover:bg-gray-700 hidden" href="#">
+
+    <%= for item <- @assigns[:list] do %>
+      <%= link  to: item[:to], class: "flex items-center h-8 px-3 py-10 text-sm hover:bg-gray-200 dark:hover:bg-gray-700" do %>
         <div class="w-4 h-4 flex-shrink-0 rounded-full border-indigo-400 border-2 mt-1 mr-2"></div>
           <div class="flex-grow">
-            <h3 class="text-sm mb-1">Cronut distillery selfies, hella shabby chic</h3>
-            <h4 class="text-xs text-indigo-300 italic">10 min ago</h4>
+            <h3 class="text-sm mb-1"><%= item[:title] %></h3>
+            <h4 class="text-xs text-indigo-300 italic"><%= item[:timestamp] %></h4>
           </div>
           <button class="text-indigo-300 flex-shrink-0 ml-2">
             <svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" viewBox="0 0 24 24">
@@ -71,7 +81,20 @@
               <circle cx="5" cy="12" r="1"/>
             </svg>
           </button>
-      </a>
+      <% end %>
+    <% end %>
+    <%= if length(@assigns[:list]||0) == 0 do %>
+      <span class="bg-purple-100 text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900 absolute right-0 top-11"><%= @assigns[:title_empty] %></span>
+    <% end %>
+    <%= if @assigns[:to_all] do %>
+     <%= link  to: @assigns[:to_all], class: "flex items-center h-8 px-3 py-10 text-sm hover:bg-gray-200 dark:hover:bg-gray-700" do %>
+          <div class="flex-grow">
+            <h3 class="text-sm text-center mb-1"><%= @assigns[:title_all] %></h3>
+          </div>
+      <% end %>
+    <% end %>
+
     </div>
   </div>
 </div>
+<% end %>
