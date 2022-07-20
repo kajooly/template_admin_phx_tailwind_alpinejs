@@ -24,6 +24,8 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     live "/layout/sitemap", LayoutsLive.Sitemap, :index
     live "/layout/settings", LayoutsLive.Setting, :index
     live "/layout/table", LayoutsLive.Table, :index
+    live "/layout/files", LayoutsLive.Files, :index
+    live "/layout/notifications", LayoutsLive.Notifications, :index
 
     live "/layout/step-a", LayoutsLive.Stepa, :index
 
