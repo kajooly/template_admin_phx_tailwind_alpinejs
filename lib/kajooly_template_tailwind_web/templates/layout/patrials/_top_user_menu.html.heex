@@ -36,7 +36,7 @@
     dark:bg-gray-900
     ">
     <%= for item <- @assigns[:list] do %>
-      <%= link item[:title], to: item[:to], class: "flex items-center h-8 px-3 py-6 text-sm hover:bg-gray-200 dark:hover:bg-gray-700" %>
+      <%= link item[:title], to: item[:to], method: item[:method], class: "flex items-center h-8 px-3 py-6 text-sm hover:bg-gray-200 dark:hover:bg-gray-700" %>
     <% end %>
   </div>
 </div>
