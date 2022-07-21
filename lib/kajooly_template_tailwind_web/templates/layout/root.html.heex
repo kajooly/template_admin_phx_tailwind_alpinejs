@@ -10,6 +10,7 @@
     <%= render "patrials/_head_css_scripts.html", conn: @conn, assigns: assigns  %>
   </head>
   <body>
+      <%= inspect assigns.conn.assigns  %>
     <div 
       class="flex bg-gray-100 text-gray-600 dark:bg-gray-800 h-screen" 
       x-data={"{ isSidebarExpanded: $persist(#{assigns["default_ui"]["isSidebarExpanded"]||"false"}).as('isSidebarExpanded') , isCompactMode: $persist(#{assigns["default_ui"]["isCompactMode"]||"false"}).as('isCompactMode') , isLiquidPage: $persist(#{assigns["default_ui"]["isLiquidPage"]||"false"}).as('isLiquidPage') }"}>
