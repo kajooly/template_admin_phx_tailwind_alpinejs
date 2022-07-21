@@ -16,8 +16,6 @@
       
         <main class="m-auto" :class="isLiquidPage ? 'container sm:px-8 md:px-10':''">
           <%= @inner_content %>
-          <%= render "patrials/_cookies.html", conn: @conn, assigns: assigns  %>
-          <%= render "patrials/_footer.html", conn: @conn, assigns: assigns  %>
         </main>
     </div>
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
