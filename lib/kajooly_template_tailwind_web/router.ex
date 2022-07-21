@@ -19,6 +19,7 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/auth_registration", PageController, :auth_registration
     live "/layout/list", LayoutsLive.Index, :index
     live "/layout/resumen", LayoutsLive.Show, :index
     live "/layout/sitemap", LayoutsLive.Sitemap, :index
@@ -26,8 +27,14 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     live "/layout/table", LayoutsLive.Table, :index
     live "/layout/files", LayoutsLive.Files, :index
     live "/layout/notifications", LayoutsLive.Notifications, :index
+    live "/layout/profile", LayoutsLive.Profile, :index
 
     live "/layout/step-a", LayoutsLive.Stepa, :index
+
+
+    live "/layout/github/issues", LayoutsLive.Issues, :index
+    live "/layout/github/issues/new", LayoutsLive.Setting, :index
+    live "/layout/github/issues/new", LayoutsLive.Setting, :index
 
   end
 

@@ -1,0 +1,167 @@
+<div x-data="{ isCompactMode: $persist(false).as('isCompactMode') }" >
+<.breadcrum
+  title="Preventa"
+  subtitle="Opciones del brief KC-ES-10067."
+  pages={[
+      %{ 
+        title: "", 
+        to: "#home",
+        icon: "home"
+      },
+      %{ 
+        title: "Opciones del ejemplo", 
+        to: "#list",
+        icon: "chevron"
+      },
+      %{ 
+        title: "Configuración", 
+        to: nil,
+        icon: "chevron"
+      }
+      ]} />
+  <!-- top title / buttons -->
+  <div  class="flex flex-wrap border-l-4 border-cyan-700 pl-4"
+        :class=" isCompactMode ? 'mt-2 mb-0': 'mt-4 mb-4'" >
+    <div class="flex-1">
+      <h1 class="text-2xl dark:text-white">
+        Dispenser Mayoreo Wipes 50´s Escudo BTS 2022
+      </h1>
+    </div>
+  </div>
+  <div class="flex flex-wrap mt-6 bg-gray-50 dark:bg-gray-900 border-b dark:border-gray-800 border-gray-200 px-3"
+      :class=" isCompactMode ? 'mt-2 mb-0': 'mt-4 mb-4'" > 
+      <div class="flex-0 w-full">
+      <.horizontal_navigation />
+    </div>
+  </div>
+  <div class="w-full md:flex mt-12 mb-4">
+    <div class="w-full md:flex-0 md:px-20 ">
+      <.table rows={@issues} >
+        <!-- Column head -->
+        <:head class="" colspan="2">
+          <div class="flex" x-data="{ isCompactMode: $persist(false).as('isCompactMode') }">
+            <div class="flex-1 hidden lg:block  text-left "
+                :class=" isCompactMode ? 'pt-2' : 'pt-4'"
+            >
+              Planeaciones del brief
+            </div>
+            <div class="flex-0"
+                :class=" isCompactMode ? 'pt-1' : 'pt-1'"
+            >
+              <.dropdown {%{
+                title: "Estado",
+                class: "ml-6",
+                buttons: [
+                    %{ 
+                      title: "Abierto", 
+                      to: "#"
+                    },
+                    %{ 
+                      title: "Revisión", 
+                      to: "#"
+                    },
+                    %{ 
+                      title: "Cerrado", 
+                      to: "#"
+                    }
+                ]
+              }} />
+            </div>
+            <div class="flex-0"
+                :class=" isCompactMode ? 'pt-1' : 'pt-1'"
+            >
+              <.dropdown {%{
+                  title: "Orden",
+                  buttons: [
+                      %{ 
+                        title: "El más nuevo", 
+                        to: "#"
+                      },
+                      %{ 
+                        title: "El más antiguo", 
+                        to: "#"
+                      },
+                      %{ 
+                        title: "Recién actualizado", 
+                        to: "#"
+                      }
+                  ]
+                }} />
+            </div>
+          </div>
+        </:head>
+        <!-- Column data -->
+        <:col let={item} th={nil} class="w-8/12 border border-l-4 border-y-0 border-r-0 border-red-500 ">
+          <em class="font-semibold"><%= item.subtitle %></em>
+          <span class="text-gray-700 dark:text-gray-300 "><%= item.title %></span>
+          <br/>
+          <small class="text-gray-500 dark:text-gray-400">Creado por <em class="text-gray-500 dark:text-gray-200"><%= item.created_by %></em> <span x-data={"{ date: '#{item.created}'}"} x-timeago="date"></span>.</small>
+        </:col>
+        <:col let={item} class="w-4/12 hidden md:inline">
+          <div class="flex text-right">
+            <div class="flex-1">
+            <.badge color="warning">
+              <%= item.status %> 
+            </.badge> 
+            <.badge color="danger">
+              <%= item.state %>
+            </.badge>
+            <br/>
+            <small class="text-gray-500 dark:text-gray-400">Actualizado  <span x-data={"{ date: '#{item.update}'}"} x-timeago="date"></span>.</small>
+            </div>
+          </div>
+        </:col>
+      </.table>
+
+      <div class="flex mt-4 mb-4">
+        <div class="flex-1 text-xs text-gray-500">
+         12,345 Resultados
+          </div>
+          <div class="flex-0">
+            <.button_group 
+              buttons={[
+                  %{ 
+                    title: "< Anterior", 
+                    to: "#",
+                    borderradius: "left",
+                    class: ""
+                  },
+                  %{ 
+                    title: "1", 
+                    to: "#",
+                    borderradius: "center",
+                    class: ""
+                  },
+                  %{ 
+                    title: "2", 
+                    to: "#",
+                    borderradius: "center",
+                    class: ""
+                  },
+                  %{ 
+                    title: "3", 
+                    to: "#",
+                    borderradius: "center",
+                    class: ""
+                  },
+                  %{ 
+                    title: "...", 
+                    class: "hidden md:block",
+                    to: "#",
+                    borderradius: "center",
+                    class: ""
+                  },
+                  %{ 
+                    title: "Siguente >", 
+                    to: "#",
+                    borderradius: "right",
+                    class: ""
+                  }
+                ]}
+            />
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
