@@ -36,6 +36,22 @@
   </div>
   <div class="w-full md:flex mt-12 mb-4">
     <div class="w-full md:flex-0 md:px-20 ">
+     <div class="flex justify-end"
+            :class=" isCompactMode ? 'mt-1 mb-2': 'my-4' "
+      >
+     
+          <.button {
+              %{
+                title: "Nuevo issue",
+                to: "#",
+                borderradius: "only",
+                border: "border-green-500 dark:border-green-500",
+                class: " float-right"
+              }
+            }
+        />
+        
+      </div>
       <.table rows={@issues} >
         <!-- Column head -->
         <:head class="" colspan="2">
