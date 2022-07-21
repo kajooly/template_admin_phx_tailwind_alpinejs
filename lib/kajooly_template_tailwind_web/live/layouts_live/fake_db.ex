@@ -450,4 +450,69 @@
         },
       ]
     end
+
+    def issues() do
+      [
+        %{
+          title: "[ FRONT ] < AUTH > - Vista de Settings del Auth con boton de regreso ",
+          subtitle: "#5",
+          created_by: "SARA BAUTISTA",
+          created: "2022-06-07T22:45:00",
+          status: "REDD",
+          state: "ABIERTO",
+          update: "2022-06-07T22:45:00",
+          to: "#"
+        },
+        %{
+          title: "[ FRONT ] < AUTH > - Vista de Settings del Auth con boton de regreso ",
+          subtitle: "#5",
+          created_by: "SARA BAUTISTA",
+          created: "2022-06-07T22:45:00",
+          status: "REDD",
+          state: "ABIERTO",
+          update: "2022-06-07T22:45:00",
+          to: "#"
+        },
+        %{
+          title: "[ FRONT ] < AUTH > - Vista de Settings del Auth con boton de regreso ",
+          subtitle: "#5",
+          created_by: "SARA BAUTISTA",
+          created: "2022-06-07T22:45:00",
+          status: "REDD",
+          state: "ABIERTO",
+          update: "2022-06-07T22:45:00",
+          to: "#"
+        },
+        %{
+          title: "[ FRONT ] < AUTH > - Vista de Settings del Auth con boton de regreso ",
+          subtitle: "#5",
+          created_by: "SARA BAUTISTA",
+          created: "2022-06-07T22:45:00",
+          status: "REDD",
+          state: "ABIERTO",
+          update: "2022-06-07T22:45:00",
+          to: "#"
+        },
+        %{
+          title: "[ FRONT ] < AUTH > - Vista de Settings del Auth con boton de regreso ",
+          subtitle: "#5",
+          created_by: "SARA BAUTISTA",
+          created: "2022-06-07T22:45:00",
+          status: "REDD",
+          state: "ABIERTO",
+          update: "2022-06-07T22:45:00",
+          to: "#"
+        },
+        %{
+          title: "[ FRONT ] < AUTH > - Vista de Settings del Auth con boton de regreso ",
+          subtitle: "#5",
+          created_by: "SARA BAUTISTA",
+          created: "2022-06-07T22:45:00",
+          status: "REDD",
+          state: "ABIERTO",
+          update: "2022-06-07T22:45:00",
+          to: "#"
+        },
+      ]
+    end
   end
