@@ -13,8 +13,8 @@
     <div 
       class="flex bg-gray-100 text-gray-600 dark:bg-gray-800 h-screen" 
       x-data={"{ isSidebarExpanded: $persist(#{assigns["default_ui"]["isSidebarExpanded"]||"false"}).as('isSidebarExpanded') , isCompactMode: $persist(#{assigns["default_ui"]["isCompactMode"]||"false"}).as('isCompactMode') , isLiquidPage: $persist(#{assigns["default_ui"]["isLiquidPage"]||"false"}).as('isLiquidPage') }"}>
-      <%= if !assigns[:blank_page] do  %>
-      <%= render "patrials/_left_menu.html", conn: @conn, list: assigns.left_aside.menu.list %>
+      <%= if !assigns.conn.assigns[:blank_page] || !assigns[:blank_page] do  %>
+      <%= render "patrials/_left_menu.html", conn: @conn, assigns: assigns %>
         <div class="flex-1 flex flex-col">
           <%= render "patrials/_body_header.html", conn: @conn, assigns: assigns %>
           <div class="flex-1 p-4 overflow-auto dark:bg-gray-900 dark:text-gray-300">
