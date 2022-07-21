@@ -1,0 +1,47 @@
+<%
+  # 
+  # assigns = %{
+  #   form_action: "#",
+  #   forgot_password_title: "Forgot your password?",
+  #   forgot_password_to: "#",
+  #   registration_title: "Create account",
+  #   registration_to: "#",
+  #   register_title: "Log_in",
+  #   changeset: @changeset
+  # }
+ %>
+
+
+<div class="flex justify-items-center pt-8">
+  <div class="py-6 px-6 mx-auto mt-8 lg:px-8 bg-white rounded-lg shadow dark:bg-gray-700" style="min-width: 320px">
+    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Register</h3>
+      <.form let={f} for={@assigns[:conn]} action={@assigns[:form_action]} class="space-y-6" >
+        <%= if @changeset.action do %>
+          <div class="alert alert-danger">
+            <p>
+            <%= @assigns[:error_msg] || "Oops, something went wrong! Please check the errors below." %>
+            </p>
+          </div>
+        <% end %>
+        <div>
+          <%= label f, :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+          <%= email_input f, :email, required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"%>
+          <%= error_tag f, :email %>
+        </div>
+        <div>
+          <%= label f, :password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+          <%= password_input f, :password, required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" %>
+          <%= error_tag f, :password %>
+        </div>
+        <div>
+          <%= submit @assigns[:register_title], class: "w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"  %>
+        </div>  
+        <div class="text-sm text-center font-medium text-gray-500 dark:text-gray-300">      
+            <%= link @assigns[:registration_title], to: @assigns[:registration_to], class: "text-blue-700 hover:underline dark:text-gray-100" %> 
+        </div> 
+        <div class="text-sm text-center font-medium text-gray-500 dark:text-gray-300">
+            <%= link @assigns[:forgot_password_title], to: @assigns[:forgot_password_to], class: "text-blue-700 hover:underline dark:text-gray-100" %> 
+        </div>
+    </.form>
+  </div>
+</div>
