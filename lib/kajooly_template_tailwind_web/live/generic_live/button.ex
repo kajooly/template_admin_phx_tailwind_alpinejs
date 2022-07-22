@@ -34,7 +34,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
   """
   def button(assigns) do
     ~H"""
-    <span x-data="{ isCompactModeButton: $persist(false).as('isCompactMode') }" class={assigns[:class_span] }>
+    <span x-data="{ isCompactModeButton: $persist(false).as('isCompactMode') }" class={"#{assigns[:class_span]} focus:z-10 #{ if assigns[:active] != nil do " z-10" end  } " }>
     <%= live_patch to: assigns[:to], class: "px-4 text-center font-medium focus:ring-2 focus:z-10 #{assigns[:color_class] || "text-gray-900 bg-white   focus:ring-gray-700 focus:text-gray-700   dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-500 dark:focus:text-white dark:text-gray-300 hover:text-gray-700 "} #{assigns[:border] || "dark:border-gray-600 border-gray-200 hover:bg-gray-100 "} #{assigns[:class]} #{
       case assigns[:borderradius] do
       "left" ->  "rounded-l-lg border border-r-0"
@@ -44,7 +44,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
       "box" -> " border"
       _ -> ""
       end}
-      #{ if assigns[:active] != nil do " border-l ring-1 ring-sky-400 bg-gray-100 dark:bg-gray-600  " else " bg-white dark:bg-gray-700 " end  }
+      #{ if assigns[:active] != nil do " border-l ring-1 ring-sky-400 bg-gray-100 dark:bg-gray-600" else " bg-white dark:bg-gray-700 " end  }
       ",
       style: assigns[:style] || "__no_style: false;",
       ":class": "isCompactModeButton ? 'pt-2 pb-2 text-xs':'py-2 text-sm'",
