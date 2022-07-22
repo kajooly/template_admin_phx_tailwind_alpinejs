@@ -33,8 +33,10 @@ defmodule KajoolyTemplateTailwindWeb.Router do
 
 
     live "/layout/github/issues", LayoutsLive.Issues, :index
-    live "/layout/github/issues/new", LayoutsLive.Setting, :index
-    live "/layout/github/issues/new", LayoutsLive.Setting, :index
+    live "/layout/github/issues/new", LayoutsLive.IssuesNew, :index
+    live "/layout/github/issues/new/assignments", LayoutsLive.IssuesNew, :assignments
+    live "/layout/github/issues/show", LayoutsLive.IssuesNew, :index
+    live "/layout/github/issues/newss", LayoutsLive.Setting, :index
 
   end
 
