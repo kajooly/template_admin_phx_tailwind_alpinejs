@@ -25,7 +25,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Modal do
   """
   def modal_template(assigns) do
     assigns = assign_new(assigns, :return_to, fn -> nil end)
-    IO.inspect assigns, label: "assigns modal"
+    #IO.inspect assigns, label: "assigns modal"
     ~H"""
 
   <div id="modal" class="phx -modal fade-in z-50 relative "  phx-remove={hide_modal()}>

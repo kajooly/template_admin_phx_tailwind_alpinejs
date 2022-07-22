@@ -39,7 +39,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
 
   """
   def simple_card_a(assigns) do
-    IO.inspect assigns.link   , label: "assings"
+    #IO.inspect assigns.link   , label: "assings"
     ~H"""
       <div class={ assigns[:class] || "p-4 mb-3 w-full bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 #{assigns[:add_class]}" }>
         <div class="flex">

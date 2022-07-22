@@ -52,7 +52,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
   """
   def accordion(assigns) do
     list = assigns.accordions || assigns.list
-    IO.inspect list, label: "LIST ---"
+    #IO.inspect list, label: "LIST ---"
     ~H"""
     <ul class={"space-y-2 #{assigns[:class]}"}>
       <%= for item <- list  do %>

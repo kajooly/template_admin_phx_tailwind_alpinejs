@@ -32,7 +32,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
 
   """
   def dropdown(assigns) do
-    IO.inspect assigns
+    #IO.inspect assigns
     ~H"""
     <div x-data="{ open: false, isCompactMode: $persist(false).as('isCompactMode') }"
         class={"relative w-full text-left #{assigns[:class]}"}>
