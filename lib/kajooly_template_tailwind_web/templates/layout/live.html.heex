@@ -1,13 +1,13 @@
-<p class="alert border-1 border-blue-900 text-blue-700 bg-blue-100 ml-10 -mr-1 p-2 mb-3 dark:bg-blue-800 dark:text-gray-200 dark:border-blue-700" role="alert"
+<p class="alert border-1 border-blue-900 text-blue-700 bg-blue-100 rounded-md p-2 mb-3 dark:bg-blue-800 dark:text-gray-200 dark:border-blue-700" role="alert"
   phx-click="lv:clear-flash"
   phx-value-key="info"><%= live_flash(@flash, :info) %></p>
-<p class="alert text-red-700 bg-red-100 ml-10 -mr-1 p-2 mb-3 dark:bg-red-800 dark:text-gray-200 dark:border-red-700" role="alert"
+<p class="alert text-red-700 bg-red-100 rounded-md p-2 mb-3 dark:bg-red-800 dark:text-gray-200 dark:border-red-700" role="alert"
   phx-click="lv:clear-flash"
   phx-value-key="error"><%= live_flash(@flash, :error) %></p>
-<p class="alert text-orange-600 bg-orange-100 ml-10 -mr-1 p-2 mb-3 dark:bg-orange-800 dark:text-gray-200 dark:border-orange-700" role="alert"
+<p class="alert text-orange-600 bg-orange-100 rounded-md p-2 mb-3 dark:bg-orange-800 dark:text-gray-200 dark:border-orange-700" role="alert"
   phx-click="lv:clear-flash"
   phx-value-key="warning"><%= live_flash(@flash, :warning) %></p>
-<p class="alert text-green-600 bg-green-100 ml-10 -mr-1 p-2 mb-3 dark:bg-green-800 dark:text-gray-200 dark:border-green-700" role="alert"
+<p class="alert text-green-600 bg-green-100 rounded-md p-2 mb-3 dark:bg-green-800 dark:text-gray-200 dark:border-green-700" role="alert"
   phx-click="lv:clear-flash"
   phx-value-key="success"><%= live_flash(@flash, :success) %></p>
 <%= @inner_content %>
