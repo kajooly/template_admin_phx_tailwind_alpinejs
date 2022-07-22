@@ -1,0 +1,215 @@
+<%= if @live_action in [:assignments] do %>
+  <.modal_template return_to={Routes.layouts_issues_new_path(@socket, :index)} title={@page_title}>
+    asdadassd
+  </.modal_template>
+<% end %>
+<div x-data="{ isCompactMode: $persist(false).as('isCompactMode') }" >
+<.breadcrum
+  title="Show vista issues GH"
+  subtitle="Opciones del brief KC-ES-10067."
+  pages={[
+      %{ 
+        title: "", 
+        to: "#home",
+        icon: "home"
+      },
+      %{ 
+        title: "Opciones del ejemplo", 
+        to: "#list",
+        icon: "chevron"
+      },
+      %{ 
+        title: "Configuración", 
+        to: nil,
+        icon: "chevron"
+      }
+      ]} />
+  <!-- top title / buttons -->
+  <div  class="flex flex-wrap border-l-4 border-cyan-700 pl-4"
+        :class=" isCompactMode ? 'mt-2 mb-0': 'mt-4 mb-4'" >
+    <div class="flex-1">
+      <h1 class="text-2xl dark:text-white">
+        Dispenser Mayoreo Wipes 50´s Escudo BTS 2022
+      </h1>
+    </div>
+  </div>
+  <div class="flex flex-wrap mt-6 bg-gray-50 dark:bg-gray-900 border-b dark:border-gray-800 border-gray-200 px-3"
+      :class=" isCompactMode ? 'mt-2 mb-0': 'mt-4 mb-4'" > 
+      <div class="flex-0 w-full">
+      <.horizontal_navigation />
+    </div>
+  </div>
+  <div  class="flex flex-wrap pt-6 "
+        :class=" isCompactMode ? 'mt-2 mb-0': 'mt-4 mb-4'" >
+    <div class="flex-1 pl-8">
+      <h1 class="text-xl dark:text-white border-l-4 border-cyan-700 pl-4">
+        [Nombre de la task]
+      </h1>
+    </div>
+  </div>
+  <div 
+    class="flex flex-wrap pt-6"
+    :class=" isCompactMode ? 'mt-2 mb-0': 'mt-4 mb-4'"
+  >
+    <div class="flex-1">
+
+      <div class="flex rounded-md shadow-sm pl-14 w-full" role="group"> 
+          
+          <%= link "Cerrar task", to: "#", phx_click: "delete", phx_value_id: "asdasdasd", data: [confirm: "¿Esta seguro que desa cerrar este task?"], class: "px-4 text-center font-medium focus:ring-2 focus:z-10 text-gray-700 bg-orange-400 focus:ring-gray-700 focus:text-gray-700 hover:text-gray-800 dark:bg-orange-700 dark:text-white dark:hover:text-white dark:hover:bg-orange-600 dark:focus:ring-gray-500 dark:focus:text-white dark:text-gray-300 hover:text-green-700 pl-3 border-gray-500 dark:border-gray-500 w md:flex-initial rounded-lg border border-r-0 bg-white dark:bg-gray-700 pt-2 pb-0 text-xs flex-0 min-w-[170px] mr-4" %>
+
+          <.dropdown {%{
+            title: "Rama A",
+            classbutton: " m text-sm text-gray-700 bg-gray-400 py-1 px-4   focus:ring-gray-700 focus:text-gray-700 hover:text-gray-800 dark:bg-gray-700  dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-500 dark:focus:text-white dark:text-gray-300 hover:text-green-700 border-gray-500 dark:border-gray-500 border border-l-0 flex-0 min-w-[170px]",
+            buttons: [
+                %{ 
+                  title: "Rama A", 
+                  to: "#"
+                },
+                %{ 
+                  title: "Rama B", 
+                  to: "#"
+                },
+                %{ 
+                  title: "Rama C", 
+                  to: "#"
+                }
+            ]
+          }} />
+      </div>
+    </div>
+    <div class="flex-0">
+       
+    <.button_group 
+      buttons={[
+          %{
+            title: "Editar",
+            borderradius: "left",
+            class: " w-full lg:w-24 md:flex-initial  ",
+            border: "border-sky-500 dark:border-sky-500",
+            color_class: "text-sky-700 bg-sky-400   focus:ring-sky-700 focus:text-sky-700 hover:text-sky-800 dark:bg-sky-700  dark:text-white dark:hover:text-white dark:hover:bg-sky-600 dark:focus:ring-sky-500 dark:focus:text-white dark:text-sky-300 hover:text-green-700",
+            to: "#new"
+          },
+          %{
+            title: "Nueva Task",
+            borderradius: "right",
+            class: " w-full  md:flex-initial  ",
+            border: "border-green-500 dark:border-green-500",
+            color_class: "text-green-700 bg-green-400   focus:ring-green-700 focus:text-green-7 hover:text-green-800 dark:bg-green-700  dark:text-white dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-500 dark:focus:text-white dark:text-green-300 hover:text-green-700",
+            to: "#new"
+          }
+        ]}
+    />
+  </div>
+ 
+</div>
+  <div class="w-full md:flex mt-12 mb-4">
+    <div class="w-full md:flex-0  ">
+
+      
+
+
+      <form class="px-8">
+         <.chat_timeline 
+            list={[
+               %{
+                  title: "Título del nuevo task/issue ",
+                  name: "Nombre Autor",
+                  text: "Texto inicial del task ----- Plegadiza premium en tapa y fondo, desarrollar en SBS con ventana de acetato. Mando por mail el brief, Beto llevara los productos en cuanto confirme BDF. Lleva impresiones en metalizado.",
+                  timestamp: "2022-12-31 23:59:59"
+                },
+                %{
+                  name: "Roberto ",
+                  act: "comentó",
+                  title: "Brief KC-ES-10067 Plan: A",
+                  text: "Plegadiza premium en tapa y fondo, desarrollar en SBS con ventana de acetato. Mando por mail el brief, Beto llevara los productos en cuanto confirme BDF. Lleva impresiones en metalizado.",
+                  timestamp: "2022-12-31 23:59:59"
+                },
+                %{
+                  name: "Carlos Romero ",
+                  act: "comentó",
+                  title: "Brief KC-ES-10067 Plan: C",
+                  text: " Mando por mail el brief, Beto llevara los productos en cuanto confirme BDF. Lleva impresiones en metalizado.",
+                  timestamp: "2022-12-31 23:59:59"
+                },
+                %{
+                  name: "Karolina ",
+                  act: "comentó",
+                  title: "Brief KC-ES-10067 Plan: A",
+                  text: " Lleva impresiones en metalizado.",
+                  timestamp: "2022-12-31 23:59:59"
+                },
+            ]
+              }
+         
+         />
+        <ol class="relative border-l border-gray-200 dark:border-gray-700 ">     
+          <li class="mb-4 ml-8">
+              <.name_user class="flex absolute -left-4  justify-center items-center " text="bk" width="32" height="32"/>
+            
+            <div class=" bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-600">
+              <div class="flex items-center py-3 px-3 bg-gray-50 rounded-lg dark:bg-gray-800">
+                <div class="w-full">
+                  
+                  <textarea id="chat" rows="3" class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escribe tu mensaje ..."></textarea>
+                </div>
+              </div>
+              <div class="flex items-end justify-end py-1 px-2 bg-gray-50 rounded-b-lg dark:bg-gray-900">
+                <button type="button" class="inline-flex justify-center p-2 mr-2 text-gray-500 rounded-b-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 ">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path></svg>
+                </button>
+                <button type="button" class="hidden p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z" clip-rule="evenodd"></path></svg>
+                </button>
+                
+                <button type="submit" class="inline-flex focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-1.5 mr-2 mb-2 dark:bg-green-700 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                  Nuevo mensaje
+                  <svg class="w-5 h-5 ml-2 rotate-90" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
+                </button>
+              </div>
+            </div>
+          </li> 
+        </ol>
+      
+        
+      </form>
+
+    </div>
+    <!-- barra lateral derecha -->
+    <div class="w-full md:flex-1" style="min-width: 320px">
+        <.list_card 
+            title="Asignaciones"
+            to={Routes.layouts_issues_new_path(@socket, :assignments)}
+        >
+          <:list title="Título 1" sub_title="Subtitle asdasdasd......"
+            button_close="#"  />
+          <:list 
+            title="Título 2" 
+            sub_title="Subtitle asdasdasd......" 
+            button_close="#" 
+           />
+          <:list 
+            title="Título 2" 
+            sub_title="Subtitle asdasdasd......" 
+            button_close="#" 
+            to="#asd"
+           />
+          <:list title="Título 3" sub_title="Subtitle asdasdasd......">
+          adasad
+          </:list>
+        </.list_card>
+        <.list_card 
+            title="Etiquetas"
+            list={[
+              %{
+                title: "titulo 1",
+                sub_title: "Subtitle asdasdasd......",
+                button_close: ""
+              }
+            ]}
+        >
+        </.list_card>
+
+
+    </div>
+  </div>
+</div>
