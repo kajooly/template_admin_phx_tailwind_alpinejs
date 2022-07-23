@@ -115,28 +115,28 @@
                   title: "Título del nuevo task/issue ",
                   name: "Nombre Autor",
                   text: "Texto inicial del task ----- Plegadiza premium en tapa y fondo, desarrollar en SBS con ventana de acetato. Mando por mail el brief, Beto llevara los productos en cuanto confirme BDF. Lleva impresiones en metalizado.",
-                  timestamp: "2022-12-31 23:59:59"
+                  timestamp: "2022-07-22 19:50:59"
                 },
                 %{
                   name: "Roberto ",
                   act: "comentó",
                   title: "Brief KC-ES-10067 Plan: A",
                   text: "Plegadiza premium en tapa y fondo, desarrollar en SBS con ventana de acetato. Mando por mail el brief, Beto llevara los productos en cuanto confirme BDF. Lleva impresiones en metalizado.",
-                  timestamp: "2022-12-31 23:59:59"
+                  timestamp: "2022-07-22 19:50:59"
                 },
                 %{
                   name: "Carlos Romero ",
                   act: "comentó",
                   title: "Brief KC-ES-10067 Plan: C",
                   text: " Mando por mail el brief, Beto llevara los productos en cuanto confirme BDF. Lleva impresiones en metalizado.",
-                  timestamp: "2022-12-31 23:59:59"
+                  timestamp: "2022-07-22 19:50:59"
                 },
                 %{
                   name: "Karolina ",
                   act: "comentó",
                   title: "Brief KC-ES-10067 Plan: A",
                   text: " Lleva impresiones en metalizado.",
-                  timestamp: "2022-12-31 23:59:59"
+                  timestamp: "2022-07-22 19:50:59"
                 },
             ]
               }
@@ -180,23 +180,21 @@
             title="Asignaciones"
             to={Routes.layouts_issues_new_path(@socket, :assignments)}
         >
-          <:list title="Título 1" sub_title="Subtitle asdasdasd......"
-            button_close="#"  />
-          <:list 
-            title="Título 2" 
-            sub_title="Subtitle asdasdasd......" 
-            button_close="#" 
-           />
-          <:list 
-            title="Título 2" 
-            sub_title="Subtitle asdasdasd......" 
-            button_close="#" 
-            to="#asd"
-           />
-          <:list title="Título 3" sub_title="Subtitle asdasdasd......">
-          adasad
-          </:list>
+        <%= for item <- [%{title: "task"},%{title: "task 2"}] do %>
+         <.item_list_card
+            title={item[:title]}
+            sub_title={"área del usuario"}
+            to="#" opicional
+          >
+            <!-- Botón de borrar -->
+            <%= link "X", to: "#", class: "text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center mr-2 mb-2 mt-3 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900", ":class": "isCompactMode ? 'py-2':'py-6" %>
+         </.item_list_card>
+        <% end %>
+         
         </.list_card>
+
+
+
         <.list_card 
             title="Etiquetas"
             list={[
