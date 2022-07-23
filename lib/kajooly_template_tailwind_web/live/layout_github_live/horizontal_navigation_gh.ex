@@ -28,7 +28,7 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.HorizontalNavigationGh do
       <.button_group classbutton_dropdown={classbutton_dropdown} class_dropdown={class_dropdown} class_dropdropdown={class_dropdropdown}} title_dropdown="Link 1." class="flex inline-flex rounded-md shadow w-full"
       >
         <:dropdown_title>
-          <.icons_window_stack width="12" height="12" class="mr-3 hidden lg:inline" /> Resumen
+          <.icons_window_stack width="16" height="16" class="mr-3 mt-0.5 hidden lg:inline" /> Resumen
         </:dropdown_title>
         <:buttons
           {%{
@@ -38,7 +38,7 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.HorizontalNavigationGh do
               to: "#new"
             }
           }>
-          <.icons_window_stack width="12" height="12" class="mr-3 hidden lg:inline" /> Resumen
+          <.icons_window_stack width="12" height="12" class="mr-3 mt-0.5 hidden lg:inline" /> Resumen
         </:buttons>
         <:buttons
           {%{
@@ -49,7 +49,7 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.HorizontalNavigationGh do
               active: true
             }
           }>
-          <.icons_eye width="12" height="12" class="mr-3 hidden lg:inline" /> Tareas
+          <.icons_eye width="12" height="12" class="mr-3 mt-0.5 hidden lg:inline" /> Tareas
         </:buttons>
         <:buttons
           {%{
@@ -59,7 +59,7 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.HorizontalNavigationGh do
               to: "#new"
             }
           }>
-          <.icons_body_text width="12" height="12" class="mr-3 hidden lg:inline" /> Branchs
+          <.icons_body_text width="12" height="12" class="mr-3 mt-0.5 hidden lg:inline" /> Branchs
         </:buttons>
 
         <:buttons
@@ -70,7 +70,7 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.HorizontalNavigationGh do
               to: "#new"
             }
           }>
-          <.icons_trash width="12" height="12" class="mr-3 hidden lg:inline" /> Eliminar
+          <.icons_trash width="12" height="12" class="mr-3 mt-0.5 hidden lg:inline" /> Eliminar
         </:buttons>
         <:buttons
           {%{
@@ -80,7 +80,7 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.HorizontalNavigationGh do
               to: "#new"
             }
           }>
-          <.icons_key width="12" height="12" class="mr-3 hidden lg:inline" /> Acceso
+          <.icons_key width="12" height="12" class="mr-3 mt-0.5 hidden lg:inline" /> Acceso
         </:buttons>
         <:buttons
           {%{
@@ -90,7 +90,7 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.HorizontalNavigationGh do
               to: "#new"
             }
           }>
-          <.icons_outline_gear width="12" height="12" class="mr-3 hidden lg:inline" /> Opciones
+          <.icons_outline_gear width="12" height="12" class="mr-3 mt-0.5 hidden lg:inline" /> Opciones
         </:buttons>
 
       </.button_group>
