@@ -27,15 +27,17 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     live "/layout/table", LayoutsLive.Table, :index
     live "/layout/files", LayoutsLive.Files, :index
     live "/layout/notifications", LayoutsLive.Notifications, :index
+    live "/layout/colors", LayoutsLive.Colors, :index
     live "/layout/profile", LayoutsLive.Profile, :index
 
     live "/layout/step-a", LayoutsLive.Stepa, :index
 
 
+    live "/layout/issues", LayoutsLive.IssuesList, :index
     live "/layout/github/issues", LayoutsLive.Issues, :index
     live "/layout/github/issues/new", LayoutsLive.IssuesNew, :index
     live "/layout/github/issues/new/assignments", LayoutsLive.IssuesNew, :assignments
-    live "/layout/github/issues/show", LayoutsLive.IssuesNew, :index
+    live "/layout/github/issues/show", LayoutsLive.IssuesShow, :index
     live "/layout/github/issues/newss", LayoutsLive.Setting, :index
 
   end
