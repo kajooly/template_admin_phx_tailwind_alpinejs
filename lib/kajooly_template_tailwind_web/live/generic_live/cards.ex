@@ -124,49 +124,45 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
           <div class="flex-1">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg max-w-[95%] mx-auto dark:border-2  dark:border-gray-600">
               <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-
                 <tbody>
-                  <%= for item <- assigns[:list] do %>
-                    <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                      <td scope="row" colspan="2" class="flex px-6 pt-1 pb-1 text-left font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                        <div class="flex-1 pt-1">
-                        <%= if item[:to] do  %>
-                          <%= live_patch  to: item[:to] do %>
-                            <%= item[:title] %>  <br/>
-                            <small class="text-gray-600 dark:text-gray-400"><em><%= item[:sub_title] %> </em></small>
-                          <% end %>
-                        <% else %>
-                          <%= item[:title] %>  <br/>
-                          <small class="text-gray-600 dark:text-gray-400"><em><%= item[:sub_title] %> </em></small>
-                        <% end %>
-
-                        </div>
-
-
-                        <div class="flex-0 pt-2">
-
-                        <%= if item[:button_close] do  %>
-                          <%= live_patch "X", to: item[:button_close], class: "text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1 text-center mr-2 mb-2 mt-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900", ":class": "isCompactMode ? 'py-2':'py-6" %>
-                        <% else %>
-                          <%= render_slot(item) %>
-                        <% end %>
-
-
-
-                        </div>
-
-                      </td>
-                    </tr>
-                  <% end %>
-
-
-                  </tbody>
+                  <%= render_slot(@inner_block) %>
+                </tbody>
               </table>
-
             </div>
           </div>
         </div>
       </div>
+    """
+  end
+
+  def item_list_card (assigns) do
+    ~H"""
+        <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <td scope="row" colspan="2" class="flex px-6 pt-1 pb-1 text-left font-medium text-gray-900 dark:text-white whitespace-nowrap">
+          <div class="flex-1 pt-1">
+          <%= if assigns[:to] do  %>
+            <%= live_patch  to: assigns[:to] do %>
+              <%= assigns[:title] %>  <br/>
+              <small class="text-gray-600 dark:text-gray-400"><em><%= assigns[:sub_title] %> </em></small>
+            <% end %>
+          <% else %>
+            <%= assigns[:title] %>  <br/>
+            <small class="text-gray-600 dark:text-gray-400"><em><%= assigns[:sub_title] %> </em></small>
+          <% end %>
+
+          </div>
+
+          <div class="flex-0 pt-3.5">
+
+          <%= if assigns[:button_close] do  %>
+            <%= live_patch "X", to: assigns[:button_close], class: "text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1 text-center mr-2 mb-2 mt-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900", ":class": "isCompactMode ? 'py-2':'py-6" %>
+          <% else %>
+            <%= render_slot(@inner_block) %>
+          <% end %>
+          </div>
+
+        </td>
+      </tr>
     """
   end
 
