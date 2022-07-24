@@ -28,7 +28,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Timeline do
                   </div>
                   <div
                     class="p-3 text-xs italic font-normal text-gray-500 bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300"
-                    :class=" isCompactMode ? 'text-xs' : 'text-lg'"
+                    :class=" isCompactMode ? 'text-xs' : 'text-md'"
                   ><%= item[:text] %></div>
               </div>
             </li>
