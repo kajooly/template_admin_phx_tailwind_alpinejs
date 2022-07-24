@@ -140,13 +140,13 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
         <td scope="row" colspan="2" class="flex px-6 pt-1 pb-1 text-left font-medium text-gray-900 dark:text-white whitespace-nowrap">
           <div class="flex-1 pt-1">
-          <%= if assigns[:to] do  %>
+          <%= if assigns[:to]!=nil do  %>
             <%= live_patch  to: assigns[:to] do %>
-              <%= assigns[:title] %>  <br/>
+              <%= assigns[:title] || "Sin nombre"%>  <br/>
               <small class="text-gray-600 dark:text-gray-400"><em><%= assigns[:sub_title] %> </em></small>
             <% end %>
           <% else %>
-            <%= assigns[:title] %>  <br/>
+            <%= assigns[:title] || "Sin nombre"%>  <br/>
             <small class="text-gray-600 dark:text-gray-400"><em><%= assigns[:sub_title] %> </em></small>
           <% end %>
 
