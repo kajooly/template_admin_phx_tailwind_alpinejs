@@ -7,7 +7,7 @@
         <span 
             class=" font-medium duration-200 ease-in-out --hidden --md:inline ml-2 md:ml-0" 
             :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0', isCompactMode ? 'ml-1 text-md' : 'ml-2 text-xl' ">
-            <%= assigns.conn.assigns.company.logotipo_text || raw assigns.conn.assigns.company.isotipo %>
+            <%= assigns.conn.assigns.company.logotipo_text || raw assigns.conn.assigns.company.logotipo_svg %>
             </span>
         </a>
     <%= if assigns.conn.assigns.left_aside.expand_button.display do %>
