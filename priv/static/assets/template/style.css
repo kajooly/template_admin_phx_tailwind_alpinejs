@@ -1488,6 +1488,10 @@ input:checked + .toggle-bg {
   height: 2.25rem;
 }
 
+.h-\[90\%\] {
+  height: 90%;
+}
+
 .max-h-8 {
   max-height: 2rem;
 }
@@ -1608,6 +1612,18 @@ input:checked + .toggle-bg {
   width: 16rem;
 }
 
+.w-\[90\%\] {
+  width: 90%;
+}
+
+.w-\[94\%\] {
+  width: 94%;
+}
+
+.w-\[93\%\] {
+  width: 93%;
+}
+
 .min-w-\[60\%\] {
   min-width: 60%;
 }
@@ -1638,6 +1654,10 @@ input:checked + .toggle-bg {
 
 .max-w-\[50px\] {
   max-width: 50px;
+}
+
+.max-w-\[50\%\] {
+  max-width: 50%;
 }
 
 .flex-1 {
@@ -3244,6 +3264,12 @@ input:checked + .toggle-bg {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.backdrop-blur-sm {
+  --tw-backdrop-blur: blur(4px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
 .transition {
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -4060,6 +4086,10 @@ input:checked + .toggle-bg {
   background-color: rgb(31 41 55 / 0.5);
 }
 
+.dark .dark\:bg-gray-900\/30 {
+  background-color: rgb(17 24 39 / 0.3);
+}
+
 .dark .dark\:bg-opacity-80 {
   --tw-bg-opacity: 0.8;
 }
@@ -4586,6 +4616,10 @@ input:checked + .toggle-bg {
     min-width: 10%;
   }
 
+  .md\:max-w-\[80\%\] {
+    max-width: 80%;
+  }
+
   .md\:flex-initial {
     flex: 0 1 auto;
   }
@@ -4693,6 +4727,18 @@ input:checked + .toggle-bg {
     width: 8rem;
   }
 
+  .lg\:w-\[96\%\] {
+    width: 96%;
+  }
+
+  .lg\:w-\[94\%\] {
+    width: 94%;
+  }
+
+  .lg\:max-w-\[70\%\] {
+    max-width: 70%;
+  }
+
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -4705,6 +4751,14 @@ input:checked + .toggle-bg {
 }
 
 @media (min-width: 1280px) {
+  .xl\:w-\[96\%\] {
+    width: 96%;
+  }
+
+  .xl\:max-w-\[50\%\] {
+    max-width: 50%;
+  }
+
   .xl\:grid-flow-col {
     grid-auto-flow: column;
   }
