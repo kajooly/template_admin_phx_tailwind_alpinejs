@@ -117,7 +117,6 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
                 <.icons_plus />
               <% end %>
             <% end %>
-
           </div>
         </div>
         <div class="flex mb-3">
