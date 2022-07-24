@@ -28,8 +28,8 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Modal do
     #IO.inspect assigns, label: "assigns modal"
     ~H"""
 
-  <div id="modal" class="phx -modal fade-in z-50 relative "  phx-remove={hide_modal()}>
-    <div class="absolute top-2 inset-x-3 bg-white rounded-lg shadow dark:bg-gray-700 mx-auto">
+  <div id="modal" class="phx -modal fade-in z-50 backdrop-blur-sm bg-white/30 dark:bg-gray-900/30  w-[93%] lg:w-[94%] xl:w-[96%] h-[90%] absolute "  phx-remove={hide_modal()}>
+    <div class="absolute top-2 inset-x-3 bg-white rounded-lg shadow-lg dark:bg-gray-700 mx-auto md:max-w-[80%] lg:max-w-[70%] xl:max-w-[50%]">
             <!-- Modal header -->
             <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
