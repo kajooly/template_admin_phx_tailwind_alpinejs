@@ -112,11 +112,11 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
             <h6 class="mb-3 text-sm font-medium text-gray-900 dark:text-gray-600 text-left pl-4 mt-1"> <%= assigns[:title] %> </h6>
           </div>
           <div class="flex-0 pr-2">
-
-            <%= live_patch  to: assigns[:to], class: "sm:inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5", type: "button" do %>
-            <.icons_plus />
-
+            <%= if assigns[:to] != nil do %>
+              <%= live_patch  to: assigns[:to], class: "sm:inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5", type: "button" do %>
+                <.icons_plus />
               <% end %>
+            <% end %>
 
           </div>
         </div>
