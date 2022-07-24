@@ -44,7 +44,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
       "box" -> " border"
       _ -> ""
       end}
-      #{ if assigns[:active] != nil do " border-l ring-1 ring-sky-400 bg-gray-100 dark:bg-gray-600" else " bg-white dark:bg-gray-700 " end  }
+      #{ if assigns[:active] != nil do " border-l ring-1 ring-sky-400 bg-gray-100 dark:bg-gray-600" else " " end  }
       ",
       style: assigns[:style] || "__no_style: false;",
       ":class": "isCompactModeButton ? 'pt-2 pb-2 text-xs':'py-2 text-sm'",
