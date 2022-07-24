@@ -30,7 +30,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Modal do
 
   <div id="modal" class="phx -modal fade-in z-40 backdrop-blur-sm bg-white/30 dark:bg-gray-900/30  w-[93%] lg:w-[94%] xl:w-[96%] h-[90%] absolute "  phx-remove={hide_modal()}>
     <div class="absolute top-2 inset-x-3 bg-white rounded-lg shadow-lg dark:bg-gray-700 mx-auto md:max-w-[80%] lg:max-w-[70%] xl:max-w-[50%]
-    inset-0
+
     ">
             <!-- Modal header -->
             <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
