@@ -30,7 +30,7 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     live "/layout/colors", LayoutsLive.Colors, :index
     live "/layout/profile", LayoutsLive.Profile, :index
 
-    live "/layout/step-a", LayoutsLive.Stepa, :index
+    live "/layout/step-a", LayoutsLive.StepA, :index
 
 
     live "/layout/issues", LayoutsLive.IssuesList, :index
@@ -38,7 +38,10 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     live "/layout/github/issues/new", LayoutsLive.IssuesNew, :index
     live "/layout/github/issues/new/assignments", LayoutsLive.IssuesNew, :assignments
     live "/layout/github/issues/show", LayoutsLive.IssuesShow, :index
-    live "/layout/github/issues/newss", LayoutsLive.Setting, :index
+
+    live "/layout/brief/step_a", LayoutsLive.BriefStepA, :index
+    live "/layout/brief/step_b", LayoutsLive.BriefStepB, :index
+    live "/layout/brief/step_c", LayoutsLive.BriefStepC, :index
 
   end
 
