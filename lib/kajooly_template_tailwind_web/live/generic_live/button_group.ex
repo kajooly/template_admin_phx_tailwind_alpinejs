@@ -42,16 +42,22 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.ButtonGroup do
     ~H"""
     <div class="hidden md:inline w-full">
       <div class={" #{assigns[:class]||"inline-flex rounded-md shadow w-full"}"} role="group">
-        <%= if @buttons != nil do %>
-            <%= for item <- @buttons do %>
-              <%= if item[:group_title] != nil do %>
-                  <h2 class=" border-b-2 text-[10px] bg-gray-50 dark:bg-gray-900 text-gray-400 border-gray-100  dark:border-gray-600 pt-3 pb-2 px-6">
-                  <%= item[:group_title] %>
-                </h2>
-              <% end %>
-              <.button {item} class_span={item[:classbutton_span]} >
+          <%= if @buttons != nil do %>
+            <%= if assigns[:custom_buttons] do %>
+              <%= for item <- @buttons do %>
                 <%= item[:title] || render_slot(item) %>
-              </.button>
+              <% end %>
+            <% else %>
+              <%= for item <- @buttons do %>
+                <%= if item[:group_title] != nil do %>
+                    <h2 class=" border-b-2 text-[10px] bg-gray-50 dark:bg-gray-900 text-gray-400 border-gray-100  dark:border-gray-600 pt-3 pb-2 px-6">
+                    <%= item[:group_title] %>
+                  </h2>
+                <% end %>
+                <.button {item} class_span={item[:classbutton_span]} >
+                  <%= item[:title] || render_slot(item) %>
+                </.button>
+              <% end %>
             <% end %>
           <% end %>
       </div>
