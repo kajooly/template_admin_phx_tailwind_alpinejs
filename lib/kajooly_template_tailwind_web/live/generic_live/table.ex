@@ -19,12 +19,12 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
   """
   def table(assigns) do
     ~H"""
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg z-0">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-          <tr>
+    <div class={"relative shadow-md sm:rounded-lg z-0 #{assigns[:class]}"} x-data="{ isCompactModeButton: $persist(false).as('isCompactMode') }">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 rounded-t-lg">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 rounded-t-lg ">
+          <tr class="rounded-t-lg  bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <%= for head <- @head do %>
-              <th scope="col"  colspan={head[:colspan]||"1"} class={"px-4 py-0 align-middle  #{head[:class]}"}>
+              <th scope="col"  colspan={head[:colspan]||"1"} class={"px-4 py-0 align-middle #{head[:class]}"}>
                 <%= assigns[:label] || render_slot(head) %>
               </th>
             <% end %>
@@ -32,14 +32,22 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
         </thead>
         <tbody>
           <%= for row <- @rows do %>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 md:leading-4">
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+                :class="isCompactModeButton ? ' md:leading-3':' md:leading-5'"
+
+                >
               <%= for col <- @col do %>
                 <%= if col[:th]!=nil do %>
-                  <th scope="row" class={"px-4 py-3 md:py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap #{col[:class]}"}>
+                  <th scope="row"
+                      style={col[:style] || "__no_style: false;"}
+                      class={"px-4 py-3 md:py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap #{col[:class]}"}
+                    >
                     <%= render_slot(col, row) %>
                   </th>
                 <% else %>
-                <td class={"px-4 py-3 md:py-0  dark:text-gray-100 text-gray-900 #{col[:class]}"}>
+                <td
+                  style={col[:style] || "__no_style: false;"}
+                  class={"px-4 py-3 md:py-0  dark:text-gray-100 text-gray-900 #{col[:class]}"}>
                     <%= render_slot(col, row) %>
                   </td>
                 <% end %>

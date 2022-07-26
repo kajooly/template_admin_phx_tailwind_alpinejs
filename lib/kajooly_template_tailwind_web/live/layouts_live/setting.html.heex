@@ -1,0 +1,62 @@
+<div x-data="{ isCompactMode: $persist(false).as('isCompactMode') }" >
+<.breadcrum
+  title="Preventa"
+  subtitle="Opciones del brief KC-ES-10067."
+  pages={[
+      %{ 
+        title: "", 
+        to: "#home",
+        icon: "home"
+      },
+      %{ 
+        title: "Opciones del ejemplo", 
+        to: "#list",
+        icon: "chevron"
+      },
+      %{ 
+        title: "Configuración", 
+        to: nil,
+        icon: "chevron"
+      }
+      ]} />
+  <!-- top title / buttons -->
+  <div  class="flex flex-wrap border-l-4 border-cyan-700 pl-4"
+        :class=" isCompactMode ? 'mt-2 mb-0': 'mt-4 mb-4'" >
+    <div class="flex-1">
+      <h1 class="text-2xl dark:text-white">
+        Dispenser Mayoreo Wipes 50´s Escudo BTS 2022
+      </h1>
+    </div>
+  </div>
+  <div class="flex flex-wrap mt-6 bg-gray-50 dark:bg-gray-900 border-b dark:border-gray-800 border-gray-200 px-3"
+      :class=" isCompactMode ? 'mt-2 mb-0': 'mt-4 mb-4'" > 
+      <div class="flex-0 ">
+      <.horizontal_navigation />
+    </div>
+  </div>
+  <div class="w-full md:flex my-4">
+    <div class="w-full md:w-48 lg:w-60 md:flex-0">
+      <.vertical_navigation />
+    </div>
+    <div class="w-full md:flex-1 pl-4">
+      
+      <!-- examples content secctions -->
+
+      <!-- article 1 -->
+
+     <.settings_article_a class="mb-3" />
+     <.settings_article_b class="mb-3" 
+        list={[]} >
+          <:search>
+          </:search>
+        </.settings_article_b>
+     <.settings_article_b class="mb-3" 
+        list={@members_access} >
+          <:search>
+          </:search>
+        </.settings_article_b>
+
+
+    </div>
+  </div>
+</div>

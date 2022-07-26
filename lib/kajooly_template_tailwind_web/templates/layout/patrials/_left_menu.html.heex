@@ -1,30 +1,47 @@
-<nav 
-    class="space-y-2 font-medium text-gray-400 dark:text-gray-500 border-t border-b dark:border-gray-700 border-gray-200 hidden md:block"
-     :class="isCompactMode ? 'p-0' : 'p-2'"
-    >
-    <button class="flex w-full items-center h-10 px-3 text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-400 hover:bg-gray-600 hover:bg-opacity-25 rounded-lg transition-colors duration-50 ease-in-out focus:outline-none focus:shadow-outline border-t-1 border-gray-200" @click="isSidebarExpanded = !isSidebarExpanded">
-        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 transform" :class="isSidebarExpanded ? 'rotate-180' : 'rotate-0'">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <line x1="4" y1="6" x2="14" y2="6" />
-            <line x1="4" y1="18" x2="14" y2="18" />
-            <path d="M4 12h17l-3 -3m0 6l3 -3" />
-        </svg>
-        <span class="ml-2 duration-50 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0 hidden'">Contraer menú</span>
-
-    </button>
-</nav>
-<nav 
-    class="space-y-2 font-medium text-gray-400 dark:text-gray-500"
-     :class="isCompactMode ? 'p-0' : 'p-2'"
-    >
-    <%= for item   <- @list  do %>
-        <%= link to: item[:to] || "#", class: "flex items-center h-10 px-3 #{ if item[:active] != nil do "text-white bg-blue-600" else "text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-blue-600 hover:bg-opacity-25" end } rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline" do %>
-            <%= raw item.icon %>
-            <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">
-                <%= raw item.title %>
+<aside class="flex flex-col text-gray-300 bg-white dark:text-gray-400 dark:bg-gray-800 transition-all duration-200 ease-in-out z-50" :class="isSidebarExpanded ? isCompactMode ? 'w-80 md:w-40 text-xs absolute top-0 left-0 min-h-full md:relative' : 'w-80 md:w-64 absolute top-0 left-0 min-h-full md:relative'  : isCompactMode ? 'w-12 hidden md:block' : 'w-16 hidden md:block'">
+    <a href={Routes.static_path(@conn, "/")} 
+        class="flex items-center px-2 bg-white text-gray-600 dark:text-gray-300  dark:bg-gray-800 hover:text-gray-700 
+        hover:bg-opacity-50 focus:outline-none focus:text-gray-900   focus:bg-opacity-50 overflow-hidden"
+        :class="isCompactMode ? 'h-10' : 'h-12'" >
+        <%= raw assigns.conn.assigns.company.isotipo %>
+        <span 
+            class=" font-medium duration-200 ease-in-out --hidden --md:inline ml-2 md:ml-0" 
+            :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0', isCompactMode ? 'ml-1 text-md' : 'ml-2 text-xl' ">
+            <%= assigns.conn.assigns.company.logotipo_text || raw assigns.conn.assigns.company.logotipo_svg %>
             </span>
+        </a>
+    <%= if assigns.conn.assigns.left_aside.expand_button.display do %>
+    <nav 
+        class="space-y-2 font-medium text-gray-400 dark:text-gray-500 border-t border-b dark:border-gray-700 border-gray-200 hidden md:block"
+        :class="isCompactMode ? 'p-0' : 'p-2'"
+        >
+        <button class="flex w-full items-center h-10 px-3 text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-400 hover:bg-gray-600 hover:bg-opacity-25 rounded-lg transition-colors duration-50 ease-in-out focus:outline-none focus:shadow-outline border-t-1 border-gray-200" @click="isSidebarExpanded = !isSidebarExpanded">
+            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 transform" :class="isSidebarExpanded ? 'rotate-180' : 'rotate-0'">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="6" x2="14" y2="6" />
+                <line x1="4" y1="18" x2="14" y2="18" />
+                <path d="M4 12h17l-3 -3m0 6l3 -3" />
+            </svg>
+            <span class="ml-2 duration-50 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0 hidden'">
+                <%= assigns.conn.assigns.left_aside.expand_button.title %>
+            </span>
+        </button>
+    </nav>
+<% end %>
+<%= if assigns.conn.assigns.left_aside.menu.display do %>
+    <nav 
+        class="space-y-2 font-medium text-gray-400 dark:text-gray-500"
+        :class="isCompactMode ? 'p-0' : 'p-2'"
+        >
+        <%= for item   <- assigns.conn.assigns.left_aside.menu.list  do %>
+            <%= link to: item[:to] || "#", class: "flex items-center h-10 px-3 #{ if item[:active] != nil do "text-white bg-blue-600" else "text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-blue-600 hover:bg-opacity-25" end } rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline" do %>
+                <%= raw item.icon %>
+                <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">
+                    <%= raw item.title %>
+                </span>
+            <% end %>
         <% end %>
-
+    </nav>
     <% end %>
-</nav>
-<%= render "patrials/_left_menu_settings.html", conn: @conn %>
+    <%= render "patrials/_left_menu_settings.html", conn: @conn %>
+</aside>

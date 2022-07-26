@@ -22,7 +22,6 @@ defmodule KajoolyTemplateTailwindWeb do
       use Phoenix.Controller, namespace: KajoolyTemplateTailwindWeb
 
       import Plug.Conn
-      import KajoolyTemplateTailwindWeb.Gettext
       alias KajoolyTemplateTailwindWeb.Router.Helpers, as: Routes
     end
   end
@@ -81,7 +80,6 @@ defmodule KajoolyTemplateTailwindWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import KajoolyTemplateTailwindWeb.Gettext
     end
   end
 
@@ -98,7 +96,6 @@ defmodule KajoolyTemplateTailwindWeb do
       import Phoenix.View
 
       import KajoolyTemplateTailwindWeb.ErrorHelpers
-      import KajoolyTemplateTailwindWeb.Gettext
       alias KajoolyTemplateTailwindWeb.Router.Helpers, as: Routes
     end
   end

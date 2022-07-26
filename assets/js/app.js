@@ -25,7 +25,7 @@ import { Socket } from "phoenix"
 import { LiveSocket } from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 import init_templet from "./template"
-
+import 'flowbite';
 
 import Alpine from "alpinejs"
 import persist from '@alpinejs/persist'

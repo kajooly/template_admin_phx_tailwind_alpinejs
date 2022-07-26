@@ -1,5 +1,6 @@
 defmodule KajoolyTemplateTailwindWeb.Router do
   use KajoolyTemplateTailwindWeb, :router
+  import KajoolyTemplateTailwindWeb.TemplateConfig
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -14,14 +15,33 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", KajoolyTemplateTailwindWeb do
+  scope "/", KajoolyTemplateTailwindWeb, assigns: template_config(%{}) do
     pipe_through :browser
 
     get "/", PageController, :index
-
-
+    get "/auth_registration", PageController, :auth_registration
     live "/layout/list", LayoutsLive.Index, :index
-    live "/layout/resumen", LayoutsLive.Index, :index
+    live "/layout/resumen", LayoutsLive.Show, :index
+    live "/layout/sitemap", LayoutsLive.Sitemap, :index
+    live "/layout/settings", LayoutsLive.Setting, :index
+    live "/layout/table", LayoutsLive.Table, :index
+    live "/layout/files", LayoutsLive.Files, :index
+    live "/layout/notifications", LayoutsLive.Notifications, :index
+    live "/layout/colors", LayoutsLive.Colors, :index
+    live "/layout/profile", LayoutsLive.Profile, :index
+
+    live "/layout/step-a", LayoutsLive.StepA, :index
+
+
+    live "/layout/issues", LayoutsLive.IssuesList, :index
+    live "/layout/github/issues", LayoutsLive.Issues, :index
+    live "/layout/github/issues/new", LayoutsLive.IssuesNew, :index
+    live "/layout/github/issues/new/assignments", LayoutsLive.IssuesNew, :assignments
+    live "/layout/github/issues/show", LayoutsLive.IssuesShow, :index
+
+    live "/layout/brief/step_a", LayoutsLive.BriefStepA, :index
+    live "/layout/brief/step_b", LayoutsLive.BriefStepB, :index
+    live "/layout/brief/step_c", LayoutsLive.BriefStepC, :index
 
   end
 
@@ -30,32 +50,5 @@ defmodule KajoolyTemplateTailwindWeb.Router do
   #   pipe_through :api
   # end
 
-  # Enables LiveDashboard only for development
-  #
-  # If you want to use the LiveDashboard in production, you should put
-  # it behind authentication and allow only admins to access it.
-  # If your application does not have an admins-only section yet,
-  # you can use Plug.BasicAuth to set up some basic authentication
-  # as long as you are also using SSL (which you should anyway).
-  if Mix.env() in [:dev, :test] do
-    import Phoenix.LiveDashboard.Router
 
-    scope "/" do
-      pipe_through :browser
-
-      live_dashboard "/dashboard", metrics: KajoolyTemplateTailwindWeb.Telemetry
-    end
-  end
-
-  # Enables the Swoosh mailbox preview in development.
-  #
-  # Note that preview only shows emails that were sent by the same
-  # node running the Phoenix server.
-  if Mix.env() == :dev do
-    scope "/dev" do
-      pipe_through :browser
-
-      forward "/mailbox", Plug.Swoosh.MailboxPreview
-    end
-  end
 end

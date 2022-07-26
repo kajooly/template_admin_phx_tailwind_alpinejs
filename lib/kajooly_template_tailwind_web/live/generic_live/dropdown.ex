@@ -32,9 +32,10 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
 
   """
   def dropdown(assigns) do
+    #IO.inspect assigns
     ~H"""
     <div x-data="{ open: false, isCompactMode: $persist(false).as('isCompactMode') }"
-        class={"relative text-left #{assigns[:class]}"}>
+        class={"relative w-full text-left #{assigns[:class]}"}>
       <button
         @click="open = !open"
         @keydown.escape.window="open = false"
@@ -49,16 +50,26 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
         "}
         :class="isCompactMode ? 'p-0 px-2' : 'p-2'"
         >
-        <span class="sr-only"><%= assigns[:title] || "Options"  %></span>
-        <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
-          <span class={"font-semibold min-w-50 #{assigns[:classbuttontitle]}"}>
-            <%= assigns[:title] || render_slot(@inner_block)  %>
-          </span>
+        <div class="flex w-full">
+          <%= if  assigns[:title] != "" do %>
+          <div class="flex-1 pt-1 min-w-[60%]">
+            <span class="sr-only"><%= assigns[:title] || "Options"  %></span>
+            <div class=" md:flex md:flex-col md:items-end md:leading-tight">
+              <span class={"font-semibold min-w-50 #{assigns[:classbuttontitle]}"}>
+                <%= assigns[:title] || render_slot(@inner_block)  %>
+              </span>
+            </div>
+          </div>
+          <% end %>
+          <div class="flex-0 mx-2 pt-0 mt-0">
+
+            <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor"
+                class=" h-6 w-6 text-gray-300 dark:text-gray-500 ml-auto ">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </div>
         </div>
-        <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor"
-             class=" h-6 w-6 text-gray-300 dark:text-gray-500 --ml-9">
-          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-        </svg>
+
       </button>
       <div
         x-cloak
@@ -69,23 +80,57 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
         x-transition:leave="transition ease-in duration-75"
         x-transition:leave-start="transform opacity-100 scale-100"
         x-transition:leave-end="transform opacity-0 scale-95"
-        class={"absolute right-0 top-15 flex flex-col w-60 mt-3 border rounded-lg  shadow-lg border-gray-100  dark:border-gray-700
-        bg-white
-        dark:border-gray-800
-        dark:bg-gray-900
-        z-50
-        #{assigns[:classdrop]}
+        class={"
+        #{assigns[:classdrop] || dropdown_default_class_classdrop() }
         "}>
+
+        <%= if assigns[:search] do %>
+          <%= render_slot(@search) %>
+        <% end %>
         <%= if @buttons != nil do %>
           <%= for item <- @buttons do %>
-            <%= live_patch to: item[:to], class: "flex items-center h-8 px-3  text-sm hover:bg-gray-200 dark:hover:bg-gray-700 capitalize", ":class": "isCompactMode ? 'py-2':'py-6" do %>
-              <%= item[:title] || render_slot(item) %>
+            <%= if item[:group_title] != nil do %>
+                <h2 class={dropdown_default_class_classdrop_title()}
+                :class={dropdown_default_class_copact()}  >
+                <%= item[:group_title] %>
+              </h2>
+            <% end %>
+            <%= if item[:to] != nil do %>
+              <%= live_patch to: item[:to], class: dropdown_default_class_classdrop_button(), ":class": dropdown_default_class_copact() do %>
+                <%= item[:title] || render_slot(item) %>
+              <% end %>
+            <% else %>
+              <div class={dropdown_default_class_classdrop_button()}>
+                <%= item[:title] || render_slot(item) %>
+              </div>
             <% end %>
           <% end %>
+        <% end %>
+
+        <%= if assigns[:custom_buttons] do %>
+          <%= render_slot(@inner_block) %>
         <% end %>
       </div>
     </div>
     """
+  end
+
+  def dropdown_default_class_classdrop() do
+    "absolute right-0 top-15 flex flex-col w-60 mt-3 border rounded-lg  shadow-lg border-gray-100  dark:border-gray-700
+    bg-white
+    dark:border-gray-800
+    dark:bg-gray-900
+    z-50"
+  end
+  def dropdown_default_class_classdrop_button() do
+    "flex items-center h-8 px-3  text-sm hover:bg-gray-200 dark:hover:bg-gray-700 capitalize"
+  end
+  def dropdown_default_class_classdrop_title() do
+    "flex items-center h-8 px-3  text-sm text-xs text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 capitalize"
+  end
+
+  def dropdown_default_class_copact() do
+    "isCompactMode ? 'py-2':'py-6"
   end
 
 end

@@ -1,0 +1,154 @@
+<div x-data="{ isCompactMode: $persist(false).as('isCompactMode') }" >
+<.breadcrum
+  title="Archivos"
+  subtitle="Archivos genérica ejemplo."
+  pages={[
+      %{ 
+        title: "", 
+        to: "#home",
+        icon: "home"
+      },
+      %{ 
+        title: "Lista de ejemplo", 
+        to: "#list",
+        icon: "chevron"
+      },
+      %{ 
+        title: "Lista de archivos", 
+        to: nil,
+        icon: "chevron"
+      }
+      ]} />
+<!-- top buttons -->
+<!-- Table -->
+ 
+  <div class="w-full md:flex mt-8 mb-4">
+    <div class="w-full md:w-48 lg:w-60 md:flex-0">
+      <.vertical_navigation />
+    </div>
+    <div class="w-full md:flex-1 pl-4">
+      
+  <div class="flex">
+    <small class="pb-1 text-gray-500">
+      Archivos recientes
+    </small>
+  </div>
+  <.carousel list={@recent_files} />
+
+
+
+    <div class="flex">
+      <small class="pb-1  text-gray-500">
+        Lista de archivos
+      </small>
+    </div>
+        <.table rows={@files} >
+          <!-- Column head -->
+          <:head class="w-6/12 lg:w-11/12" colspan="1">
+            Nombre del archivo
+          </:head>
+          <:head class="w-1/12  " >
+            <.dropdown {%{
+              title: "Orden",
+              buttons: [
+                  %{ 
+                    title: "Orden alfabetico A-Z", 
+                    to: "#"
+                  },
+                  %{ 
+                    title: "Orden alfabetico Z-A", 
+                    to: "#"
+                  },
+                  %{ 
+                    title: "El más nuevo", 
+                    to: "#"
+                  },
+                  %{ 
+                    title: "El más antiguo", 
+                    to: "#"
+                  },
+                  %{ 
+                    title: "Recién actualizado", 
+                    to: "#"
+                  }
+              ]
+            }} />
+          </:head>
+          <!-- Column data -->
+          <:col let={item} th={nil}>
+            <div class="flex">
+              <div class="flex-0">
+                <.file_icon type={item.ext} />
+              </div>
+              <div class="flex-1 py-3 px-2">
+                <%= item.name %>
+              </div>
+              <div class="flex-0 py-3 px-2 hidden md:inline">
+                <%= if item.share do %> 
+                  <.icons_users />
+                  <% end %>
+              </div>
+              <div class="flex-0 py-3 px-2 hidden lg:inline text-xs text-gray-500">
+                <%= item.ext %>
+              </div>
+            </div>
+          </:col>
+          <:col let={item} >
+            <div class="py-3 px-2 min-w-[120px]">
+              <%= item.date %> 
+            </div>
+          </:col>
+        </.table>
+
+<div class="flex mt-4 mb-4">
+  <div class="flex-1 text-xs text-gray-500 pt-2">
+  12,315 Archivos en total
+  </div>
+  <div class="flex-0">
+    <.button_group 
+      buttons={[
+          %{ 
+            title: "< Anterior", 
+            to: "#",
+            borderradius: "left",
+            class: ""
+          },
+          %{ 
+            title: "1", 
+            to: "#",
+            borderradius: "center",
+            class: ""
+          },
+          %{ 
+            title: "2", 
+            to: "#",
+            borderradius: "center",
+            class: ""
+          },
+          %{ 
+            title: "3", 
+            to: "#",
+            borderradius: "center",
+            class: ""
+          },
+          %{ 
+            title: "...", 
+            class: "hidden md:block",
+            to: "#",
+            borderradius: "center",
+            class: ""
+          },
+          %{ 
+            title: "Siguente >", 
+            to: "#",
+            borderradius: "right",
+            class: ""
+          }
+        ]}
+    />
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
