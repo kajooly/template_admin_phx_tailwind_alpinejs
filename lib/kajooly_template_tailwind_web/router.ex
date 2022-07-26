@@ -28,6 +28,7 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     live "/layout/files", LayoutsLive.Files, :index
     live "/layout/notifications", LayoutsLive.Notifications, :index
     live "/layout/colors", LayoutsLive.Colors, :index
+    live "/layout/grid", LayoutsLive.Grid, :index
     live "/layout/profile", LayoutsLive.Profile, :index
 
     live "/layout/step-a", LayoutsLive.StepA, :index
