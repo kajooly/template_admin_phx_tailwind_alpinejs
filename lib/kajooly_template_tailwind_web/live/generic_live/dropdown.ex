@@ -81,34 +81,56 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
         x-transition:leave-start="transform opacity-100 scale-100"
         x-transition:leave-end="transform opacity-0 scale-95"
         class={"
-        #{assigns[:classdrop] || "absolute right-0 top-15 flex flex-col w-60 mt-3 border rounded-lg  shadow-lg border-gray-100  dark:border-gray-700
-        bg-white
-        dark:border-gray-800
-        dark:bg-gray-900
-        z-50"}
+        #{assigns[:classdrop] || dropdown_default_class_classdrop() }
         "}>
+
+        <%= if assigns[:search] do %>
+          <%= render_slot(@search) %>
+        <% end %>
         <%= if @buttons != nil do %>
           <%= for item <- @buttons do %>
             <%= if item[:group_title] != nil do %>
-                <h2 class=" flex items-center h-8 px-3  text-sm text-xs text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 capitalize"
-                :class="isCompactMode ? 'py-2':'py-6"  >
+                <h2 class={dropdown_default_class_classdrop_title()}
+                :class={dropdown_default_class_copact()}  >
                 <%= item[:group_title] %>
               </h2>
             <% end %>
             <%= if item[:to] != nil do %>
-              <%= live_patch to: item[:to], class: "flex items-center h-8 px-3  text-sm hover:bg-gray-200 dark:hover:bg-gray-700 capitalize", ":class": "isCompactMode ? 'py-2':'py-6" do %>
+              <%= live_patch to: item[:to], class: dropdown_default_class_classdrop_button(), ":class": dropdown_default_class_copact() do %>
                 <%= item[:title] || render_slot(item) %>
               <% end %>
             <% else %>
-              <div class="flex items-center h-8 px-3  text-sm hover:bg-gray-200 dark:hover:bg-gray-700 capitalize">
+              <div class={dropdown_default_class_classdrop_button()}>
                 <%= item[:title] || render_slot(item) %>
               </div>
             <% end %>
           <% end %>
         <% end %>
+
+        <%= if assigns[:custom_buttons] do %>
+          <%= render_slot(@inner_block) %>
+        <% end %>
       </div>
     </div>
     """
+  end
+
+  def dropdown_default_class_classdrop() do
+    "absolute right-0 top-15 flex flex-col w-60 mt-3 border rounded-lg  shadow-lg border-gray-100  dark:border-gray-700
+    bg-white
+    dark:border-gray-800
+    dark:bg-gray-900
+    z-50"
+  end
+  def dropdown_default_class_classdrop_button() do
+    "flex items-center h-8 px-3  text-sm hover:bg-gray-200 dark:hover:bg-gray-700 capitalize"
+  end
+  def dropdown_default_class_classdrop_title() do
+    "flex items-center h-8 px-3  text-sm text-xs text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 capitalize"
+  end
+
+  def dropdown_default_class_copact() do
+    "isCompactMode ? 'py-2':'py-6"
   end
 
 end
