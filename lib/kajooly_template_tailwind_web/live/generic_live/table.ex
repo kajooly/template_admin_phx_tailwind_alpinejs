@@ -38,14 +38,16 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
                 <%= if col[:th]!=nil do %>
                   <th scope="row"
                       style={col[:style] || "__no_style: false;"}
-                      class={"px-4 py-3 md:py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap #{col[:class]}"}
+                      class={"px-4  md:py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap #{col[:class]}"}
+                      :class="isCompactModeButton ? ' py-2':' py-3'"
                     >
                     <%= render_slot(col, row) %>
                   </th>
                 <% else %>
                 <td
                   style={col[:style] || "__no_style: false;"}
-                  class={"px-4 py-3 md:py-0  dark:text-gray-100 text-gray-900 #{col[:class]}"}>
+                  class={"px-4 md:py-0  dark:text-gray-100 text-gray-900 #{col[:class]}"}
+                  :class="isCompactModeButton ? ' py-2':' py-3'">
                     <%= render_slot(col, row) %>
                   </td>
                 <% end %>
