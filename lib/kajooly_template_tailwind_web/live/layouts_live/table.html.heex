@@ -261,3 +261,30 @@
   </:col>
   
 </.table>
+
+
+<.table rows={@list} class="mt-4">
+  <!-- Column head -->
+  <:head  colspan="1">Id</:head>
+  <:head  colspan="1">Name</:head>
+  <:head  colspan="1">alias</:head>
+  <:head  colspan="1">Status</:head>
+
+  <!-- Column data -->
+  <:col colspan="1" let={item} th={nil}>
+    <%= item.title %>
+  </:col>
+   <:col colspan="1" let={item} >
+    <%= item.title %> 
+  </:col>
+  <:col colspan="1" let={item} >
+    <div class="py-3 px-1">
+    <%= item.title %> 
+    </div>
+  </:col>
+  
+  <:col let={item} >
+    <%= item.state %> 
+  </:col>
+
+</.table>
