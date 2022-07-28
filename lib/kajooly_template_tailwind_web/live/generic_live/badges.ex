@@ -22,18 +22,18 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Badges do
 
   ## Examples
 
-      <.badges {%{ color: "danger", title: "Badges title"}} />
+      <.badge {%{ color: "danger", title: "Badges title"}} />
       ----
-      <.badges color="danger">
+      <.badge color="danger">
           Badges title
-      </.badges>
+      </.badge>
       ----
-      <.badges
+      <.badge
         color="custom"
         custom="bg-pink-100 text-pink-800 dark:bg-pink-200 dark:text-pink-900"
       >
         Badges title
-      </.badges>
+      </.badge>
   """
   def badge(assigns) do
     ~H"""
