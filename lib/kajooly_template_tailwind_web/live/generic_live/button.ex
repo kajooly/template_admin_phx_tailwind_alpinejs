@@ -1,6 +1,7 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
   import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
+  import KajoolyTemplateTailwindWeb.GenericLive.Text
 
   @doc """
 
@@ -108,7 +109,11 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
       style: assigns[:style] || "__no_style: false;",
       type: "button"
       do %>
-      <%= assigns[:title] || render_slot(@inner_block) %>
+      <%= if assigns[:two_charter] do %>
+        <%= text_to_two_char(assigns[:title]) %>
+      <% else %>
+        <%= assigns[:title] || render_slot(@inner_block) %>
+      <% end %>
     <% end %>
     </span>
     """
