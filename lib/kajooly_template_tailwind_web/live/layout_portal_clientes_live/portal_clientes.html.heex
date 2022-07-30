@@ -1,0 +1,92 @@
+<div x-data="{ isCompactMode: $persist(false).as('isCompactMode') }" >
+ 
+  <div class="flex mt-8 mb-4 lg:px-20 xl:px-40">
+    <div class="flex-1 pl-4">
+        <div class="p-6 max-w-md h-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <span class="float-right">
+            <.badge {%{ color: "warning", title: "Tiempo Aire"}} />
+            </span>  
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Recarga de saldo</h5>
+          </a>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Recarga saldo aire para Telcel, Movistar, u otros principales proveedores.</p>
+          <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-orange-700 rounded-lg hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
+            Recargar saldo
+            <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </a>
+        </div>
+  
+    </div>
+    <div class="flex-1 pl-4 ">
+        <div class="p-6 ml-auto max-w-md h-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            
+            <span class="float-right">
+            <.badge {%{ color: "info", title: "Solicitar saldos"}} />
+            </span>  
+
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Reporte de saldos</h5>
+          </a>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Solicite un reporte detallado de sus moviemientos de recargas de saldo.</p>
+          <a href="#" class="inline-flex ml-auto items-center py-2 px-3 text-sm font-medium text-center text-white bg-sky-700 rounded-lg hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800">
+            Solicitar reporte
+              <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </a>
+        </div>
+  
+    </div>
+  </div>
+
+  <div class="flex mt-8 mb-4 lg:px-20 xl:px-40">
+    <div class="flex-1 pl-4 text-left">
+        
+      <div id="mega-menu-full-image-dropdown" class="mt-1 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="px-6 pt-6">
+           <a href="#">
+              <span class="float-right">
+                <.badge {%{ color: "success", title: "Documentos oficiales"}} />
+              </span>  
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Solicitar Documentos Oficiales</h5>
+            </a>
+        </div>
+          <p class="px-6 font-normal text-gray-700 dark:text-gray-400">Cree una solcitud de generación de acta de nacimiento, de seguimeinto a su proseso de desarrollo y descarga.</p>
+
+        <div class="grid py-5 px-4 mx-auto max-w-screen-xl text-sm text-gray-500 dark:text-gray-400 md:grid-cols-3 md:px-6">
+            
+            <ul class="hidden mb-4 space-y-4 md:mb-0 md:block" aria-labelledby="mega-menu-full-image-button">
+                <li>
+                    <a href="#" class=" flex hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+                        <.icons_chevron_double_right class="mr-2 mt-0.5" /> Actas de Nacimiento
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+                        <.icons_chevron_double_right class="mr-2 mt-0.5" /> Acta de Defunción
+                    </a>
+                </li>
+            </ul>
+            <ul class="mb-4 space-y-4 md:mb-0">
+                <li>
+                    <a href="#" class="flex hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+                        <.icons_chevron_double_right class="mr-2 mt-0.5" /> Acta de Matrimonio
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+                        <.icons_chevron_double_right class="mr-2 mt-0.5" /> Acta de Divorcio
+                    </a>
+                </li>
+            </ul>
+            <a href="#" class="p-6  text-left bg-local bg- gray-500 bg-center bg-no-repeat bg-cover rounded-lg bg-blend-multiply hover:bg-blend-soft-light dark:hover:bg-blend-darken" style="background-image: url(/docs/images/dashboard-overview.png)">
+                <button type="button" class="inline-flex items-center px-2.5 py-1.5 text-xs font-medium text-center text-white border border-white rounded-lg hover:bg-white hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-700">
+                    Catálogo de documentos disponibles
+                    <svg class="ml-1 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+            </a>
+        </div>
+    </div>
+  
+    </div>
+  </div>
+</div>
+
