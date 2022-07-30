@@ -3,14 +3,10 @@
         class="flex items-center px-2 bg-white text-gray-600 dark:text-gray-300  dark:bg-gray-800 hover:text-gray-700 
         hover:bg-opacity-50 focus:outline-none focus:text-gray-900   focus:bg-opacity-50 overflow-hidden"
         :class="isCompactMode ? 'h-10' : 'h-12'" >
-        <%= #raw assigns.conn.assigns.company.isotipo %>
-        
-            
         <%= if assigns.conn.assigns.company[:isotipo_url] != nil do %>
-        <%=   %>
-        <img src={Routes.static_path(@conn, assigns.conn.assigns.company[:isotipo_url])} />
+            <img src={Routes.static_path(@conn, assigns.conn.assigns.company[:isotipo_url])} height="95%" />
         <% else %>
-        <%= raw assigns.conn.assigns.company.isotipo %>
+            <%= raw assigns.conn.assigns.company.isotipo %>
         <% end  %>
         <span 
             class=" font-medium duration-200 ease-in-out --hidden --md:inline ml-2 md:ml-0" 
