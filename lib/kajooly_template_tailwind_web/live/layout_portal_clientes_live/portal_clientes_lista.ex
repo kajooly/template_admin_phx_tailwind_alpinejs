@@ -30,11 +30,13 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.PortalClientesLista do
       id: "",
       short_id: "",
       type: "Acta de naciemiento",
-      titulo: "Solicitud de Acta de naciemiento",
+      title: "CURPQWE-1234-QWER-123",
+      subtitle: "Solicitud de Acta de naciemiento",
+      created_by: "Roberto Torres",
       status: "Proceso",
       state: "Abierto",
-      created_at: "2022-06-22 12:38:78",
-      updated_at: "2022-06-22 12:38:78"
+      created_at: "2022-06-22 12:38",
+      updated_at: "2022-06-22 12:38"
     }])
     #|> put_flash(:info, "Alerta de información ")
     #|> put_flash(:error, "Alerta de Error 404")

@@ -57,94 +57,40 @@
   }} />
 </div>
 <!-- Table -->
+
+<div class="pt-1 bg-gray-100 dark:bg-gray-700 rounded">
 <.table rows={@list} >
   <!-- Column head -->
-  <:head class="w-4/12 lg:w-5/12 text-gray-700 dark:text-gray-300  pt-1">
-    
-  </:head>
-  <:head class="w-6/12 lg:w-11/12 hidden md:block" colspan="2">
+  <:head>
     <div class="flex" x-data="{ isCompactMode: $persist(false).as('isCompactMode') }">
-      
-      <div class="w-1/2"
-          :class=" isCompactMode ? 'pt-1' : 'pt-1'"
+      <div class="flex-1  "
       >
-        <.dropdown {%{
-          title: "Estado",
-          class: "ml-6",
-          buttons: [
-              %{ 
-                title: "Abierto", 
-                to: "#"
-              },
-              %{ 
-                title: "Revisión", 
-                to: "#"
-              },
-              %{ 
-                title: "Cerrado", 
-                to: "#"
-              }
-          ]
-        }} />
+
+      </div>
+      <div class="flex-0"
+      >
+      <.dropdown title="Ordenar por">
+        <:buttons to={nil}>
+          <%= link "Recientes", to: "#", phx_click: "order_list", phx_value_order: "reciente", class: "w-full h-full pt-2" %>
+        </:buttons>
+        <:buttons to={nil}>
+          <%= link "Antiguos", to: "#", phx_click: "order_list", phx_value_order: "antiguo", class: "w-full h-full pt-2" %>
+        </:buttons>
+      </.dropdown>
       </div>
     </div>
   </:head>
-  <:head class="w-1/12  ">
-    <.dropdown {%{
-      title: "Orden",
-      buttons: [
-          %{ 
-            title: "El más nuevo", 
-            to: "#"
-          },
-          %{ 
-            title: "El más antiguo", 
-            to: "#"
-          },
-          %{ 
-            title: "Recién actualizado", 
-            to: "#"
-          }
-      ]
-    }} />
-  </:head>
   <!-- Column data -->
   <:col let={item} th={nil} class="w-4/12 lg:w-5/12 border border-l-4 border-y-0 border-r-0 border-red-500 ">
-    <em class="font-semibold"><%= item[:subtitle] %></em>
+    <div class="flex py-2">
+    <div class="flex-1 ">
+
+    <b class="font-semibold"><%= item[:subtitle] %></b>
     <span class="text-gray-700 dark:text-gray-300 "><%= item[:title] %></span>
     <br/>
-    <small class="text-gray-500 dark:text-gray-400">Creado por <em class="text-gray-500 dark:text-gray-200"><%= item[:created_by] %></em> <span x-data={"{ date: '#{item[:created]}'}"} x-timeago="date"></span>.</small>
-  </:col>
-  <:col let={item} class="w-6/12 lg:w-11/12 hidden md:inline">
-    <div class="flex">
-    <div class="w-1/2  hidden lg:block">
-
-      <.button_circle_group 
-      buttons={[
-          %{ 
-            title: "Alamendra 798", 
-            two_charter: true,
-            to: "#",
-            class: "ring-2 ring-success-300 dark:ring-success-500",
-            color_class: "text-purple-600 dark:text-white bg-purple-300 dark:bg-purple-700 hover:bg-purple-600 dark:hover:bg-purple-600 hover:text-purple-100"
-          },
-          %{ 
-            title: "B", 
-            to: "#",
-            class: "ring-2 ring-yellow-300 dark:ring-yellow-500",
-            color_class: "text-blue-600 dark:text-white bg-blue-300 dark:bg-blue-700 hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-blue-100"
-          },
-          %{ 
-            title: "C", 
-            to: "#",
-            class: "ring-2 ring-red-300 dark:ring-red-500",
-            color_class: "text-green-600 dark:text-white bg-green-300 dark:bg-green-700 hover:bg-green-600 dark:hover:bg-green-600 hover:text-purple-100"
-          }
-        ]}
-    />
-   
+    <small class="text-gray-500 dark:text-gray-400">Creado por <b class="text-gray-500 dark:text-gray-200"><%= item[:created_by] %></b> <span x-data={"{ date: '#{item[:created_at]}'}"} x-timeago="date"></span>.</small>
     </div>
-    <div class="w-1/2 ">
+    <div class="flex-0 ">
     <.badge color="warning">
       <%= item[:status] %> 
     </.badge> 
@@ -152,11 +98,10 @@
       <%= item[:state] %>
     </.badge>
     <br/>
-    <small class="text-gray-500 dark:text-gray-400">Actualizado  <span x-data={"{ date: '#{item[:update]}'}"} x-timeago="date"></span>.</small>
+    <small class="text-gray-500 dark:text-gray-400">Actualizado  <span x-data={"{ date: '#{item[:updated_at]}'}"} x-timeago="date"></span>.</small>
     </div>
-    </div>
-  </:col>
-  <:col let={item} class="w-1/12 text-right">
+    <div class="flex-0 ">
+
     <.dropdown {%{
       title: "",
         buttons: [
@@ -173,8 +118,12 @@
             to: "#"
           },
       ]}} />
+    </div>
+    </div>
+
   </:col>
 </.table>
+    </div>
 <!-- Paginate -->
 <div class="flex mt-4 mb-4">
   <div class="flex-1">
