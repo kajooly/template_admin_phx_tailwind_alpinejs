@@ -7925,6 +7925,14 @@ input:checked + .toggle-bg {
     padding-right: 1.5rem;
   }
 
+  .md\:pl-8 {
+    padding-left: 2rem;
+  }
+
+  .md\:pr-8 {
+    padding-right: 2rem;
+  }
+
   .md\:leading-tight {
     line-height: 1.25;
   }

@@ -5,7 +5,16 @@
     class="flex items-center px-2 bg-white text-gray-600 dark:text-gray-300  dark:bg-gray-800 hover:text-gray-700 
     hover:bg-opacity-50 focus:outline-none focus:text-gray-900   focus:bg-opacity-50 overflow-hidden md:hidden"
     :class="isCompactMode ? 'h-10' : 'h-12'"
-    ><%= raw assigns.conn.assigns.company.isotipo %></a>
+    >
+    <%= if assigns.conn.assigns.company[:isotipo_url] != nil do %>
+      <%=   %>
+      <img src={assigns.conn.assigns.company[:isotipo_url]} />
+    <% else %>
+      <%= raw assigns.conn.assigns.company.isotipo %>
+    <% end  %>
+
+    </a>
+
   <%= render "patrials/_top_new_menu.html", conn: @conn, assigns: assigns.conn.assigns[:top_new_menu]  %>
   <span class="font-medium mr-auto">&nbsp;</span>
   <%= render "patrials/_top_apps_menu.html", conn: @conn, assigns: assigns.conn.assigns[:top_apps_menu]  %>
