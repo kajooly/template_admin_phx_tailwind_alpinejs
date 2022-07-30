@@ -44,6 +44,13 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     live "/layout/brief/step_b", LayoutsLive.BriefStepB, :index
     live "/layout/brief/step_c", LayoutsLive.BriefStepC, :index
 
+
+    live "/layout/portal/clientes", LayoutsLive.PortalClientes, :index
+    live "/layout/portal/clientes/list", LayoutsLive.PortalClientesLista, :index
+
+
+
+
   end
 
   # Other scopes may use custom stacks.
