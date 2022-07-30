@@ -4,7 +4,7 @@
         hover:bg-opacity-50 focus:outline-none focus:text-gray-900   focus:bg-opacity-50 overflow-hidden"
         :class="isCompactMode ? 'h-10' : 'h-12'" >
         <%= if assigns.conn.assigns.company[:isotipo_url] != nil do %>
-            <img src={Routes.static_path(@conn, assigns.conn.assigns.company[:isotipo_url])} height="95%" />
+            <img src={Routes.static_path(@conn, assigns.conn.assigns.company[:isotipo_url])} style="margin: auto; height: 98%;"/>
         <% else %>
             <%= raw assigns.conn.assigns.company.isotipo %>
         <% end  %>
