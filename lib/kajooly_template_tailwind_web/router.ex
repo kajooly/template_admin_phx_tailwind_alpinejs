@@ -47,6 +47,8 @@ defmodule KajoolyTemplateTailwindWeb.Router do
 
     live "/layout/portal/clientes", LayoutsLive.PortalClientes, :index
     live "/layout/portal/clientes/list", LayoutsLive.PortalClientesLista, :index
+    live "/layout/portal/clientes/detalle", LayoutsLive.PortalClientesDetalles, :index
+    live "/layout/portal/clientes/formulario", LayoutsLive.PortalClientesDetalles, :index
 
 
 
