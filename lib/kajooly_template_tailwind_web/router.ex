@@ -26,6 +26,8 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     live "/layout/settings", LayoutsLive.Setting, :index
     live "/layout/table", LayoutsLive.Table, :index
     live "/layout/files", LayoutsLive.Files, :index
+    live "/layout/files/info", LayoutsLive.Files, :info
+    live "/layout/files/upload", LayoutsLive.FilesUpfile, :index
     live "/layout/notifications", LayoutsLive.Notifications, :index
     live "/layout/colors", LayoutsLive.Colors, :index
     live "/layout/grid", LayoutsLive.Grid, :index
@@ -48,7 +50,8 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     live "/layout/portal/clientes", LayoutsLive.PortalClientes, :index
     live "/layout/portal/clientes/list", LayoutsLive.PortalClientesLista, :index
     live "/layout/portal/clientes/detalle", LayoutsLive.PortalClientesDetalles, :index
-    live "/layout/portal/clientes/formulario", LayoutsLive.PortalClientesDetalles, :index
+    live "/layout/portal/clientes/solicitud", LayoutsLive.PortalClientesSolicitud, :index
+    live "/layout/portal/clientes/formulario", LayoutsLive.PortalClientesFormulario, :index
 
 
 
