@@ -27,43 +27,13 @@
     </div>
     <div class="w-full md:flex-1 pl-4">
       <div class="flex">
-        <small class="pb-1 text-gray-500">
-          Notificaciones recientes
-        </small>
-      </div>
-      <div class="flex">
         <div class="w-full" >
           
           <!-- Table -->
           <.table rows={@notifications} >
             <!-- Column head -->
             <:head class="flex">
-              <.dropdown {%{
-                title: "Área",
-                classbutton: "float-right",
-                buttons: [
-                    %{ 
-                      title: "Todos", 
-                      to: "#"
-                    },
-                    %{ 
-                      title: "Ventas", 
-                      to: "#"
-                    },
-                    %{ 
-                      title: "REDD", 
-                      to: "#"
-                    },
-                    %{ 
-                      title: "PrePrensa", 
-                      to: "#"
-                    },
-                    %{ 
-                      title: "Cotizaciones", 
-                      to: "#"
-                    }
-                ]
-              }} />
+             
               <.dropdown {%{
                 title: "Orden",
                 classbutton: "float-right",

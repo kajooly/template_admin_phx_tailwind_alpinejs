@@ -48,7 +48,7 @@ defmodule KajoolyTemplateTailwindWeb.TemplateConfig do
 
       },
       top_notification_menu: %{
-        display: false,
+        display: true,
         title: "Notification",
         title_empty: "Empty list.",
         to_all: "#",
