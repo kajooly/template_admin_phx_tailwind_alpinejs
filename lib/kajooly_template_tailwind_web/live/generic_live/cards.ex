@@ -150,15 +150,15 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
           <% end %>
 
           </div>
-
-          <div class="flex-0 pt-3.5">
-
           <%= if assigns[:button_close] do  %>
-            <%= live_patch "X", to: assigns[:button_close], class: "text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1 text-center mr-2 mb-2 mt-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900", ":class": "isCompactMode ? 'py-2':'py-6" %>
+            <div class="flex-0 pt-3.5">
+              <%= live_patch "X", to: assigns[:button_close], class: "text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1 text-center mr-2 mb-2 mt-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900", ":class": "isCompactMode ? 'py-2':'py-6" %>
+            </div>
           <% else %>
-            <%= render_slot(@inner_block) %>
+            <div class="flex-0">
+              <%= render_slot(@inner_block) %>
+            </div>
           <% end %>
-          </div>
 
         </td>
       </tr>
