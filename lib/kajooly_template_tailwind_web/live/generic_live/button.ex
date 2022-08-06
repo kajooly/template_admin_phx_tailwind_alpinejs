@@ -57,8 +57,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
 
 
   def default_class_button(assigns) do
-    color = assigns[:color] || "gray"
-    "px-4 text-center font-medium focus:ring-2 focus:z-10 #{assigns[:color_class] || "text-#{color}-900 bg-white dark:bg-#{color}-700   focus:ring-#{color}-700 focus:text-#{color}-700   dark:text-white dark:hover:text-white dark:hover:bg-#{color}-600 dark:focus:ring-#{color}-500 dark:focus:text-white dark:text-#{color}-300 hover:text-#{color}-700 "}  #{assigns[:class]} #{
+    "px-4 text-center font-medium focus:ring-2 focus:z-10 #{assigns[:color_class] || "text-gray-900 bg-white dark:bg-gray-700   focus:ring-gray-700 focus:text-gray-700   dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-500 dark:focus:text-white dark:text-gray-300 hover:text-gray-700 "}  #{assigns[:class]} #{
       case assigns[:borderradius] do
       "left" ->  "rounded-l-md border border-r-0"
       "center" -> "border-t border-b"
@@ -67,8 +66,8 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
       "box" -> " border"
       _ -> ""
       end}
-      #{assigns[:border] || "dark:border-#{{color}}-600 border-#{{color}}-200 hover:bg-#{{color}}-100 "}
-      #{ if assigns[:active] != nil do " border-l ring-1 ring-sky-400 bg-#{{color}}-100 dark:bg-gray-600" else " " end  }
+      #{assigns[:border] || "dark:border-gray-600 border-gray-200 hover:bg-gray-100 "}
+      #{ if assigns[:active] != nil do " border-l ring-1 ring-sky-400 bg-gray-100 dark:bg-gray-600" else " " end  }
       "
   end
   @doc """
