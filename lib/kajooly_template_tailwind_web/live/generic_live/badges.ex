@@ -39,6 +39,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Badges do
     ~H"""
       <div
         style={"#{assigns[:style]}"}
+        title={"#{assigns[:alt_title] || assigns[:title]}"}
         class={"text-xs font-semibold mr-2 px-2.5 py-0.5 rounded #{case assigns[:color] do
         "secondary" -> "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
         "danger" -> "bg-red-100 text-red-800 dark:bg-red-200 dark:text-red-900"
