@@ -449,4 +449,32 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Icons do
       </svg>
     """
   end
+  def icons_chevron_double_down (assigns) do
+    ~H"""
+      <svg xmlns="http://www.w3.org/2000/svg"  id={assigns[:id]||"icons_chevron_double_down#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke={assigns[:stroke]||"currentColor"} stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+      </svg>
+    """
+  end
+  def icons_chevron_double_up (assigns) do
+    ~H"""
+      <svg xmlns="http://www.w3.org/2000/svg"  id={assigns[:id]||"icons_chevron_double_up#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke={assigns[:stroke]||"currentColor"} stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 11l7-7 7 7M5 19l7-7 7 7" />
+      </svg>
+    """
+  end
+  def icons_chevron_double_left (assigns) do
+    ~H"""
+      <svg xmlns="http://www.w3.org/2000/svg"  id={assigns[:id]||"icons_chevron_double_left#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke={assigns[:stroke]||"currentColor"} stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+      </svg>
+    """
+  end
+  def icons_chevron_double_right (assigns) do
+    ~H"""
+      <svg xmlns="http://www.w3.org/2000/svg"  id={assigns[:id]||"icons_chevron_double_right#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke={assigns[:stroke]||"currentColor"} stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+      </svg>
+    """
+  end
 end
