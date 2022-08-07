@@ -37,7 +37,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Badges do
   """
   def badge(assigns) do
     ~H"""
-      <span
+      <div
         style={"#{assigns[:style]}"}
         class={"text-xs font-semibold mr-2 px-2.5 py-0.5 rounded #{case assigns[:color] do
         "secondary" -> "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
@@ -49,7 +49,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Badges do
         "pink" -> "bg-pink-100 text-pink-800 dark:bg-pink-200 dark:text-pink-900"
         "custom" -> assigns[:custom] || "bg-pink-100 text-pink-800 dark:bg-pink-200 dark:text-pink-900"
         _ -> "bg-blue-100 text-blue-800 dark:bg-blue-200 dark:text-blue-800"
-      end}"}><%= assigns[:title] || render_slot(@inner_block) %></span>
+      end}"}><%= assigns[:title] || render_slot(@inner_block) %></div>
     """
   end
 
