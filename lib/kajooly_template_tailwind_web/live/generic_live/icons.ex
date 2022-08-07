@@ -444,7 +444,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Icons do
   end
   def icons_calendar (assigns) do
     ~H"""
-      <svg xmlns="http://www.w3.org/2000/svg" id={assigns[:id]||"icons_calendar#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke={assigns[:fill]||"strokes"} stroke-width="2">
+      <svg xmlns="http://www.w3.org/2000/svg" id={assigns[:id]||"icons_calendar#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke={assigns[:stroke]||"currentColor"} stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
       </svg>
     """
