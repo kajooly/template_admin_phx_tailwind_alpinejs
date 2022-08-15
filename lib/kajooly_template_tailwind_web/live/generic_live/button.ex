@@ -38,9 +38,10 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
     ~H"""
     <span x-data="{ isCompactModeButton: $persist(false).as('isCompactMode') }" class={"#{assigns[:class_span]} focus:z-10 #{ if assigns[:active] != nil do " z-10" end  } " }>
     <%= live_patch to: assigns[:to], class: default_class_button(assigns),
-      style: assigns[:style] || "__no_style: false;",
+      style: assigns[:style] || "",
       ":class": default_class_copact(),
-      type: "button"
+      type: "button",
+      title: assigns[:title] || ""
       do %>
       <%= assigns[:title] || render_slot(@inner_block) %>
     <% end %>
@@ -118,6 +119,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
       style: assigns[:style] || "__no_style: false;",
       type: "button",
       "alt": assigns[:title] || "",
+      title: assigns[:title] || "",
       id: id
       do %>
       <%= if assigns[:two_charter] do %>
