@@ -1736,28 +1736,24 @@ input:checked + .toggle-bg {
   max-height: 100%;
 }
 
+.max-h-\[80\%\] {
+  max-height: 80%;
+}
+
 .min-h-full {
   min-height: 100%;
 }
 
-.min-h-\[60px\] {
-  min-height: 60px;
-}
-
-.min-h-\[50px\] {
-  min-height: 50px;
+.min-h-\[40px\] {
+  min-height: 40px;
 }
 
 .min-h-\[48px\] {
   min-height: 48px;
 }
 
-.min-h-\[38px\] {
-  min-height: 38px;
-}
-
-.min-h-\[40px\] {
-  min-height: 40px;
+.min-h-screen {
+  min-height: 100vh;
 }
 
 .w-6 {
@@ -2698,6 +2694,10 @@ input:checked + .toggle-bg {
 
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .scroll-smooth {
