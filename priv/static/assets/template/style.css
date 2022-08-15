@@ -1732,8 +1732,32 @@ input:checked + .toggle-bg {
   max-height: 2.5rem;
 }
 
+.max-h-full {
+  max-height: 100%;
+}
+
 .min-h-full {
   min-height: 100%;
+}
+
+.min-h-\[60px\] {
+  min-height: 60px;
+}
+
+.min-h-\[50px\] {
+  min-height: 50px;
+}
+
+.min-h-\[48px\] {
+  min-height: 48px;
+}
+
+.min-h-\[38px\] {
+  min-height: 38px;
+}
+
+.min-h-\[40px\] {
+  min-height: 40px;
 }
 
 .w-6 {
@@ -2674,6 +2698,10 @@ input:checked + .toggle-bg {
 
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
 }
 
 .whitespace-nowrap {
@@ -6677,6 +6705,14 @@ input:checked + .toggle-bg {
   margin: 0 0 0.3rem 0 !important;
 }
 
+[data-color-scheme=dark] {
+  color-scheme: dark;
+}
+
+[data-color-scheme=light] {
+  color-scheme: light;
+}
+
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;
@@ -6749,6 +6785,10 @@ input:checked + .toggle-bg {
 .even\:bg-gray-50:nth-child(even) {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
+.hover\:scroll-auto:hover {
+  scroll-behavior: auto;
 }
 
 .hover\:border-gray-300:hover {
