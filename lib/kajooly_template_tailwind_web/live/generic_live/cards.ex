@@ -145,7 +145,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
               <small class="text-gray-600 dark:text-gray-400"><em><%= assigns[:sub_title] %> </em></small>
             <% end %>
           <% else %>
-            <%= assigns[:title] || "Sin nombre"%>  <br/>
+            <%= if String.length(assigns[:title]) > 20 do "#{String.slice(assigns[:title], 0..20)}..." else assigns[:title] end %>  <br/>
             <small class="text-gray-600 dark:text-gray-400"><em><%= assigns[:sub_title] %> </em></small>
           <% end %>
 
