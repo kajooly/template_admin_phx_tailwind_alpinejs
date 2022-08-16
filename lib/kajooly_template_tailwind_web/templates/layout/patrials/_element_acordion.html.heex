@@ -1,0 +1,49 @@
+<ul class={"space-y-2 #{@class||""}"}>
+  <%= for item <- @list  do %>
+    <li x-data={"{ expanded: #{item[:expanded] || "false"} }"} >
+      <%= if item[:list] != nil  do %>
+        <button @click="expanded = ! expanded"  class={"flex w-full justify-between items-center h-10 px-3 #{ if item[:active] != nil do "text-white bg-blue-600" else "text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-blue-600 hover:bg-opacity-25" end } rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline"}>
+          <%= if item[:icon] != nil do %>
+            <%= raw item.icon %>
+          <% end %>
+          <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">
+            <%= item[:title] || "título" %>
+          </span>
+          <svg sidebar-toggle-item class="w-6 h-6 ml-auto mr-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </button>
+        <ul class={" py-2 space-y-2 w-full border-l-2 border-gray-100 dark:border-gray-700 ml-4"} x-show="expanded" x-collapse>
+          <%= for subitem <- item[:list]  do %>
+            <%= if subitem[:list] != nil  do %>
+              <%= for sublist <- item[:list]  do %>
+                <%= render "patrials/_element_acordion.html", class: "pl-2", list: [sublist] %>
+              <% end %>
+            <% else %>
+              <li>
+                <a href="#"  class={"flex items-center h-10 pl-5 #{ if item[:active] != nil do "text-white bg-blue-600" else "text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-blue-600 hover:bg-opacity-25" end } rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline"}>
+                  <%= if subitem[:icon] != nil do %>
+                    <%= raw subitem.icon %>
+                  <% end %>
+                  <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">
+                    <%= subitem[:title] || "título" %>
+                  </span>
+                </a>
+              </li>
+            <% end %>
+          <% end %>
+          </ul>
+        <% else %>
+          <%= link to: item[:to], class: "flex items-center h-10 px-3 #{ if item[:active] != nil do "text-white bg-blue-600" else "text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-blue-600 hover:bg-opacity-25" end } rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline",
+            ":class": "isCompactMode ? '' : 'p-2'",
+            title: item.title
+             do %>
+                <%= if item[:icon] != nil do %>
+                <%= raw item.icon %>
+                <% end %>
+                <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">
+                    <%= raw item.title %>
+                </span>
+          <% end %>
+        <% end %>
+    </li>
+  <% end %>
+</ul>

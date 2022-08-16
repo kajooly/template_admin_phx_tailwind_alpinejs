@@ -1760,6 +1760,10 @@ input:checked + .toggle-bg {
   max-height: 80%;
 }
 
+.max-h-\[85\%\] {
+  max-height: 85%;
+}
+
 .min-h-full {
   min-height: 100%;
 }
