@@ -180,7 +180,8 @@
             title="Asignaciones"
             to={Routes.layouts_issues_new_path(@socket, :assignments)}
         >
-          <%= for item <- [%{title: "task"},%{title: "task 2"}] do %>
+          <%= for item <- [%{title: "Tarea un un tiítulo bastante largo para saber el acomodo de esta tarea y ver que no se salga de los limites del diseño UI/UX predefinido por el template
+"},%{title: "task_2Palbra_larga_simulando_un_archivo_muy_muy_grande_para_ver_como__se_acomoda_el_texto.xls"}, %{ title: "asdads a asdas"}] do %>
           <.item_list_card
               title={item[:title]}
               sub_title={"área del usuario"}
