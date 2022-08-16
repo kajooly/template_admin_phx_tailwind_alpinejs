@@ -23,7 +23,7 @@ defmodule KajoolyTemplateTailwindWeb.LayoutNotificationsLive.VerticalNavigationN
       <.button_group classbutton_dropdown={classbutton_dropdown} class_dropdown={class_dropdown} class_dropdropdown={class_dropdropdown}} title_dropdown="Link 1." class=" md:w-48 lg:w-60 text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:text-white"
       >
         <:dropdown_title>
-          <.icons_upload class="mr-3 hidden lg:inline" /> Nuevas notificaciones
+          <.icons_bell class="mr-3 hidden lg:inline" /> Nuevas notificaciones
         </:dropdown_title>
         <:buttons
           {%{
@@ -32,7 +32,7 @@ defmodule KajoolyTemplateTailwindWeb.LayoutNotificationsLive.VerticalNavigationN
               to: "#new"
             }
           }>
-          <.icons_upload class="mr-3 hidden lg:inline" />Nuevas notificaciones
+          <.icons_bell class="mr-3 hidden lg:inline" />Nuevas notificaciones
         </:buttons>
         <:buttons
           {%{

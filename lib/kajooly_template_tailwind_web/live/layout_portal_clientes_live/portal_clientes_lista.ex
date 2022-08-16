@@ -1,4 +1,4 @@
-defmodule KajoolyTemplateTailwindWeb.LayoutsLive.Files do
+defmodule KajoolyTemplateTailwindWeb.LayoutsLive.PortalClientesLista do
   use KajoolyTemplateTailwindWeb, :live_view
 
   import  KajoolyTemplateTailwindWeb.GenericLive.Breadcrum
@@ -10,9 +10,6 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.Files do
   import KajoolyTemplateTailwindWeb.GenericLive.Search
   import KajoolyTemplateTailwindWeb.GenericLive.Icons
   import KajoolyTemplateTailwindWeb.GenericLive.Carousel
-  import KajoolyTemplateTailwindWeb.GenericLive.Modal
-  import KajoolyTemplateTailwindWeb.LayoutFilesLive.VerticalNavigationFiles
-  import KajoolyTemplateTailwindWeb.LayoutsLive.FilesIcons
 
   import KajoolyTemplateTailwindWeb.LayoutsLive.FakeDb
 
@@ -28,16 +25,19 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.Files do
 
   defp apply_action(socket, :index, _params) do
     socket
-    |> assign(:page_title, "Lista")
-    #|> put_flash(:info, "Alerta de información ")
-    #|> put_flash(:error, "Alerta de Error 404")
-    #|> put_flash(:warning, "Alerta de Aviso ")
-    #|> put_flash(:success, "Alerta de Éxito ")
-  end
-
-  defp apply_action(socket, :info, _params) do
-    socket
-    |> assign(:page_title, "Información del archivo")
+    |> assign(:page_title, "Inicio de clientes")
+    |> assign(:list, [%{
+      id: "",
+      short_id: "",
+      type: "Acta de naciemiento",
+      title: "CURPQWE-1234-QWER-123",
+      subtitle: "Solicitud de Acta de naciemiento",
+      created_by: "Roberto Torres",
+      status: "Proceso",
+      state: "Abierto",
+      created_at: "2022-06-22 12:38",
+      updated_at: "2022-06-22 12:38"
+    }])
     #|> put_flash(:info, "Alerta de información ")
     #|> put_flash(:error, "Alerta de Error 404")
     #|> put_flash(:warning, "Alerta de Aviso ")

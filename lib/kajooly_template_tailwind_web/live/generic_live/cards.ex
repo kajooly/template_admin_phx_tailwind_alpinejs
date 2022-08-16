@@ -138,23 +138,23 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
     ~H"""
         <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
         <td scope="row" colspan="2" class="flex px-6 pt-1 pb-1 text-left font-medium text-gray-900 dark:text-white whitespace-nowrap">
-          <div class="flex-1 pt-1">
+          <div class="flex-1 pt-1 pr-3 whitespace-normal " title={assigns[:title]}>
           <%= if assigns[:to]!=nil do  %>
             <%= live_patch  to: assigns[:to] do %>
-              <%= assigns[:title] || "Sin nombre"%>  <br/>
+              <%= if String.length(assigns[:title]) > 20 do "#{String.slice(assigns[:title], 0..20)}..." else assigns[:title] end %>  <br/>
               <small class="text-gray-600 dark:text-gray-400"><em><%= assigns[:sub_title] %> </em></small>
             <% end %>
           <% else %>
-            <%= assigns[:title] || "Sin nombre"%>  <br/>
+            <%= if String.length(assigns[:title]) > 20 do "#{String.slice(assigns[:title], 0..20)}..." else assigns[:title] end %>  <br/>
             <small class="text-gray-600 dark:text-gray-400"><em><%= assigns[:sub_title] %> </em></small>
           <% end %>
 
           </div>
 
-          <div class="flex-0 pt-3.5">
+          <div class={"flex-0 #{assigns[:button_close_class] || "pt-3.5"}"}>
 
           <%= if assigns[:button_close] do  %>
-            <%= live_patch "X", to: assigns[:button_close], class: "text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1 text-center mr-2 mb-2 mt-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900", ":class": "isCompactMode ? 'py-2':'py-6" %>
+            <%= live_patch "X", to: assigns[:button_close], class: "text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1 text-center mr-2 mb-2 mt-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900", ":class": "isCompactMode ? 'py-2':'py-6", title: "Borrar" %>
           <% else %>
             <%= render_slot(@inner_block) %>
           <% end %>

@@ -180,17 +180,17 @@
             title="Asignaciones"
             to={Routes.layouts_issues_new_path(@socket, :assignments)}
         >
-        <%= for item <- [%{title: "task"},%{title: "task 2"}] do %>
-         <.item_list_card
-            title={item[:title]}
-            sub_title={"área del usuario"}
-            to="#" opicional
-          >
-            <!-- Botón de borrar -->
-            <%= link "X", to: "#", class: "text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center mr-2 mb-2 mt-3 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900", ":class": "isCompactMode ? 'py-2':'py-6" %>
-         </.item_list_card>
-        <% end %>
-         
+          <%= for item <- [%{title: "Tarea un un tiítulo bastante largo para saber el acomodo de esta tarea y ver que no se salga de los limites del diseño UI/UX predefinido por el template
+"},%{title: "task_2Palbra_larga_simulando_un_archivo_muy_muy_grande_para_ver_como__se_acomoda_el_texto.xls"}, %{ title: "asdads a asdas"}] do %>
+          <.item_list_card
+              title={item[:title]}
+              sub_title={"área del usuario"}
+              to="#" opicional
+            >
+              <!-- Botón de borrar -->
+              <%= link "X", to: "#", class: "text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center mr-2 mb-2 mt-3 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900", ":class": "isCompactMode ? 'py-2':'py-6" %>
+          </.item_list_card>
+          <% end %>
         </.list_card>
 
 

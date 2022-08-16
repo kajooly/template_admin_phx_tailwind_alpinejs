@@ -1,4 +1,4 @@
-defmodule KajoolyTemplateTailwindWeb.LayoutsLive.Files do
+defmodule KajoolyTemplateTailwindWeb.LayoutsLive.PortalClientes do
   use KajoolyTemplateTailwindWeb, :live_view
 
   import  KajoolyTemplateTailwindWeb.GenericLive.Breadcrum
@@ -10,9 +10,6 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.Files do
   import KajoolyTemplateTailwindWeb.GenericLive.Search
   import KajoolyTemplateTailwindWeb.GenericLive.Icons
   import KajoolyTemplateTailwindWeb.GenericLive.Carousel
-  import KajoolyTemplateTailwindWeb.GenericLive.Modal
-  import KajoolyTemplateTailwindWeb.LayoutFilesLive.VerticalNavigationFiles
-  import KajoolyTemplateTailwindWeb.LayoutsLive.FilesIcons
 
   import KajoolyTemplateTailwindWeb.LayoutsLive.FakeDb
 
@@ -28,16 +25,7 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.Files do
 
   defp apply_action(socket, :index, _params) do
     socket
-    |> assign(:page_title, "Lista")
-    #|> put_flash(:info, "Alerta de información ")
-    #|> put_flash(:error, "Alerta de Error 404")
-    #|> put_flash(:warning, "Alerta de Aviso ")
-    #|> put_flash(:success, "Alerta de Éxito ")
-  end
-
-  defp apply_action(socket, :info, _params) do
-    socket
-    |> assign(:page_title, "Información del archivo")
+    |> assign(:page_title, "Inicio de clientes")
     #|> put_flash(:info, "Alerta de información ")
     #|> put_flash(:error, "Alerta de Error 404")
     #|> put_flash(:warning, "Alerta de Aviso ")

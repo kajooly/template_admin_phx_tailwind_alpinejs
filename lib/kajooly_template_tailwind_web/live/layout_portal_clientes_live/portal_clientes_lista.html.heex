@@ -1,0 +1,196 @@
+<div x-data="{ isCompactMode: $persist(false).as('isCompactMode') }" >
+<.breadcrum
+  title="Solicitudes"
+  subtitle="Listado de solicitudes de servicios."
+  pages={[
+      %{ 
+        title: "", 
+        to: "#home",
+        icon: "home"
+      },
+      %{ 
+        title: "Listado de solicitudes de servicio", 
+        to: "#list",
+        icon: "chevron"
+      }
+      ]} />
+<!-- top buttons -->
+<div 
+  class="flex flex-wrap "
+  :class=" isCompactMode ? 'mt-2 mb-0': 'mt-4 mb-4'"
+  >
+  <div class="w-full mb-3 md:flex-1">
+    <.button_group 
+      buttons={[
+          %{ 
+            title: "Todos", 
+            to: "#",
+            borderradius: "left",
+            border: "border-red-500 dark:border-red-500",
+            class: " border-x-0 border-t-0"
+          },
+          %{ 
+            title: "Saldos", 
+            to: "#",
+            borderradius: "center",
+            border: "border-indigo-500 dark:border-indigo-500",
+            class: " border-x-0 border-t-0 hidden lg:inline",
+          },
+          %{ 
+            title: "Documentos", 
+            to: "#",
+            borderradius: "right",
+            border: "border-orange-500 dark:border-orange-500",
+            class: " border-x-0 border-t-0"
+          }
+        ]}
+    />
+  </div>
+  <!-- New button-->
+  <.button  {%{
+    title: "+ Nuevo",
+    borderradius: "only",
+    class: " w-full lg:w-24 md:flex-initial  ",
+    border: "border-green-500 dark:border-green-500",
+    color_class: "text-green-700 bg-green-400   focus:ring-green-700 focus:text-green-7 hover:text-green-800 dark:bg-green-700  dark:text-white dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-500 dark:focus:text-white dark:text-green-300 hover:text-green-700",
+    to: "#new"
+  }} />
+</div>
+<!-- Table -->
+
+<div class="pt-1 bg-gray-100 dark:bg-gray-700 rounded">
+<.table rows={@list} >
+  <!-- Column head -->
+  <:head>
+    <div class="flex" x-data="{ isCompactMode: $persist(false).as('isCompactMode') }">
+      <div class="flex-1  "
+      >
+
+      </div>
+      <div class="flex-0"
+      >
+      <.dropdown title="Ordenar por">
+        <:buttons to={nil}>
+          <%= link "Recientes", to: "#", phx_click: "order_list", phx_value_order: "reciente", class: "w-full h-full pt-2" %>
+        </:buttons>
+        <:buttons to={nil}>
+          <%= link "Antiguos", to: "#", phx_click: "order_list", phx_value_order: "antiguo", class: "w-full h-full pt-2" %>
+        </:buttons>
+      </.dropdown>
+      </div>
+    </div>
+  </:head>
+  <!-- Column data -->
+  <:col let={item} th={nil} class="w-4/12 lg:w-5/12 border border-l-4 border-y-0 border-r-0 border-red-500 ">
+    <div class="flex py-2">
+    <div class="flex-1 ">
+
+    <b class="font-semibold"><%= item[:subtitle] %></b>
+    <span class="text-gray-700 dark:text-gray-300 "><%= item[:title] %></span>
+    <br/>
+    <small class="text-gray-500 dark:text-gray-400">Creado por <b class="text-gray-500 dark:text-gray-200"><%= item[:created_by] %></b> <span x-data={"{ date: '#{item[:created_at]}'}"} x-timeago="date"></span>.</small>
+    </div>
+    <div class="flex-0 ">
+    <.badge color="warning">
+      <%= item[:status] %> 
+    </.badge> 
+    <.badge color="danger">
+      <%= item[:state] %>
+    </.badge>
+    <br/>
+    <small class="text-gray-500 dark:text-gray-400">Actualizado  <span x-data={"{ date: '#{item[:updated_at]}'}"} x-timeago="date"></span>.</small>
+    </div>
+    <div class="flex-0 ">
+
+    <.dropdown {%{
+      title: "",
+        buttons: [
+          %{ 
+            title: "Ver", 
+            to: "#"
+          },
+          %{ 
+            title: "Editar", 
+            to: "#"
+          },
+          %{ 
+            title: "Borrar", 
+            to: "#"
+          },
+      ]}} />
+    </div>
+    </div>
+
+  </:col>
+</.table>
+    </div>
+<!-- Paginate -->
+<div class="flex mt-4 mb-4">
+  <div class="flex-1">
+  <.dropdown {%{
+      title: "Mostrando 100 resultados por página",
+      class: "hidden md:inline",
+      classbutton: "dark:text-gray-500 text-gray-400",
+      classbuttontitle: "dark:text-gray-500 text-gray-400 text-xs",
+      classdrop: "bottom-0 left-0",
+      buttons: [
+          %{ 
+            title: "Ver 100 por página", 
+            to: "#"
+          },
+          %{ 
+            title: "Ver 500 por página", 
+            to: "#"
+          },
+          %{ 
+            title: "Ver 1000 por página", 
+            to: "#"
+          }
+      ]
+    }} />
+  </div>
+  <div class="flex-0">
+    <.button_group 
+      buttons={[
+          %{ 
+            title: "< Anterior", 
+            to: "#",
+            borderradius: "left",
+            class: ""
+          },
+          %{ 
+            title: "1", 
+            to: "#",
+            borderradius: "center",
+            class: ""
+          },
+          %{ 
+            title: "2", 
+            to: "#",
+            borderradius: "center",
+            class: ""
+          },
+          %{ 
+            title: "3", 
+            to: "#",
+            borderradius: "center",
+            class: ""
+          },
+          %{ 
+            title: "...", 
+            class: "hidden md:block",
+            to: "#",
+            borderradius: "center",
+            class: ""
+          },
+          %{ 
+            title: "Siguente >", 
+            to: "#",
+            borderradius: "right",
+            class: ""
+          }
+        ]}
+    />
+  </div>
+</div>
+</div>
