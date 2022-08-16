@@ -20,7 +20,7 @@
   </head>
   <body>
     <div 
-      class="flex bg-gray-100 text-gray-600 dark:bg-gray-800 h-screen" 
+      class="flex bg-gray-100 text-gray-600 dark:bg-gray-800 h-screen overflow-hidden" 
       x-data={"{ isSidebarExpanded: $persist(#{assigns["default_ui"]["isSidebarExpanded"]||"false"}).as('isSidebarExpanded') , isCompactMode: $persist(#{assigns["default_ui"]["isCompactMode"]||"false"}).as('isCompactMode') , isLiquidPage: $persist(#{assigns["default_ui"]["isLiquidPage"]||"false"}).as('isLiquidPage') }"}>
       <%= if !assigns.conn.assigns[:blank_page] do  %>
       <%= render "patrials/_left_menu.html", conn: @conn, assigns: assigns %>
