@@ -41,7 +41,7 @@
         >
         <%= for item   <- assigns.conn.assigns.left_aside.menu.list  do %>
             <%= link to: item[:to] || "#", class: "flex items-center h-10 px-3 #{ if item[:active] != nil do "text-white bg-blue-600" else "text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-blue-600 hover:bg-opacity-25" end } rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline",
-            ":class": "isCompactMode ? 'p-0' : 'p-2'",
+            ":class": "isCompactMode ? '' : 'p-2'",
             title: item.title do %>
                 <%= raw item.icon %>
                 <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">

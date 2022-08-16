@@ -1137,6 +1137,22 @@ input:checked + .toggle-bg {
   top: 2.75rem;
 }
 
+.top-1 {
+  top: 0.25rem;
+}
+
+.top-5 {
+  top: 1.25rem;
+}
+
+.left-16 {
+  left: 4rem;
+}
+
+.left-14 {
+  left: 3.5rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -1626,6 +1642,10 @@ input:checked + .toggle-bg {
 
 .mr-0 {
   margin-right: 0px;
+}
+
+.-ml-2 {
+  margin-left: -0.5rem;
 }
 
 .block {
@@ -8024,6 +8044,10 @@ input:checked + .toggle-bg {
 
   .md\:w-96 {
     width: 24rem;
+  }
+
+  .md\:w-44 {
+    width: 11rem;
   }
 
   .md\:min-w-\[20\%\] {

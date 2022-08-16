@@ -14,6 +14,7 @@
         <span class="ml-2 duration-50 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">
         <%= assigns.conn.assigns.left_aside.options.title %></span>
     </button>
+    <div class="relative">
     <div
     x-cloak
     x-show="open"
@@ -23,8 +24,8 @@
     x-transition:leave="transition ease-in duration-75"
     x-transition:leave-start="transform opacity-100 scale-100"
     x-transition:leave-end="transform opacity-0 scale-95"
-    :class="isSidebarExpanded ?  'relative  left-15 top-15 w-66' : 'absolute left-12  w-52' " 
-    class="z-10 flex flex-col mt-3 border rounded-lg  shadow-lg border-gray-100  dark:border-gray-700  
+    :class="isSidebarExpanded ?  'relative  left-15 top-15 w-66' : isCompactMode ? 'absolute bottom-0 left-12 w-52 rounded' : 'absolute bottom-0 left-14 w-60 rounded-lg' " 
+    class="z-10 flex flex-col mt-3 border   shadow-lg border-gray-100  dark:border-gray-700  
     bg-white
     dark:border-gray-800  
     dark:bg-gray-800
@@ -32,24 +33,28 @@
     <%= if assigns.conn.assigns.left_aside.options.isCompactMode.display do %>
         <button 
             @click="isCompactMode = !isCompactMode"
-            class="flex items-center h-8 px-3 py-6 text-sm rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
+            class="flex items-center hover:bg-gray-200 dark:hover:bg-gray-700"
+            :class=" isCompactMode ? 'h-6 px-3 py-4 text-xs rounded' : 'h-8 px-3 py-6 text-sm rounded-lg' "
             x-text={"isCompactMode ? '#{assigns.conn.assigns.left_aside.options.isCompactMode.title_on}':'#{assigns.conn.assigns.left_aside.options.isCompactMode.title_off}'"}
         ></button>
     <% end %>
     <%= if assigns.conn.assigns.left_aside.options.isSidebarExpanded.display do %>
         <button 
             @click="isSidebarExpanded = !isSidebarExpanded"
-            class="flex items-center h-8 px-3 py-6 text-sm rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
+            class="flex items-center hover:bg-gray-200 dark:hover:bg-gray-700"
+            :class=" isCompactMode ? 'h-6 px-3 py-4 text-xs rounded' : 'h-8 px-3 py-6 text-sm rounded-lg' "
             x-text={"isSidebarExpanded ? '#{assigns.conn.assigns.left_aside.options.isSidebarExpanded.title_on}':'#{assigns.conn.assigns.left_aside.options.isSidebarExpanded.title_off}'"}
         ></button>
     <% end %>
     <%= if assigns.conn.assigns.left_aside.options.isLiquidPage.display do %>
         <button 
             @click="isLiquidPage = !isLiquidPage"
-            class="flex items-center h-8 px-3 py-6 text-sm rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
+            class="flex items-center hover:bg-gray-200 dark:hover:bg-gray-700"
+            :class=" isCompactMode ? 'h-6 px-3 py-4 text-xs rounded' : 'h-8 px-3 py-6 text-sm rounded-lg' "
             x-text={"isLiquidPage ? '#{assigns.conn.assigns.left_aside.options.isLiquidPage.title_on}':'#{assigns.conn.assigns.left_aside.options.isLiquidPage.title_off}'"}
         ></button>
     <% end %>
+  </div>
   </div>
 </div>
 <% end %>
