@@ -24,6 +24,28 @@
 <!-- Table -->
 
 </div>
+<div class="flex">
+  <div class="min-w-[500px] mx-auto border border-gray-200 dark:border-gray-500 bg-gray-100 dark:bg-gray-900 px-8 py-3 rounded">
+
+      <.steper
+        class="items-right flex w-full"
+        cicle_color="purple"
+        border_color="purple"
+        cicle_color_active="purple"
+        border_color_active="pink"
+        list={[
+          %{
+            index: "1",
+            title: "Paso 1",
+            active: false
+          },%{
+            index: " 2",
+            title: "Paso 2",
+            active: true
+          }
+      ]}/>
+  </div>
+</div>
 
 <.steper
   class="items-right flex w-full my-8"
@@ -39,14 +61,14 @@
     },%{
       index: " 2",
       title: "Paso 2",
-      active: true
+      active: false
     },%{
       index: " 3",
       title: "Paso 3"
     },%{
       index: " 4",
       title: "Paso 4",
-      active: false
+      active: true
     },%{
       index: " 5",
       title: "Paso 5"
