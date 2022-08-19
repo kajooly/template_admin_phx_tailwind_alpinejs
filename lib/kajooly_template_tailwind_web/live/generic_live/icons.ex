@@ -477,4 +477,11 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Icons do
       </svg>
     """
   end
+  def icons_external_link (assigns) do
+    ~H"""
+      <svg xmlns="http://www.w3.org/2000/svg" id={assigns[:id]||"icons_external_link#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke={assigns[:stroke]||"currentColor"} stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      </svg>
+    """
+  end
 end
