@@ -47,8 +47,8 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Text do
 
     """
   def gen_id_key() do
-    min = String.to_integer("100000", 36)
-    max = String.to_integer("ZZZZZZ", 36)
+    min = String.to_integer("100000000000", 36)
+    max = String.to_integer("ZZZZZZZZZZZZ", 36)
     max
     |> Kernel.-(min)
     |> :rand.uniform()
