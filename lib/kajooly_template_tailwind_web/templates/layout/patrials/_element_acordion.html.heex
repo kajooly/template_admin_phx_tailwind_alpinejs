@@ -20,14 +20,14 @@
               <% end %>
             <% else %>
               <li>
-                <a href="#"  class={"flex items-center h-10 pl-5 #{ if item[:active] != nil do "text-white bg-blue-600" else "text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-blue-600 hover:bg-opacity-25" end } rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline"}>
+                <%= link to: subitem[:to], class: "flex items-center h-10 pl-5 #{ if item[:active] != nil do "text-white bg-blue-600" else "text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-blue-600 hover:bg-opacity-25" end } rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline" do %>
                   <%= if subitem[:icon] != nil do %>
                     <%= raw subitem.icon %>
                   <% end %>
                   <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">
                     <%= subitem[:title] || "título" %>
                   </span>
-                </a>
+                <% end %>
               </li>
             <% end %>
           <% end %>
