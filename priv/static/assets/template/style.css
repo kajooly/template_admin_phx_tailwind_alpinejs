@@ -7755,6 +7755,11 @@ input:checked + .toggle-bg {
   --tw-ring-color: rgb(240 82 82 / var(--tw-ring-opacity));
 }
 
+.dark .dark\:ring-gray-800 {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(31 41 55 / var(--tw-ring-opacity));
+}
+
 .dark .dark\:ring-offset-gray-800 {
   --tw-ring-offset-color: #1F2937;
 }
