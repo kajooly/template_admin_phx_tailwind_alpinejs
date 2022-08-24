@@ -61,15 +61,10 @@
         <ul :class="isCompactMode ? 'my-2 space-y-3' : 'my-4 space-y-3'">
         <%= if length(@assigns[:list]) > 0 do %>
             <%= for item <- @assigns[:list] do %>
-
                 <li>
-                    <a href="#" 
-                        class="flex items-center text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
-                        :class="isCompactMode ? 'px-2 py-1' : 'p-3'"
-                        >
-                        
+                    <%= link to: item[:to], class: "flex items-center text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white", ":class": "isCompactMode ? 'px-2 py-1' : 'p-3'" do  %>
                         <span class="flex-1 ml-3 whitespace-nowrap"><%= item[:title]%></span>
-                    </a>
+                    <% end %>
                 </li>
             <% end %>
         <% end %>
