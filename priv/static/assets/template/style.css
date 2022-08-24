@@ -8745,6 +8745,10 @@ input:checked + .toggle-bg {
     width: 24rem;
   }
 
+  .md\:w-52 {
+    width: 13rem;
+  }
+
   .md\:min-w-0 {
     min-width: 0px;
   }
