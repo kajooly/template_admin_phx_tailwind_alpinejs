@@ -132,19 +132,19 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
   """
   def simple_accordion (assigns) do
     ~H"""
-      <div id="accordion-collapse" data-accordion="collapse" class={assigns[:class]}>
+      <div id="accordion-collapse" data-accordion="collapse" class={assigns[:class]} x-data="{ isCompactMode: $persist(false).as('isCompactMode') }">
         <%= if assigns[:item] != nil do %>
           <%= for item <- assigns[:item] do %>
             <div  x-data={"{ expanded: #{if item[:show] do "true" else "false" end } }"} >
-              <button type="button" class={"flex items-center justify-between w-full p-5 font-medium text-left border border-gray-200  dark:border-gray-700
-
+              <button type="button" class={"flex items-center justify-between w-full  font-medium text-left border border-gray-200  dark:border-gray-700
               #{case item[:position] do
                   "top" ->  "rounded-t-xl border-b-0"
                   "bottom" -> " "
                   _ -> "border-b-0"
                   end}
               " }
-              :class=" expanded ? 'focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white' : ''"
+              :class="expanded ? isCompactMode ? 'px-5 py-2 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white': 'p-5 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white'  : isCompactMode ? 'px-5 py-2': 'p-5'"
+              :class=" isCompactMode ? 'px-5 py-2': 'p-5'"
               @click="expanded = ! expanded" >
                 <span><%= item[:title] %></span>
                 <svg data-accordion-icon="" class="w-6 h-6  shrink-0" :class=" expanded ? 'rotate-180' : '' "
