@@ -157,7 +157,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
                 x-transition:leave="transition ease-in duration-75"
                 x-transition:leave-start="transform opacity-100 scale-100"
                 x-transition:leave-end="transform opacity-0 scale-95">
-                <div class={"font-light border #{if item[:position] != "bottom" do "border-b-0 " else "rounded-b-xl " end }  border-gray-200 dark:border-gray-700 dark:bg-gray-900 #{assigns[:class_body] || "p-4" }"}>
+                <div class={"font-light border #{if item[:position] != "bottom" do "border-b-0 " else "rounded-b-xl " end }  border-gray-200 dark:border-gray-700 dark:bg-gray-900 #{item[:class_body] || "p-4" }"}>
                   <%= item[:text] || render_slot(item) %>
                 </div>
               </div>
