@@ -151,10 +151,10 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
       </div>
     """
   end
-  def list_card_class_button_remove(assigns) do
-    "text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center mr-2 mb-2 mt-3 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900 #{assigns[:class]}"
+  def list_card_class_button(assigns) do
+    "text-#{assigns[:border_color] || assigns[:color] || "red"}-700 hover:text-white border border-#{assigns[:border_color] || assigns[:color] || "red"}-700 hover:bg-#{assigns[:bg_color] || assigns[:color] || "red"}-800 focus:ring-4 focus:outline-none focus:ring-#{assigns[:border_color] || assigns[:color] || "red"}-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center mr-2 mb-2 mt-3 dark:border-#{assigns[:border_color] || assigns[:color] || "red"}-500 dark:text-#{assigns[:border_color] || assigns[:color] || "red"}-500 dark:hover:text-white dark:hover:bg-#{assigns[:bg_color] || assigns[:color] || "red"}-600 dark:focus:ring-#{assigns[:border_color] || assigns[:color] || "red"}-900 #{assigns[:class]}"
   end
-  def list_card_class_button_remove_compact_mode(_assigns) do
+  def list_card_class_button_compact_mode(_assigns) do
     "isCompactMode ? 'py-2':'py-6"
   end
 
