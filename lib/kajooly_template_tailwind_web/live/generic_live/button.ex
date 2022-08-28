@@ -134,4 +134,59 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
     """
   end
 
+
+  @doc """
+
+  default_class_content_list_button
+
+  Live Controler code:
+
+    import KajoolyTemplateTailwindWeb.GenericLive.Button
+
+  ## Examples
+
+
+    <div class={default_class_content_list_button(%{ class: "" })}>
+      ...
+    </div>
+  """
+  def default_class_content_list_button(assigns) do
+    "w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white #{assigns[:class]}"
+  end
+
+  @doc """
+
+  default_class_list_button
+
+  Live Controler code:
+
+    import KajoolyTemplateTailwindWeb.GenericLive.Button
+
+  ## Examples
+
+ <div class={default_class_content_list_button(%{ class: "" })}>
+    <div class={default_class_list_button(%{  class: "" , state: "nil,active,disabled", position, "nil,top,bottom"})}>
+      ...
+    </div>
+  </div>
+
+  """
+  def default_class_list_button(assigns) do
+    " py-2 px-4 w-full font-medium text-left  border-gray-200 cursor-pointer focus:outline-none dark:border-gray-600
+    #{
+      case assigns[:state] do
+      "active" ->  "dark:bg-gray-800 text-white bg-blue-700"
+      "disabled" -> " bg-gray-100 cursor-not-allowed dark:bg-gray-600 dark:text-gray-400"
+      _ -> "hover:bg-gray-100 hover:text-blue-700 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+      end}
+    #{
+      case assigns[:position] do
+      "top" ->  "rounded-t-lg "
+      "bottom" -> " border-t rounded-b-lg"
+      _ -> " border-t"
+      end}
+      #{assigns[:class]||""}
+      "
+  end
+
 end
