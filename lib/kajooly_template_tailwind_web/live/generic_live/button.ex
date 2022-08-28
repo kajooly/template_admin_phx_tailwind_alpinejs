@@ -177,8 +177,8 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
     #{
       case assigns[:state] do
       "active" ->  "cursor-pointer dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-800 text-white bg-blue-700"
-      "disabled" -> "bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-100  dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-600 dark:text-#{ assigns[:border_color] || assigns[:color] || "gray" }-400"
-      "title" -> " bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-100 cursor-not-allowed dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-600 dark:text-#{ assigns[:border_color] || assigns[:color] || "gray" }-400"
+      "disabled" -> "bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-100 cursor-not-allowed dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-600 dark:text-#{ assigns[:border_color] || assigns[:color] || "gray" }-400"
+      "title" -> " bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-100  dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-800 dark:text-#{ assigns[:border_color] || assigns[:color] || "gray" }-200"
       _ -> "cursor-pointer hover:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-100 hover:text-blue-700 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-#{ assigns[:border_color] || assigns[:color] || "gray" }-600 dark:hover:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
       end}
     #{
