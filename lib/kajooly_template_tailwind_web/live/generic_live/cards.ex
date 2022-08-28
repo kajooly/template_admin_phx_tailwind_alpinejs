@@ -41,7 +41,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
   def simple_card_a(assigns) do
     #IO.inspect assigns.link   , label: "assings"
     ~H"""
-      <div class={ assigns[:class] || "p-4 mb-3 w-full bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 #{assigns[:add_class]}" }>
+      <div class={ assigns[:class] || default_class_content_card(%{class: assigns[:add_class]}) }>
         <div class="flex">
           <h5 class="flex-1 mb-2 text-xs font-bold tracking-tight text-gray-900 dark:text-white pt-2">
             <%= render_slot(@title) %>
@@ -62,6 +62,24 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
       </div>
 
     """
+  end
+  @doc """
+
+  default_class_content_card
+
+  Live Controler code:
+
+    import KajoolyTemplateTailwindWeb.GenericLive.Cards
+
+  ## Examples
+
+
+    <div class={default_class_content_card(%{ class: "" })}>
+      ...
+    </div>
+  """
+  def default_class_content_card(assigns) do
+    "p-4 mb-3 w-full bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 #{assigns[:class]}"
   end
 
   @doc """
