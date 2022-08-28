@@ -151,7 +151,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
     </div>
   """
   def default_class_content_list_button(assigns) do
-    "w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white #{assigns[:class]}"
+    "w-full text-sm font-medium text-gray-900 bg-white dark:bg-gray-700 rounded-lg border border-gray-200  dark:border-gray-600 dark:text-white #{assigns[:class]}"
   end
 
   @doc """
@@ -179,7 +179,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
       "active" ->  "cursor-pointer dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-800 text-white bg-blue-700"
       "disabled" -> "bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-100 cursor-not-allowed dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-600 dark:text-#{ assigns[:border_color] || assigns[:color] || "gray" }-400"
       "title" -> " bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-100  dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-800 dark:text-#{ assigns[:border_color] || assigns[:color] || "gray" }-200"
-      _ -> "cursor-pointer hover:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-100 hover:text-blue-700 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-#{ assigns[:border_color] || assigns[:color] || "gray" }-600 dark:hover:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+      _ -> "cursor-pointer bg-#{ assigns[:bg_color] || assigns[:color] || "white" } dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-700  hover:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-100 hover:text-blue-700 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-#{ assigns[:border_color] || assigns[:color] || "gray" }-600 dark:hover:bg-#{ assigns[:bg_color] || assigns[:color] || "gray" }-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
       end}
     #{
       case assigns[:position] do
