@@ -55,5 +55,19 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Text do
     |> Kernel.+(min)
     |> Integer.to_string(36)
   end
+  @doc """
+
+    iex> gen_number()
+
+
+    """
+  def gen_number() do
+    min = 10
+    max = 99
+    max
+    |> Kernel.-(min)
+    |> :rand.uniform()
+    |> Kernel.+(min)
+  end
 
 end
