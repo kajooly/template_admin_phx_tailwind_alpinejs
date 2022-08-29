@@ -121,7 +121,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
       style: assigns[:style] || "__no_style: false;",
       type: "button",
       "alt": assigns[:title] || "",
-      title: assigns[:title] || "",
+      title: assigns[:description] || assigns[:title] || "",
       id: id
       do %>
       <%= if assigns[:two_charter] do %>
