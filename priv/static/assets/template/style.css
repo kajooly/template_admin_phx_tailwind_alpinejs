@@ -7449,6 +7449,10 @@ input:checked + .toggle-bg {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
+.hover\:inline:hover {
+  display: inline;
+}
+
 .hover\:scroll-auto:hover {
   scroll-behavior: auto;
 }
