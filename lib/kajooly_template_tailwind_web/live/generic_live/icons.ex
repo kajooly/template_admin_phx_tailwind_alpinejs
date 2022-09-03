@@ -484,4 +484,18 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Icons do
       </svg>
     """
   end
+  def icons_device_phone_mobile (assigns) do
+    ~H"""
+      <svg xmlns="http://www.w3.org/2000/svg" id={assigns[:id]||"icons_device_phone_mobile#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke={assigns[:stroke]||"currentColor"}>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+      </svg>
+    """
+  end
+  def icons_squares_plus (assigns) do
+    ~H"""
+      <svg xmlns="http://www.w3.org/2000/svg" id={assigns[:id]||"icons_squares_plus#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke={assigns[:stroke]||"currentColor"}>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z" />
+      </svg>
+    """
+  end
 end
