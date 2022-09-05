@@ -132,7 +132,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
   def list_card(assigns) do
     ~H"""
       <div class="w-full static ">
-        <div class="flex  mb-2">
+        <div class="md:flex  mb-2">
           <div class="flex-1">
             <h6 class="mb-3 text-sm font-medium text-gray-900 dark:text-gray-600 text-left pl-4 mt-1"> <%= assigns[:title] %> </h6>
           </div>
