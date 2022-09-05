@@ -59,7 +59,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
 
 
   def default_class_button(assigns) do
-    "px-4 text-center font-medium focus:ring-2 focus:z-10 #{assigns[:color_class] || " bg-white dark:bg-gray-700   #{if assigns[:disabled] do " dark:text-gray-500  text-gray-400 " else "  dark:hover:bg-gray-600 dark:focus:ring-gray-500  focus:ring-gray-700 dark:focus:text-white dark:text-gray-300 hover:text-gray-700 text-gray-900 focus:text-gray-700 dark:text-white dark:hover:text-white" end}  "}  #{assigns[:class]} #{
+    "px-4 text-center font-medium focus:ring-2 focus:z-10 #{assigns[:color_class] || " bg-white dark:bg-#{assigns[:color_bg] || assigns[:color]  || "gray"}-700   #{if assigns[:disabled] do " dark:text-gray-500  text-gray-400 " else "  dark:hover:bg-##{assigns[:color_bg] || assigns[:color] || "gray"}}-600 dark:focus:ring-gray-500  focus:ring-gray-700 dark:focus:text-white dark:text-gray-300 hover:text-gray-700 text-gray-900 focus:text-gray-700 dark:text-white dark:hover:text-white" end}  "}  #{assigns[:class]} #{
       case assigns[:borderradius] do
       "left" ->  "rounded-l-md border border-r-0"
       "center" -> "border-t border-b"
@@ -68,8 +68,8 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
       "box" -> " border"
       _ -> ""
       end}
-      #{assigns[:border] || "dark:border-gray-600 border-gray-200 hover:bg-gray-100 "}
-      #{ if assigns[:active] != nil do " border-l ring-1 ring-sky-400 bg-gray-100 dark:bg-gray-600" else " " end  }
+      #{assigns[:border] || "dark:border-#{assigns[:color_border] || assigns[:color]  || "gray"}-600 border-#{assigns[:color_border] || assigns[:color]  || "gray"}-200 hover:bg-##{assigns[:color_bg] || assigns[:color] || "gray"}}-100 "}
+      #{ if assigns[:active] != nil do " border-l ring-1 ring-sky-400 bg-##{assigns[:color_bg] || assigns[:color] || "gray"}}-100 dark:bg-##{assigns[:color_bg] || assigns[:color] || "gray"}}-600" else " " end  }
       #{ if assigns[:disabled] != nil do " border-l ring-1 ring-gray-100 dark:ring-gray-800 " else " " end  }
       "
   end

@@ -4828,6 +4828,10 @@ input:checked + .toggle-bg {
   padding-left: 2.75rem;
 }
 
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
 .pt-2\.5 {
   padding-top: 0.625rem;
 }
@@ -4878,10 +4882,6 @@ input:checked + .toggle-bg {
 
 .pr-4 {
   padding-right: 1rem;
-}
-
-.pl-2 {
-  padding-left: 0.5rem;
 }
 
 .pr-8 {
@@ -10421,16 +10421,16 @@ input:checked + .toggle-bg {
     padding-right: 2.5rem;
   }
 
+  .md\:pl-0 {
+    padding-left: 0px;
+  }
+
   .md\:pr-8 {
     padding-right: 2rem;
   }
 
   .md\:pr-6 {
     padding-right: 1.5rem;
-  }
-
-  .md\:pl-0 {
-    padding-left: 0px;
   }
 
   .md\:leading-tight {
