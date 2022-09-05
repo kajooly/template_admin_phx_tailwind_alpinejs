@@ -10429,6 +10429,10 @@ input:checked + .toggle-bg {
     padding-right: 1.5rem;
   }
 
+  .md\:pl-0 {
+    padding-left: 0px;
+  }
+
   .md\:leading-tight {
     line-height: 1.25;
   }

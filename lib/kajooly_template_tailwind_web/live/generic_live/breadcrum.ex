@@ -39,7 +39,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Breadcrum do
     <span
     x-data="{  isCompactMode: $persist(false).as('isCompactMode')  }"
     >
-      <nav class="flex" aria-label="Breadcrumb"
+      <nav class="md:flex pl-2 md:pl-0" aria-label="Breadcrumb"
       :class=" isCompactMode ? 'mb-2' : 'mb-6'"
       >
         <%=  if assigns[:title] != nil do %>
