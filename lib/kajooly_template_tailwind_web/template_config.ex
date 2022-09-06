@@ -5,7 +5,10 @@ defmodule KajoolyTemplateTailwindWeb.TemplateConfig do
       lang: "es",
       head: %{
         title:  "Kajooly site",
-        suffix: " · Phoenix Framework"
+        suffix: " · Phoenix Framework",
+        meta_raw: "
+          <meta content=\"test\" />
+        "
       },
       default_ui: %{
         isSidebarExpanded: true,
