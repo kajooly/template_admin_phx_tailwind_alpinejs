@@ -47,8 +47,9 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Form do
     form_input_search(%{})
   end
   def form_input_search_button(assigns) do
-    "absolute top-0 right-0 text-sm font-medium text-white bg-#{ assigns[:bg_color] || assigns[:color] || "blue"}-700 rounded-r-lg border border-blue-700 hover:bg-#{ assigns[:bg_color] || assigns[:color] || "blue"}-800 focus:ring-4 focus:outline-none focus:ring-#{ assigns[:focus_color] || "blue" }-300 dark:bg-#{ assigns[:bg_color] || assigns[:color] || "blue"}-600 dark:hover:bg-#{ assigns[:bg_color] || assigns[:color] || "blue"}-700 dark:focus:ring-#{ assigns[:focus_color] || "blue" }-800"
+    "absolute p-2 top-0 right-0 text-sm font-medium text-white bg-#{ assigns[:bg_color] || assigns[:color] || "blue"}-700 rounded-r-lg border border-blue-700 hover:bg-#{ assigns[:bg_color] || assigns[:color] || "blue"}-800 focus:ring-4 focus:outline-none focus:ring-#{ assigns[:focus_color] || "blue" }-300 dark:bg-#{ assigns[:bg_color] || assigns[:color] || "blue"}-600 dark:hover:bg-#{ assigns[:bg_color] || assigns[:color] || "blue"}-700 dark:focus:ring-#{ assigns[:focus_color] || "blue" }-800"
   end
+  @spec form_input_search_button :: <<_::64, _::_*8>>
   def form_input_search_button do
     form_input_search_button(%{})
   end
