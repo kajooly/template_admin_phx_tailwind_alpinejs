@@ -1,7 +1,7 @@
 <header 
   class="flex items-center pr-0 md:pr-6 bg-white dark:bg-gray-800 dark:text-gray-300 "
   :class="isCompactMode ? 'h-10' : 'h-12 '" >
-  <a href="#" 
+  <a href={Routes.static_path(@conn, "/")} 
     class="flex items-center px-2 bg-white text-gray-600 dark:text-gray-300  dark:bg-gray-800 hover:text-gray-700 
     hover:bg-opacity-50 focus:outline-none focus:text-gray-900   focus:bg-opacity-50 overflow-hidden md:hidden"
     :class="isCompactMode ? 'h-10' : 'h-12'"
