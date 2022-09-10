@@ -1,4 +1,4 @@
-<div class="backdrop-blur-sm bg-white/30 dark:bg-gray-900/30 w-full h-full absolute md:hidden " 
+<div class="backdrop-blur-sm bg-white/30 dark:bg-gray-900/30 w-full h-full absolute md:hidden z-50" 
 @click="isSidebarExpanded = !isSidebarExpanded"
 :class="isSidebarExpanded ?  '' : 'hidden'"
 x-transition:enter="transition ease-out duration-100"
@@ -8,7 +8,6 @@ x-transition:leave="transition ease-in duration-75"
 x-transition:leave-start="transform opacity-100 scale-100"
 x-transition:leave-end="transform opacity-0 scale-95"
 >
-Hola mundo
 </div>
 <aside class="flex flex-col  text-gray-300 bg-white dark:text-gray-400 dark:bg-gray-800 transition-all duration-200 ease-in-out z-50" :class="isSidebarExpanded ? isCompactMode ? 'w-80 md:w-64 text-xs absolute top-0 left-0 min-h-full md:relative' : 'w-80 md:w-64 absolute top-0 left-0 min-h-full md:relative'  : isCompactMode ? 'w-12 hidden md:block' : 'w-16 hidden md:block'">
     <a href={Routes.static_path(@conn, "/")} 
