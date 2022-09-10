@@ -42,6 +42,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
       ":class": default_class_copact(),
       type: "button",
       title: assigns[:title] || "",
+      target: assigns[:target] || nil,
       disabled: assigns[:disabled] || true
       do %>
       <%= assigns[:title] || render_slot(@inner_block) %>
