@@ -32,6 +32,7 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     live "/layout/colors", LayoutsLive.Colors, :index
     live "/layout/grid", LayoutsLive.Grid, :index
     live "/layout/profile", LayoutsLive.Profile, :index
+    live "/layout/special", LayoutsLive.Special, :index
 
     live "/layout/step-a", LayoutsLive.Stepa, :index
 
