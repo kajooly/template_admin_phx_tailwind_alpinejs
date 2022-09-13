@@ -54,12 +54,28 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Form do
     form_input_search_button(%{})
   end
 
-  def form_textarea_button(assigns) do
+  def form_textarea(assigns) do
     "block p-2.5 w-full text-sm text-gray-900 bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-50 rounded-lg border border-#{ assigns[:border_color] || assigns[:color] || "gray" }-300 focus:ring-#{ assigns[:focus_color] || "blue" }-500 focus:border-#{ assigns[:focus_color] || "blue" }-500 dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-700 dark:border-#{ assigns[:border_color] || assigns[:color] || "gray" }-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-#{ assigns[:focus_color] || "blue" }-500 dark:focus:border-#{ assigns[:focus_color] || "blue" }-500"
   end
 
-  def form_textarea_button do
-    form_textarea_button(%{})
+  def form_textarea do
+    form_textarea(%{})
+  end
+
+  def form_checkbox(assigns) do
+    "w-4 h-4 bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-50 rounded border border-#{ assigns[:border_color] || assigns[:color] || "gray" }-300 focus:ring-3 focus:ring-#{ assigns[:focus_color] || "blue" }-300 dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-700 dark:border-#{ assigns[:border_color] || assigns[:color] || "gray" }-600 dark:focus:ring-#{ assigns[:focus_color] || "blue" }-600 dark:ring-offset-#{ assigns[:border_color] || assigns[:color] || "gray" }-800"
+  end
+
+  def form_checkbox do
+    form_checkbox(%{})
+  end
+
+  def form_checkbox_label(assigns) do
+    "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+  end
+
+  def form_checkbox_label do
+    form_checkbox_label(%{})
   end
 
 end
