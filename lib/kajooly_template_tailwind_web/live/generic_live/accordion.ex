@@ -101,7 +101,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
 
   Live Controler code:
 
-    import KajoolyTemplateTailwindWeb.GenericLive.Sitemap
+    import KajoolyTemplateTailwindWeb.GenericLive.Accordion
 
 
   ## Examples
