@@ -10,10 +10,6 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Text do
 
       import KajoolyTemplateTailwindWeb.GenericLive.Text
 
-    """
-
-
-  @doc """
 
     iex> text_to_two_char(string)
 

@@ -10,9 +10,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Colors do
 
       import KajoolyTemplateTailwindWeb.GenericLive.Color
 
-    """
 
-  @doc """
 
     iex> rand_color_leter("R")
 

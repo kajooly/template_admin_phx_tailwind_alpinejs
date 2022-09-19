@@ -121,7 +121,6 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
       ":class": "isCompactMode ? 'w-8 h-8 text-xs':'w-10 h-10 text-sm'",
       style: assigns[:style] || "__no_style: false;",
       type: "button",
-      "alt": assigns[:title] || "",
       title: assigns[:description] || assigns[:title] || "",
       id: id
       do %>
