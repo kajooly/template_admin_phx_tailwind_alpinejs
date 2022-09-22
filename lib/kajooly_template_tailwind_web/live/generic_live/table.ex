@@ -21,6 +21,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
     ~H"""
     <div class={"relative shadow-md sm:rounded-lg z-0 #{assigns[:class]}"} x-data="{ isCompactModeButton: $persist(false).as('isCompactMode') }">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 rounded-lg">
+        <%= if @head != nil do %>
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 rounded-t-lg ">
           <tr class="rounded-t-lg  bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <%= for head <- @head do %>
@@ -30,6 +31,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
             <% end %>
           </tr>
         </thead>
+        <% end %>
         <tbody class={assigns[:class_body]} style={assigns[:style_body]}>
           <%= for row <- @rows do %>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
