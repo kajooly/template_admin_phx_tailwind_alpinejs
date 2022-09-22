@@ -85,7 +85,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Badges do
   end
 
   def badge_class(assigns) do
-    "text-xs font-semibold mr-2 px-2.5 py-0.5 rounded #{case assigns[:color] do
+    "#{assigns[:text]||"text-xs font-semibold"} mr-2 px-2.5 py-0.5 rounded #{case assigns[:color] do
       "secondary" -> "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
       "danger" -> "bg-red-100 text-red-800 dark:bg-red-200 dark:text-red-900"
       "success" -> "bg-green-100 text-green-800 dark:bg-green-200 dark:text-green-900"
