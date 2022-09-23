@@ -21,6 +21,9 @@
       ]} />
 <!-- top buttons -->
 <!-- Table -->
+      <.badge color="warning" to="#"><.icons_home /> home </.badge>
+      <.badge color="warning" type="div"><.icons_home /> home </.badge>
+
 <.table rows={@list} >
   <!-- Column head -->
   <:head class="w-4/12 lg:w-5/12 text-gray-700 dark:text-gray-300  pt-1">
@@ -290,6 +293,32 @@
 </.table>
 
 
+<.table rows={@list} class="mt-4" class_body="overflow-y-auto" style_body="max-height: 280px;">
+  <!-- Column head -->
+  <:head  colspan="1">Id</:head>
+  <:head  colspan="1">Name</:head>
+  <:head  colspan="1">alias</:head>
+  <:head  colspan="1">Status</:head>
+
+  <!-- Column data -->
+  <:col colspan="1" let={item} th={nil}>
+    <%= item.title %>
+  </:col>
+   <:col colspan="1" let={item} >
+    <%= item.title %> 
+  </:col>
+  <:col colspan="1" let={item} >
+    <div class="py-3 px-1">
+    <%= item.title %> 
+    </div>
+  </:col>
+  
+  <:col let={item} >
+    <%= item.state %> 
+  </:col>
+
+</.table>
+
 
 
 <.table rows={[]} class="mt-4">
@@ -298,6 +327,26 @@
   <:head  colspan="1">Lista vacía</:head>
   <:head  colspan="1">Lista vacía</:head>
   <:head  colspan="1">Lista vacía</:head>
+  <!-- Column data -->
+  <:col colspan="1" let={item} th={nil}>
+    <%= item.title %>
+  </:col>
+  <:col colspan="1" let={item} th={nil}>
+    <%= item.title %>
+  </:col>
+  <:col colspan="1" let={item} th={nil}>
+    <%= item.title %>
+  </:col>
+  <:col colspan="1" let={item} th={nil}>
+    <%= item.title %>
+  </:col>
+
+</.table>
+
+
+
+<.table rows={[]} class="mt-4" head={[]}>
+  <!-- Column head -->
   <!-- Column data -->
   <:col colspan="1" let={item} th={nil}>
     <%= item.title %>
