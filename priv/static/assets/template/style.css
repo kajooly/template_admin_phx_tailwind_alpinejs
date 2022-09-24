@@ -3444,6 +3444,10 @@ input:checked + .toggle-bg {
   scroll-behavior: smooth;
 }
 
+.text-clip {
+  text-overflow: clip;
+}
+
 .whitespace-normal {
   white-space: normal;
 }

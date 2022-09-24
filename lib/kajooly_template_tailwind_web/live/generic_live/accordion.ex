@@ -169,4 +169,21 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
     """
   end
 
+  def text_accordion (assigns) do
+    ~H"""
+      <div x-data="{ open: false , isCompactMode: $persist(false).as('isCompactMode') }">
+        <div class="flex">
+          <div class="flex-1 mt-2 text-sm text-gray-700 dark:text-gray-400 text-clip overflow-hidden" :class=" open ? '' : 'h-5' "><%=
+            assigns[:text]
+              |> String.split("\n", trim: false)
+              |> Enum.intersperse(Phoenix.HTML.Tag.tag(:br))  || render_slot(@inner_block)
+          %></div>
+        </div>
+        <div class="w-full flex justify-center mb-2" >
+          <button @click="open = ! open" class="mx-auto text-gray-500 text-xs border px-2 py-1 border-gray-500 rounded-lg" x-text="open ? 'Ocultar':'Ver más' "></button>
+        </div>
+        </div>
+    """
+  end
+
 end
