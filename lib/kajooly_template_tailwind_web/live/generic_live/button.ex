@@ -38,6 +38,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
     ~H"""
     <span x-data="{ isCompactModeButton: $persist(false).as('isCompactMode') }" class={"#{assigns[:class_span]} focus:z-10 #{ if assigns[:active] != nil do " z-10" end  } " }>
     <%= live_patch to: assigns[:to], class: default_class_button(assigns),
+      id: assigns[:id],
       style: assigns[:style] || "",
       ":class": default_class_copact(),
       type: "button",
