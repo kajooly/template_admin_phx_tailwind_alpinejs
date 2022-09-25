@@ -61,7 +61,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
 
 
   def default_class_button(assigns) do
-    "px-4 text-center font-medium focus:ring-2 focus:z-10 #{assigns[:color_class] || " bg-white dark:bg-#{assigns[:color_bg] || assigns[:color]  || "gray"}-700   #{if assigns[:disabled] do " dark:text-gray-500  text-gray-400 " else "  dark:hover:bg-##{assigns[:color_bg] || assigns[:color] || "gray"}}-600 dark:focus:ring-gray-500  focus:ring-gray-700 dark:focus:text-white dark:text-gray-300 hover:text-gray-700 text-gray-900 focus:text-gray-700 dark:text-white dark:hover:text-white" end}  "}  #{assigns[:class]} #{
+    "px-4 text-center font-medium focus:ring-2 focus:z-10 #{assigns[:color_class] || " bg-#{assigns[:color_bg] || assigns[:color]  || "gray"}-400 dark:bg-#{assigns[:color_bg] || assigns[:color]  || "gray"}-700   #{if assigns[:disabled] do " dark:text-gray-500  text-gray-400 " else "  dark:hover:bg-##{assigns[:color_bg] || assigns[:color] || "gray"}}-600 dark:focus:ring-gray-500  focus:ring-gray-700 dark:focus:text-white dark:text-gray-300 hover:text-gray-700 text-gray-900 focus:text-gray-700 dark:text-white dark:hover:text-white" end}  "}  #{assigns[:class]} #{
       case assigns[:borderradius] do
       "left" ->  "rounded-l-md border border-r-0"
       "center" -> "border-t border-b"
