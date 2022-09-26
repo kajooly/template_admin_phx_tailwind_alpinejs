@@ -546,4 +546,11 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Icons do
       </svg>
     """
   end
+  def icons_minus (assigns) do
+    ~H"""
+      <svg xmlns="http://www.w3.org/2000/svg" id={assigns[:id]||"icons_minus#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke={assigns[:stroke]||"currentColor"}>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+      </svg>
+    """
+  end
 end
