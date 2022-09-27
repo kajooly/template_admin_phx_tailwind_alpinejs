@@ -22,7 +22,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
     <div class={"relative shadow-md sm:rounded-lg z-0 #{assigns[:class]}"} x-data="{ isCompactModeButton: $persist(false).as('isCompactMode') }">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 rounded-lg">
         <%= if @head != nil do %>
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 rounded-t-lg ">
+        <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 rounded-t-lg ">
           <tr class="rounded-t-lg  bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <%= for head <- @head do %>
               <th scope="col"  colspan={head[:colspan]||"1"} class={" #{head[:class]||"px-4 py-3 align-middle"}"}>
