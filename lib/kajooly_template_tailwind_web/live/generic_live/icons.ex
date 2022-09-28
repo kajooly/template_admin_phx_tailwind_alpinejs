@@ -620,7 +620,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Icons do
   end
   def icons_qr_code (assigns) do
     ~H"""
-      <svg xmlns="http://www.w3.org/2000/svg" id={assigns[:id]||"icons_qr_code#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke-width="1.5" stroke={assigns[:stroke]||"currentColor"}>
+      <svg xmlns="http://www.w3.org/2000/svg" id={assigns[:id]||"icons_qr_code#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" xstroke-width="1.5" stroke={assigns[:stroke]||"currentColor"}>
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
         <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z" />
       </svg>
@@ -640,8 +640,13 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Icons do
       <svg xmlns="http://www.w3.org/2000/svg" id={assigns[:id]||"icons_envelope#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke-width="1.5" stroke={assigns[:stroke]||"currentColor"}>
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
       </svg>
-
-
+    """
+  end
+  def icons_funnel (assigns) do
+    ~H"""
+      <svg xmlns="http://www.w3.org/2000/svg" id={assigns[:id]||"icons_funnel#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke-width="1.5" stroke={assigns[:stroke]||"currentColor"}>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+      </svg>
     """
   end
 end
