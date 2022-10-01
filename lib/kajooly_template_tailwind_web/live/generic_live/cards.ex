@@ -80,7 +80,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
   """
   def default_class_content_card(assigns) do
     "#{if assigns[:hoover] do "dark:hover:bg-gray-700 hover:bg-gray-100" end}
-     #{assigns[:p] || "p-4"}
+     #{assigns[:p] || "px-4 py-1"}
      #{assigns[:m] || "mb-3"}
      #{assigns[:w] || "w-full"}
      #{assigns[:shadow] || "shadow-md"}
