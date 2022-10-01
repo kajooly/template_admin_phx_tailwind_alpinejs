@@ -174,9 +174,14 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
       <div x-data="{ open: false , isCompactMode: $persist(false).as('isCompactMode') }">
         <div class="flex">
           <div class="flex-1 mt-2 text-sm text-gray-700 dark:text-gray-400 text-clip overflow-hidden" :class=" open ? '' : 'h-5' "><%=
+
+          if assigns[:text] == nil do
+            render_slot(@inner_block)
+          else
             assigns[:text]
-              |> String.split("\n", trim: false)
-              |> Enum.intersperse(Phoenix.HTML.Tag.tag(:br))  || render_slot(@inner_block)
+            |> String.split("\n", trim: false)
+            |> Enum.intersperse(Phoenix.HTML.Tag.tag(:br))
+          end
           %></div>
         </div>
         <div class="w-full flex justify-center mb-2" >
