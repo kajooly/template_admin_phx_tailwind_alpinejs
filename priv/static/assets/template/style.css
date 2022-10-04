@@ -8803,6 +8803,10 @@ input:checked + .toggle-bg {
 }
 
 @media print {
+  .print\:block {
+    display: block;
+  }
+
   .print\:hidden {
     display: none;
   }
