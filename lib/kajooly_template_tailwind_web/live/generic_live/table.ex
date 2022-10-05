@@ -19,11 +19,11 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
   """
   def table(assigns) do
     ~H"""
-    <div class={"relative shadow-md sm:rounded-lg z-0 #{assigns[:class]}"} x-data="{ isCompactModeButton: $persist(false).as('isCompactMode') }">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 rounded-lg">
+    <div class={"relative shadow-md sm:rounded-lg z-0 #{assigns[:content_class]}"} x-data="{ isCompactModeButton: $persist(false).as('isCompactMode') }">
+      <table class={"w-full #{assigns[:table_text] || "text-sm text-left"}  #{assigns[:table_text_color] || "text-gray-500 dark:text-gray-400"}  rounded-lg #{assigns[:table_class]}"}>
         <%= if @head != nil do %>
-        <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 rounded-t-lg ">
-          <tr class="rounded-t-lg  bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead class={" #{assigns[:thead_text] || "text-xs text-gray-700 "} #{assigns[:thead_text_color] || "dark:text-gray-400"} #{assigns[:thead_bg] || "bg-gray-50 dark:bg-gray-700"}   rounded-t-lg "}>
+          <tr class={"rounded-t-lg  #{assigns[:thead_bg] || "bg-gray-50 dark:bg-gray-700"}  #{assigns[:thead_text_color] || "dark:text-gray-400"}"}>
             <%= for head <- @head do %>
               <th scope="col"  colspan={head[:colspan]||"1"} class={" #{head[:class]||"px-4 py-3 align-middle"}"}>
                 <%= assigns[:label] || render_slot(head) %>
@@ -34,7 +34,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
         <% end %>
         <tbody class={assigns[:class_body]} style={assigns[:style_body]}>
           <%= for row <- @rows do %>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+            <tr class={"#{assigns[:tbody_bg] || "bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"} #{assigns[:tbody_border] || "border-b  dark:border-gray-700 "}"}
                 :class="isCompactModeButton ? ' md:leading-3':' md:leading-5'" >
               <%= for col <- @col do %>
                 <%= if col[:th]!=nil do %>
