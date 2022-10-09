@@ -19,7 +19,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
   """
   def table(assigns) do
     ~H"""
-    <div class={"relative shadow-md sm:rounded-lg z-0 #{assigns[:content_class]}"} x-data="{ isCompactModeButton: $persist(false).as('isCompactMode') }">
+    <div class={"#{assigns[:content_class] || "relative shadow-md sm:rounded-lg z-0 w-full " }"} x-data="{ isCompactModeButton: $persist(false).as('isCompactMode') }">
       <table class={"w-full #{assigns[:table_text] || "text-sm text-left"}  #{assigns[:table_text_color] || "text-gray-500 dark:text-gray-400"}  rounded-lg #{assigns[:table_class]}"}>
         <%= if @head != nil do %>
         <thead class={" #{assigns[:thead_text] || "text-xs text-gray-700 "} #{assigns[:thead_text_color] || "dark:text-gray-400"} #{assigns[:thead_bg] || "bg-gray-50 dark:bg-gray-700"}   rounded-t-lg "}>
