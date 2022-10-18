@@ -56,7 +56,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
               <% end %>
             </tr>
             <% end %>
-            <%= if length(@rows) < 1 do %>
+            <%= if length(@rows) < 1  && assigns[:hidden_empty_text] == nil do %>
 
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
             :class="isCompactModeButton ? ' md:leading-3':' md:leading-5'" >

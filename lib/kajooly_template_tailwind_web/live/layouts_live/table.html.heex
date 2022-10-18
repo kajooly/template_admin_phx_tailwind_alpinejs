@@ -363,3 +363,28 @@
 
 </.table>
 
+
+
+
+<h2>Lista vacía sin mensaje de lista vacía </h2>
+<.table rows={[]} class="mt-4" hidden_empty_text={true} >
+  <!-- Column head -->
+  <:head  colspan="1">Lista vacía</:head>
+  <:head  colspan="1">Lista vacía</:head>
+  <:head  colspan="1">Lista vacía</:head>
+  <:head  colspan="1">Lista vacía</:head>
+  <!-- Column data -->
+  <:col colspan="1" let={item} th={nil}>
+    <%= item.title %>
+  </:col>
+  <:col colspan="1" let={item} th={nil}>
+    <%= item.title %>
+  </:col>
+  <:col colspan="1" let={item} th={nil}>
+    <%= item.title %>
+  </:col>
+  <:col colspan="1" let={item} th={nil}>
+    <%= item.title %>
+  </:col>
+
+</.table>
