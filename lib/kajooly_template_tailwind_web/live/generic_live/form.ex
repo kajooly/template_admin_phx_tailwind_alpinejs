@@ -25,7 +25,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Form do
   end
 
   def form_input_text_class(assigns) do
-    "shadow-sm bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-50 border border-#{ assigns[:border_color] || assigns[:color] || "gray" }-300 #{ assigns[:text_color] || "text-gray-900 dark:text-white" } #{ assigns[:text] || "text-sm" } rounded-lg focus:ring-#{ assigns[:focus_color] || "blue" }-500 focus:border-#{ assigns[:focus_color] || "blue" }-500 block w-full p-2.5 dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-700 dark:border-#{ assigns[:border_color] || assigns[:color] || "gray" }-600 dark:placeholder-gray-400  dark:focus:ring-#{ assigns[:focus_color] || "blue" }-500 dark:focus:border-#{ assigns[:focus_color] || "blue" }-500 dark:shadow-sm-light #{assigns[:class]} "
+    "shadow-sm bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-50 border border-#{ assigns[:border_color] || assigns[:color] || "gray" }-300 #{ assigns[:text_color] || "text-gray-900 dark:text-white" } #{ assigns[:text] || "text-sm" } #{ assigns[:rounded] || "rounded-lg" }  focus:ring-#{ assigns[:focus_color] || "blue" }-500 focus:border-#{ assigns[:focus_color] || "blue" }-500 block w-full p-2.5 dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-700 dark:border-#{ assigns[:border_color] || assigns[:color] || "gray" }-600 dark:placeholder-gray-400  dark:focus:ring-#{ assigns[:focus_color] || "blue" }-500 dark:focus:border-#{ assigns[:focus_color] || "blue" }-500 dark:shadow-sm-light #{assigns[:class]} "
   end
 
   def form_input_text_class do
@@ -33,7 +33,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Form do
   end
 
   def form_select_class(assigns) do
-    "bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-50 border border-#{ assigns[:border_color] || assigns[:color] || "gray" }-300 #{ assigns[:text_color] || "text-gray-900 dark:text-white" } #{ assigns[:text] || "text-sm" } rounded-lg focus:ring-#{ assigns[:focus_color] || "blue" }-500 focus:border-#{ assigns[:focus_color] || "blue" }-500 block w-full dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-700 dark:border-#{ assigns[:border_color] || assigns[:color] || "gray" }-600 dark:placeholder-gray-400  dark:focus:ring-#{ assigns[:focus_color] || "blue" }-500 dark:focus:border-#{ assigns[:focus_color] || "blue" }-500 #{assigns[:class]} "
+    "bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-50 border border-#{ assigns[:border_color] || assigns[:color] || "gray" }-300 #{ assigns[:text_color] || "text-gray-900 dark:text-white" } #{ assigns[:text] || "text-sm" } #{ assigns[:rounded] || "rounded-lg" }  focus:ring-#{ assigns[:focus_color] || "blue" }-500 focus:border-#{ assigns[:focus_color] || "blue" }-500 block w-full dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-700 dark:border-#{ assigns[:border_color] || assigns[:color] || "gray" }-600 dark:placeholder-gray-400  dark:focus:ring-#{ assigns[:focus_color] || "blue" }-500 dark:focus:border-#{ assigns[:focus_color] || "blue" }-500 #{assigns[:class]} "
   end
 
   def form_select_class do
@@ -41,7 +41,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Form do
   end
 
   def form_input_search(assigns) do
-    "block w-full z-20 #{ assigns[:text] || "text-sm" } #{ assigns[:text_color] || "text-gray-900 dark:text-white" } bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-50 rounded-lg  border border-#{ assigns[:border_color] || assigns[:color] || "gray" }-500 focus:ring-#{ assigns[:focus_color] || "blue" }-500 focus:border-#{ assigns[:focus_color] || "blue" }-500 dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-700   dark:border-#{ assigns[:border_color] || assigns[:color] || "gray" }-500 dark:placeholder-gray-400  dark:focus:border-#{ assigns[:focus_color] || "blue" }-500 #{assigns[:class]} "
+    "block w-full z-20 #{ assigns[:text] || "text-sm" } #{ assigns[:text_color] || "text-gray-900 dark:text-white" } bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-50 #{ assigns[:rounded] || "rounded-lg" }   border border-#{ assigns[:border_color] || assigns[:color] || "gray" }-500 focus:ring-#{ assigns[:focus_color] || "blue" }-500 focus:border-#{ assigns[:focus_color] || "blue" }-500 dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-700   dark:border-#{ assigns[:border_color] || assigns[:color] || "gray" }-500 dark:placeholder-gray-400  dark:focus:border-#{ assigns[:focus_color] || "blue" }-500 #{assigns[:class]} "
   end
   def form_input_search do
     form_input_search(%{})
@@ -55,7 +55,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Form do
   end
 
   def form_textarea(assigns) do
-    "block p-2.5 w-full #{ assigns[:text] || "text-sm" } #{ assigns[:text_color] || "text-gray-900 dark:text-white" } bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-50 rounded-lg border border-#{ assigns[:border_color] || assigns[:color] || "gray" }-300 focus:ring-#{ assigns[:focus_color] || "blue" }-500 focus:border-#{ assigns[:focus_color] || "blue" }-500 dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-700 dark:border-#{ assigns[:border_color] || assigns[:color] || "gray" }-600 dark:placeholder-gray-400  dark:focus:ring-#{ assigns[:focus_color] || "blue" }-500 dark:focus:border-#{ assigns[:focus_color] || "blue" }-500 #{assigns[:class]} "
+    "block p-2.5 w-full #{ assigns[:text] || "text-sm" } #{ assigns[:text_color] || "text-gray-900 dark:text-white" } bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-50 #{ assigns[:rounded] || "rounded-lg" }  border border-#{ assigns[:border_color] || assigns[:color] || "gray" }-300 focus:ring-#{ assigns[:focus_color] || "blue" }-500 focus:border-#{ assigns[:focus_color] || "blue" }-500 dark:bg-#{ assigns[:bg_color] || assigns[:color] || "gray"}-700 dark:border-#{ assigns[:border_color] || assigns[:color] || "gray" }-600 dark:placeholder-gray-400  dark:focus:ring-#{ assigns[:focus_color] || "blue" }-500 dark:focus:border-#{ assigns[:focus_color] || "blue" }-500 #{assigns[:class]} "
   end
 
   def form_textarea do
