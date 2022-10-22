@@ -6,12 +6,12 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
 
   @doc """
 
-  Sitemap
+  Accordion
 
 
   Live Controler code:
 
-    import KajoolyTemplateTailwindWeb.GenericLive.Sitemap
+    import KajoolyTemplateTailwindWeb.GenericLive.Accordion
 
 
   ## Examples
@@ -127,7 +127,6 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
       floor(ad sfasfa sdf)
     </:item>
   </.simple_accordion>
-    </.simple_accordion>
 
   """
   def simple_accordion (assigns) do
@@ -135,34 +134,12 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
       <div id="accordion-collapse" data-accordion="collapse" class={assigns[:class]} x-data="{ isCompactMode: $persist(false).as('isCompactMode') }">
         <%= if assigns[:item] != nil do %>
           <%= for item <- assigns[:item] do %>
-            <div  x-data={"{ expanded: #{if item[:show] do "true" else "false" end } }"} >
-              <button type="button" class={"flex items-center justify-between w-full  font-medium text-left border border-gray-200  dark:border-gray-700
-              #{case item[:position] do
-                  "top" ->  "rounded-t-xl border-b-0"
-                  "bottom" -> " "
-                  _ -> "border-b-0"
-                  end}
-              " }
-              :class="expanded ? isCompactMode ? 'px-5 py-2 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white': 'p-5 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white'  : isCompactMode ? 'px-5 py-2': 'p-5'"
-              :class=" isCompactMode ? 'px-5 py-2': 'p-5'"
-              @click="expanded = ! expanded" >
-                <span><%= item[:title] %></span>
-                <svg data-accordion-icon="" class="w-6 h-6  shrink-0" :class=" expanded ? 'rotate-180' : '' "
-                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-              </button>
-              <div x-show="expanded" x-collapse
-                x-transition:enter="transition ease-out duration-800"
-                x-transition:enter-start="transform opacity-0 scale-95"
-                x-transition:enter-end="transform opacity-100 scale-100"
-                x-transition:leave="transition ease-in duration-75"
-                x-transition:leave-start="transform opacity-100 scale-100"
-                x-transition:leave-end="transform opacity-0 scale-95">
-                <div class={"font-light border #{if item[:position] != "bottom" do "border-b-0 " else "rounded-b-xl " end }  border-gray-200 dark:border-gray-700 dark:bg-gray-900 #{item[:class_body] || "p-4" }"}>
-                  <%= item[:text] || render_slot(item) %>
-                </div>
-              </div>
-              </div>
+            <.item_accordion {item}>
+              <%= render_slot(item) %>
+            </.item_accordion>
           <% end %>
+        <% else %>
+         <%= render_slot(@inner_block) %>
         <% end %>
       </div>
 
@@ -188,6 +165,39 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
           <button @click="open = ! open" class="mx-auto text-gray-500 text-xs border px-2 py-1 border-gray-500 rounded-lg" x-text="open ? 'Ocultar':'Ver más' "></button>
         </div>
         </div>
+    """
+  end
+
+  def item_accordion (assigns) do
+    IO.inspect assigns
+    ~H"""
+      <div  x-data={"{ expanded: #{if assigns[:show] do "true" else "false" end } }"} >
+        <button type="button" class={"flex items-center justify-between w-full  font-medium text-left border border-gray-200  dark:border-gray-700
+        #{case assigns[:position] do
+            "top" ->  "rounded-t-xl border-b-0"
+            "bottom" -> " "
+            _ -> "border-b-0"
+            end}
+        " }
+        :class="expanded ? isCompactMode ? 'px-5 py-2 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white': 'p-5 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white'  : isCompactMode ? 'px-5 py-2': 'p-5'"
+        :class=" isCompactMode ? 'px-5 py-2': 'p-5'"
+        @click="expanded = ! expanded" >
+          <span><%= assigns[:title] %></span>
+          <svg data-accordion-icon="" class="w-6 h-6  shrink-0" :class=" expanded ? 'rotate-180' : '' "
+          fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </button>
+        <div x-show="expanded" x-collapse
+          x-transition:enter="transition ease-out duration-800"
+          x-transition:enter-start="transform opacity-0 scale-95"
+          x-transition:enter-end="transform opacity-100 scale-100"
+          x-transition:leave="transition ease-in duration-75"
+          x-transition:leave-start="transform opacity-100 scale-100"
+          x-transition:leave-end="transform opacity-0 scale-95">
+          <div class={"font-light border #{if assigns[:position] != "bottom" do "border-b-0 " else "rounded-b-xl " end }  border-gray-200 dark:border-gray-700 dark:bg-gray-900 #{assigns[:class_body] || "p-4" }"}>
+            <%= assigns[:text] || render_slot(@inner_block) %>
+          </div>
+        </div>
+      </div>
     """
   end
 
