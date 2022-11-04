@@ -108,27 +108,47 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
   def circle_button(assigns) do
     id = assigns[:id] || gen_id_key()
     ~H"""
-      <span x-data="{ isCompactMode: $persist(false).as('isCompactMode'), tooltip : false  }" x-on:mouseout="{tooltip = !tooltip}">
-        <span class="absolute "  x-show="tooltip" x-collapse>
-          <.badge color="danger">
+      <div x-data="{ isCompactMode: $persist(false).as('isCompactMode'), tooltip : false  }" x-on:mouseout="{tooltip = false}">
+        <span class="absolute" style="margin-top: -20px;" x-show="tooltip" x-collapse>
+          <.badge color={"#{assigns[:color_tooltip] || "info"}"} type="div">
             <%= assigns[:title] %>
           </.badge>
         </span>
-        <%= live_patch to: assigns[:to], class: default_class_circle_button(assigns),
-          ":class": default_class_copact_circle_button(),
-          style: assigns[:style] || "__no_style: false;",
-          type: "button",
-          title: assigns[:description] || assigns[:title] || "",
-          id: id,
-          "x-on:mouseover": "open = true"
-          do %>
-          <%= if assigns[:two_charter] do %>
-            <%= text_to_two_char(assigns[:title]) %>
-          <% else %>
-            <%= assigns[:title] || render_slot(@inner_block) %>
+        <%= if assigns[:to] != nil do %>
+          <%= live_patch to: assigns[:to], class: default_class_circle_button(assigns),
+            ":class": default_class_copact_circle_button(),
+            style: assigns[:style] || "__no_style: false;",
+            type: "button",
+            title: assigns[:description] || assigns[:title] || "",
+            id: id,
+            "x-on:mouseover": "tooltip = true",
+            "x-on:mouseout": "tooltip = false"
+            do %>
+            <%= if assigns[:two_charter] do %>
+              <%= text_to_two_char(assigns[:title]) %>
+            <% else %>
+              <%= assigns[:title] || render_slot(@inner_block) %>
+            <% end %>
           <% end %>
+        <% else %>
+          <div class={default_class_circle_button(assigns)}
+            :class={default_class_copact_circle_button()}
+            style= {assigns[:style] || "__no_style: false;"}
+            type="button"
+            title= {assigns[:description] || assigns[:title] || ""}
+            id= {id}
+            @click="tooltip = !tooltip"
+            x-on:mouseover= "tooltip = true"
+            x-on:mouseout= "tooltip = false"
+            >
+            <%= if assigns[:two_charter] do %>
+              <%= text_to_two_char(assigns[:title]) %>
+            <% else %>
+              <%= assigns[:title] || render_slot(@inner_block) %>
+            <% end %>
+          </div>
         <% end %>
-      </span>
+      </div>
     """
   end
 
