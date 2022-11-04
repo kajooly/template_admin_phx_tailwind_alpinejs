@@ -59,6 +59,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
     "isCompactModeButton ? 'pt-2 pb-2 text-xs':'py-2 text-sm'"
   end
 
+  # ej. <%= link to: "#", class: default_class_button(%{ borderradius: "left", color: "green" } ), ":class": default_class_copact() do %>
 
   def default_class_button(assigns) do
     "px-4 text-center font-medium focus:ring-2 focus:z-10 #{assigns[:color_class] || " bg-#{assigns[:color_bg] || assigns[:color]  || "gray"}-300 dark:bg-#{assigns[:color_bg] || assigns[:color]  || "gray"}-700   #{if assigns[:disabled] do " dark:text-gray-500  text-gray-400 " else "  dark:hover:bg-##{assigns[:color_bg] || assigns[:color] || "gray"}}-600 dark:focus:ring-gray-500  focus:ring-gray-700 dark:focus:text-white dark:text-gray-300 hover:text-gray-700 text-gray-900 focus:text-gray-700 dark:text-white dark:hover:text-white" end}  "}  #{assigns[:class]} #{
@@ -107,32 +108,36 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
   def circle_button(assigns) do
     id = assigns[:id] || gen_id_key()
     ~H"""
-
-    <span x-data="{ isCompactMode: $persist(false).as('isCompactMode'), tooltip : false }" @mouseover.away="{tooltip = false}"  >
-    <span class="absolute "  x-show="tooltip" x-collapse>
-      <.badge color="danger">
-        <%= assigns[:title] %>
-      </.badge>
-    </span>
-    <%= live_patch to: assigns[:to], class: " flex items-center justify-center  font-medium rounded-full  focus:z-10   #{assigns[:border] || " border-2 border-white dark:border-gray-800 "} #{assigns[:color_class] || " text-gray-600 dark:text-white bg-gray-300 dark:bg-gray-700 hover:bg-gray-600 dark:hover:bg-gray-600 hover:text-gray-100 "} #{assigns[:class]} #{
-      case assigns[:borderradius] do
-      "only" -> " "
-      _ -> "  "
-      end}",
-      ":class": "isCompactMode ? 'w-8 h-8 text-xs':'w-10 h-10 text-sm'",
-      style: assigns[:style] || "__no_style: false;",
-      type: "button",
-      title: assigns[:description] || assigns[:title] || "",
-      id: id
-      do %>
-      <%= if assigns[:two_charter] do %>
-        <%= text_to_two_char(assigns[:title]) %>
-      <% else %>
-        <%= assigns[:title] || render_slot(@inner_block) %>
-      <% end %>
-    <% end %>
-    </span>
+      <span x-data="{ isCompactMode: $persist(false).as('isCompactMode'), tooltip : false  }" x-on:mouseout="{tooltip = !tooltip}">
+        <span class="absolute "  x-show="tooltip" x-collapse>
+          <.badge color="danger">
+            <%= assigns[:title] %>
+          </.badge>
+        </span>
+        <%= live_patch to: assigns[:to], class: default_class_circle_button(assigns),
+          ":class": default_class_copact_circle_button(),
+          style: assigns[:style] || "__no_style: false;",
+          type: "button",
+          title: assigns[:description] || assigns[:title] || "",
+          id: id,
+          "x-on:mouseover": "open = true"
+          do %>
+          <%= if assigns[:two_charter] do %>
+            <%= text_to_two_char(assigns[:title]) %>
+          <% else %>
+            <%= assigns[:title] || render_slot(@inner_block) %>
+          <% end %>
+        <% end %>
+      </span>
     """
+  end
+
+  def default_class_circle_button(assigns) do
+    "flex items-center justify-center font-medium rounded-full focus:z-10 #{ assigns[:border] || "border-2 border-#{assigns[:color_border] || "gray" }-50 dark:border-#{assigns[:color_border] || "gray" }-800 "} #{assigns[:color_class] || " text-gray-600 dark:text-white bg-#{assigns[:color_bg] || "gray" }-300 dark:bg-#{assigns[:color_bg] || "gray" }-700 hover:bg-#{assigns[:color_bg] || "gray" }-600 dark:hover:bg-#{assigns[:color_bg] || "gray" }-600 hover:text-gray-100 "} #{assigns[:class]}"
+  end
+
+  def default_class_copact_circle_button() do
+    "isCompactMode ? 'w-8 h-8 text-xs':'w-10 h-10 text-sm'"
   end
 
 
