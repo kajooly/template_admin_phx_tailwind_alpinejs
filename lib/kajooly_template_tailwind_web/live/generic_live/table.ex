@@ -67,7 +67,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
               <%= if assigns[:alert] == nil do %>
                 <p class="py-4 text-center text-gray-500">No hay elementos en esta lista</p>
               <% else %>
-                <div class="p-4 mb-4 text-sm text-center text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800" role="alert">
+                <div class="p-4 my-12 mx-auto text-sm text-center text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800" role="alert">
                   <%= assigns[:alert] %>
                 </div>
               <% end %>
