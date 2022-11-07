@@ -60,11 +60,17 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
 
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
             :class="isCompactModeButton ? ' md:leading-3':' md:leading-5'" >
-            <td scope="row"
-            class={"px-4  md:py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap py-4"}
-            colspan={length(@col)}
-          >
-            <p class="py-4 text-center text-gray-500">No hay elementos en esta lista</p>
+              <td scope="row"
+              class={"px-4  md:py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap py-4"}
+              colspan={length(@col)}
+            >
+              <%= if assigns[:alert] == nil do %>
+                <p class="py-4 text-center text-gray-500">No hay elementos en esta lista</p>
+              <% else %>
+                <div class="p-4 mb-4 text-sm text-center text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800" role="alert">
+                  <%= assigns[:alert] %>
+                </div>
+              <% end %>
             </td></tr>
             <% end %>
 
