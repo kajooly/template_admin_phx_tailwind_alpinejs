@@ -3159,8 +3159,8 @@ input:checked + .toggle-bg {
   width: 15rem;
 }
 
-.w-\[93\%\] {
-  width: 93%;
+.w-\[99\%\] {
+  width: 99%;
 }
 
 .w-4\/12 {
@@ -3415,10 +3415,6 @@ input:checked + .toggle-bg {
 
 .w-\[45\%\] {
   width: 45%;
-}
-
-.w-\[99\%\] {
-  width: 99%;
 }
 
 .min-w-\[60\%\] {
