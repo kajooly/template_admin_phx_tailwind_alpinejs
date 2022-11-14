@@ -169,7 +169,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
   end
 
   def item_accordion (assigns) do
-    IO.inspect assigns
+    #IO.inspect assigns
     ~H"""
       <div  x-data={"{ expanded: #{if assigns[:show] do "true" else "false" end } }"} >
         <div class={"flex items-center justify-between w-full  font-medium text-left border border-gray-200  dark:border-gray-700
@@ -179,8 +179,8 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
             _ -> "border-b-0"
             end}
         " }
-        :class="expanded ? isCompactMode ? 'px-5 py-2 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white': 'p-5 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white'  : isCompactMode ? 'px-5 py-2': 'p-5'"
-        :class=" isCompactMode ? 'px-5 py-2': 'p-5'"
+        :class="expanded ? isCompactMode ? 'px-2 py-1 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white': 'px-3 py-2 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white'  : isCompactMode ? 'px-2 py-1': 'px-3 py-2'"
+        :class=" isCompactMode ? 'px-2 py-1': 'px-3 py-2'"
         >
           <span class="flex-0 cursor-pointer" @click="expanded = ! expanded" ><%= assigns[:title] %></span>
           <%= if assigns[:head_title] != nil do %>
