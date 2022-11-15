@@ -13,7 +13,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
 
   ## Examples
 
-    <.Dropdown
+    <.dropdown
       buttons={[
           %{
             title: "Borrador",
@@ -22,13 +22,13 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
         ]}
     />
     ---
-    <.Dropdown>
+    <.dropdown>
       <buttons {%{
             to: "#"
           }} >
         Título del botón
       </.buttons>
-    </.Dropdown>
+    </.dropdown>
 
   """
   def dropdown(assigns) do
@@ -41,7 +41,8 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
         @keydown.escape.window="open = false"
         @click.away="open = false"
         class={"inline-flex items-center p-2 rounded-lg
-        min-w-33
+        #{assigns[:classaddbutton] ||
+        "min-w-33"}
         #{assigns[:classbutton] ||
         "hover:bg-gray-100
         focus:bg-gray-100
@@ -81,7 +82,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
         x-transition:leave-start="transform opacity-100 scale-100"
         x-transition:leave-end="transform opacity-0 scale-95"
         class={"
-        #{assigns[:classdrop] || dropdown_default_class_classdrop() }
+        #{assigns[:classdrop] || dropdown_default_class_classdrop(assigns) }
         "}>
 
         <%= if assigns[:search] do %>
@@ -90,17 +91,17 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
         <%= if @buttons != nil do %>
           <%= for item <- @buttons do %>
             <%= if item[:group_title] != nil do %>
-                <h2 class={dropdown_default_class_classdrop_title()}
-                :class={dropdown_default_class_copact()}  >
+                <h2 class={dropdown_default_class_classdrop_title(assigns)}
+                :class={dropdown_default_class_copact(assigns)}  >
                 <%= item[:group_title] %>
               </h2>
             <% end %>
             <%= if item[:to] != nil do %>
-              <%= live_patch to: item[:to], class: dropdown_default_class_classdrop_button(), ":class": dropdown_default_class_copact() do %>
+              <%= live_patch to: item[:to], class: dropdown_default_class_classdrop_button(assigns), ":class": dropdown_default_class_copact(assigns) do %>
                 <%= item[:title] || render_slot(item) %>
               <% end %>
             <% else %>
-              <div class={dropdown_default_class_classdrop_button()}>
+              <div class={dropdown_default_class_classdrop_button(assigns)}>
                 <%= item[:title] || render_slot(item) %>
               </div>
             <% end %>
@@ -115,22 +116,22 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
     """
   end
 
-  def dropdown_default_class_classdrop() do
-    "absolute right-0 top-15 flex flex-col w-60 mt-3 border rounded-lg  shadow-lg border-gray-100  dark:border-gray-700
+  def dropdown_default_class_classdrop(assigns) do
+    assigns[:classdrop] || "absolute right-0 top-15 flex flex-col w-60 mt-3 border rounded-lg  shadow-lg border-gray-100  dark:border-gray-700
     bg-white
     dark:border-gray-800
     dark:bg-gray-900
     z-50"
   end
-  def dropdown_default_class_classdrop_button() do
-    "flex items-center h-8 px-3  text-sm hover:bg-gray-200 dark:hover:bg-gray-700 capitalize"
+  def dropdown_default_class_classdrop_button(assigns) do
+    assigns[:classdrop_button] || "flex items-center h-8 px-3  text-sm hover:bg-gray-200 dark:hover:bg-gray-700"
   end
-  def dropdown_default_class_classdrop_title() do
-    "flex items-center h-8 px-3  text-sm text-xs text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 capitalize"
+  def dropdown_default_class_classdrop_title(assigns) do
+    assigns[:classdrop_title] ||  "flex items-center h-8 px-3  text-sm text-xs text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"
   end
 
-  def dropdown_default_class_copact() do
-    "isCompactMode ? 'py-2':'py-6"
+  def dropdown_default_class_copact(assigns) do
+    assigns[:copact] ||  "isCompactMode ? 'py-2':'py-6"
   end
 
 end
