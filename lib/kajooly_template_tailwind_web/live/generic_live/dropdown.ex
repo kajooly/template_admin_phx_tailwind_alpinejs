@@ -62,7 +62,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
             </div>
           </div>
           <% end %>
-          <div class="flex-0 mx-2 pt-0 mt-0">
+          <div class={"flex-0 #{assigns[:classbuttonicon] || "mx-2 pt-0 mt-0"}"}>
 
             <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor"
                 class=" h-6 w-6 text-gray-300 dark:text-gray-500 ml-auto ">
