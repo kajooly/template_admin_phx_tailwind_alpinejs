@@ -1,0 +1,35 @@
+<div x-data="{ isCompactMode: $persist(false).as('isCompactMode') }" >
+<.breadcrum
+  class="mb-6"
+  title="Tabs"
+  subtitle="Ejemplo de tabs."
+  pages={[
+      %{ 
+        title: "", 
+        to: "#home",
+        icon: "home"
+      },
+      %{ 
+        title: "Tab de ejemplo", 
+        to: "#list",
+        icon: "chevron"
+      }
+      ]} />
+<!-- top buttons -->
+<!-- Table -->
+
+</div>
+<div class="flex">
+  <div class="min-w-[500px] mx-auto border border-gray-200 dark:border-gray-500 bg-gray-100 dark:bg-gray-900 px-8 py-3 rounded">
+    <.tabs>
+      <:nav>
+        <.tab id="acerca_de" class="border border-4 rounded-t-lg pt-3 px-1"> Titulo del tab</.tab>
+        <.tab id="info"> Más info</.tab>
+      </:nav>
+      <:content>
+        <.body id="acerca_de" class="border border-orange-500 px-6 py-2 text-2xl"> acerca_de</.body>
+        <.body id="info"> info</.body>
+      </:content>
+    </.tabs>
+  </div>
+</div>

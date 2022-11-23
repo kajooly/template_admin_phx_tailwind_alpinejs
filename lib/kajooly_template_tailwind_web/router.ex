@@ -54,6 +54,7 @@ defmodule KajoolyTemplateTailwindWeb.Router do
     live "/layout/portal/clientes/solicitud", LayoutsLive.PortalClientesSolicitud, :index
     live "/layout/portal/clientes/formulario", LayoutsLive.PortalClientesFormulario, :index
 
+    live "/layout/tabs", LayoutsLive.Tabs, :index
 
 
 
