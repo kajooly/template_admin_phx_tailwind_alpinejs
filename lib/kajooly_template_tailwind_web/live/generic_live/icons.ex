@@ -523,6 +523,14 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Icons do
     """
   end
 
+  def icons_document_check (assigns) do
+    ~H"""
+      <svg xmlns="http://www.w3.org/2000/svg" id={assigns[:id]||"icons_ticket#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke={assigns[:stroke]||"currentColor"}>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
+      </svg>
+
+    """
+  end
   def icons_document_arrow_down (assigns) do
     ~H"""
       <svg xmlns="http://www.w3.org/2000/svg" id={assigns[:id]||"icons_document_arrow_down#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke={assigns[:stroke]||"currentColor"}>
