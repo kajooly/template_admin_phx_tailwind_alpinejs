@@ -150,7 +150,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
     ~H"""
       <div x-data="{ open: false , isCompactMode: $persist(false).as('isCompactMode') }">
         <div class="flex">
-          <div class={"flex-1 mt-2 text-sm text-clip overflow-hidden #{ assigns[:class_text] || "text-gray-700 dark:text-gray-400" }"} :class=" open ? '' : 'h-5' "><%=
+          <div class={"flex-1 mt-2 text-sm text-clip overflow-hidden #{ assigns[:class_text] || "text-gray-700 dark:text-gray-400" }"} :class={" open ? '' : '#{assigns[:h] || "h-5"}' "}><%=
 
           if assigns[:text] == nil do
             render_slot(@inner_block)
