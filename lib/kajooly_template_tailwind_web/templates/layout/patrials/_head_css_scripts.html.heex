@@ -1,4 +1,4 @@
-<%= inspect assigns.head %>
+<%= inspect assigns.assigns.head %>
 <%= if assigns[:head][:css] != nil do %>
     <%= for it <-assigns.head.css do %>
         <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, it)}/>
