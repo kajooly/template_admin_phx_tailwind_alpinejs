@@ -6,7 +6,7 @@
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/template/style.css")}/>
 <% end %>
 
-<%= if assigns.assigns[:head][:css] != nil do %>
+<%= if assigns.assigns[:head][:js] != nil do %>
     <%= for it <- assigns.assigns.head.js do %>
         <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, it)}></script>
     <% end %>
