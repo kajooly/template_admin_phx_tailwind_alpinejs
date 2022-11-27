@@ -26,7 +26,7 @@ x-transition:leave-end="transform opacity-0 scale-95"
         <% end  %>
         <span 
             class=" font-medium duration-200 ease-in-out --hidden --md:inline ml-2" 
-            :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0', isCompactMode ? 'ml-1 text-md' : 'ml-2 text-xl' ">
+            :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0 hidden', isCompactMode ? 'ml-1 text-md' : 'ml-2 text-xl' ">
             <%= assigns.conn.assigns.company.logotipo_text || raw assigns.conn.assigns.company.logotipo_svg %>
             </span>
         </a>
