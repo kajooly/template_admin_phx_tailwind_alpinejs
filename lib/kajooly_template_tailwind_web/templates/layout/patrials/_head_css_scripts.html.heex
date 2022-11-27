@@ -1,14 +1,13 @@
-<%= inspect assigns.assigns.head %>
-<%= if assigns[:head][:css] != nil do %>
-    <%= for it <-assigns.head.css do %>
+<%= if assigns.assigns[:head][:css] != nil do %>
+    <%= for it <-assigns.assigns.head.css do %>
         <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, it)}/>
     <% end %>
 <% else %>  
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/template/style.css")}/>
 <% end %>
 
-<%= if assigns[:head][:css] != nil do %>
-    <%= for it <- assigns.head.js do %>
+<%= if assigns.assigns[:head][:css] != nil do %>
+    <%= for it <- assigns.assigns.head.js do %>
         <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, it)}></script>
     <% end %>
 <% else %> 
