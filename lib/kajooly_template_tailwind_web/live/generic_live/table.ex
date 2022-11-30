@@ -26,7 +26,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
           <tr class={"rounded-t-lg  #{assigns[:thead_bg] || "bg-gray-50 dark:bg-gray-700"}  #{assigns[:thead_text_color] || "dark:text-gray-400"}"}>
             <%= for head <- @head do %>
               <th scope="col"  colspan={head[:colspan]||"1"} class={" #{head[:class]||"px-4 py-3 align-middle"}"}>
-                <%= assigns[:label] || render_slot(head) %>
+                <%= head[:label] || render_slot(head) %>
               </th>
             <% end %>
           </tr>
