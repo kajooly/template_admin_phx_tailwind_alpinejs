@@ -150,8 +150,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
     ~H"""
       <div x-data="{ open: false , isCompactMode: $persist(false).as('isCompactMode') }">
         <div class="flex">
-          <div class={"flex-1 mt-2 text-sm text-clip overflow-hidden #{ assigns[:class_text] || "text-gray-700 dark:text-gray-400" }"} :class={" open ? '' : '#{assigns[:h] || "h-5"}' "}><%=
-
+          <div class={"flex-1 #{ assigns[:class_m] ||  "mt-2" } text-sm text-clip overflow-hidden #{ assigns[:class_text] || "text-gray-700 dark:text-gray-400" }"} :class={" open ? '' : '#{assigns[:h] || "h-5"}' "}><%=
           if assigns[:text] == nil do
             render_slot(@inner_block)
           else
@@ -161,9 +160,11 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
           end
           %></div>
         </div>
+        <%= if String.length(assigns[:text]) > ( if assigns[:min_to_expand] != nil do String.to_integer(assigns[:min_to_expand]) else 0 end ) do %>
         <div class="w-full flex justify-center mb-2" >
-          <button @click="open = ! open" class="mx-auto text-gray-500 text-xs border px-2 py-1 border-gray-500 rounded-lg" x-text="open ? 'Ocultar':'Ver más' "></button>
+          <button @click="open = ! open" class="mx-auto text-gray-400 dark:text-gray-600 text-xs border px-2 py-1 border-gray-200 dark:border-gray-800 rounded-lg" x-text="open ? 'Ocultar':'Ver más' "></button>
         </div>
+        <% end %>
         </div>
     """
   end
