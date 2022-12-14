@@ -6,11 +6,11 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Tabs do
 
   @doc """
 
-  Timeline
+  Tabs
 
   Live Controler code:
 
-    import KajoolyTemplateTailwindWeb.GenericLive.Timeline
+    import KajoolyTemplateTailwindWeb.GenericLive.Tabs
 
   ## Examples
 
