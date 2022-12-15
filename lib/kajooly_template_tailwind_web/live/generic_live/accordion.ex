@@ -160,7 +160,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
           end
           %></div>
         </div>
-        <%= if String.length(assigns[:text]) > ( if assigns[:min_to_expand] != nil do String.to_integer(assigns[:min_to_expand]) else 0 end ) do %>
+        <%= if String.length(assigns[:text]||"") >= ( if assigns[:min_to_expand] != nil do String.to_integer(assigns[:min_to_expand]) else 0 end ) do %>
         <div class="w-full flex justify-center mb-2" >
           <button @click="open = ! open" class="mx-auto text-gray-400 dark:text-gray-600 text-xs border px-2 py-1 border-gray-200 dark:border-gray-800 rounded-lg" x-text="open ? 'Ocultar':'Ver más' "></button>
         </div>
