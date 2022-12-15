@@ -772,4 +772,12 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Icons do
       </svg>
     """
   end
+
+  def icons_receipt_refund(assigns) do
+    ~H"""
+      <svg xmlns="http://www.w3.org/2000/svg"  id={assigns[:id]||"icons_receipt_refund#{gen_id_key()}"} width={assigns[:width]||"16"} height={assigns[:height]||"16"} fill={assigns[:fill]||"none"}  class={" #{assigns[:class]}"} viewBox="0 0 24 24" stroke-width="1.5" stroke={assigns[:stroke]||"currentColor"}>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9.75h4.875a2.625 2.625 0 010 5.25H12M8.25 9.75L10.5 7.5M8.25 9.75L10.5 12m9-7.243V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0c1.1.128 1.907 1.077 1.907 2.185z" />
+      </svg>
+    """
+  end
 end
