@@ -111,7 +111,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
       <div x-data="{ isCompactMode: $persist(false).as('isCompactMode'), tooltip : false  }" x-on:mouseout="{tooltip = false}">
         <span class="absolute" style={assigns[:tooltip_style] || "margin-top: -20px;"} x-show="tooltip" x-collapse>
           <.badge color={"#{assigns[:color_tooltip] || "info"}"} type="div">
-            <%= assigns[:title] %>
+            <%= assigns[:description] || assigns[:title] %>
           </.badge>
         </span>
         <%= if assigns[:to] != nil do %>
