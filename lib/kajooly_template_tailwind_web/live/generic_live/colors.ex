@@ -47,7 +47,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Colors do
     else out end
 
     out = if Enum.member?(["P", "Ñ", "D", "C"], String.capitalize(ltt)) do
-      %{color: "#008484", border_color: "#00C6c6", class: "info", tw_bg: "", tw_ring: "" }
+      %{color: "#008484", border_color: "#00C6c6", class: "info", tw_bg: "sky", tw_ring: "sky" }
     else out end
 
 
