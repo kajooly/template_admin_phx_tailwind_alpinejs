@@ -43,7 +43,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Tabs do
 
     def body(assigns) do
        ~H"""
-        <div x-show={"tab === '#{assigns[:id]}'"} class={assigns[:class] || "p-2"} >
+        <div x-show={"tab === '#{assigns[:id]}'"} class={assigns[:class] || "p-2"} style={assigns[:style] || ""} >
           <%= assigns[:title] || render_slot(@inner_block)%>
         </div>
         """
