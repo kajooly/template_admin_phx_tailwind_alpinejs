@@ -90,21 +90,23 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
         <% end %>
         <%= if @buttons != nil do %>
           <%= for item <- @buttons do %>
-            <%= if item[:group_title] != nil do %>
-                <h2 class={dropdown_default_class_classdrop_title(assigns)}
-                :class={dropdown_default_class_copact(assigns)}  >
-                <%= item[:group_title] %>
-              </h2>
-            <% end %>
-            <%= if item[:to] != nil do %>
-              <%= live_patch to: item[:to], class: dropdown_default_class_classdrop_button(assigns), ":class": dropdown_default_class_copact(assigns) do %>
-                <%= item[:title] || render_slot(item) %>
+            <%= if item[:hidden] == nil do %>
+                <%= if item[:group_title] != nil do %>
+                    <h2 class={dropdown_default_class_classdrop_title(assigns)}
+                    :class={dropdown_default_class_copact(assigns)}  >
+                    <%= item[:group_title] %>
+                  </h2>
+                <% end %>
+                <%= if item[:to] != nil do %>
+                  <%= live_patch to: item[:to], class: dropdown_default_class_classdrop_button(assigns), ":class": dropdown_default_class_copact(assigns) do %>
+                    <%= item[:title] || render_slot(item) %>
+                  <% end %>
+                <% else %>
+                  <div class={dropdown_default_class_classdrop_button(assigns)}>
+                    <%= item[:title] || render_slot(item) %>
+                  </div>
+                <% end %>
               <% end %>
-            <% else %>
-              <div class={dropdown_default_class_classdrop_button(assigns)}>
-                <%= item[:title] || render_slot(item) %>
-              </div>
-            <% end %>
           <% end %>
         <% end %>
 
