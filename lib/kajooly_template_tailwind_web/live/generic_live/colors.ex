@@ -1,7 +1,5 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Colors do
 
-  import Phoenix.LiveView
-  import Phoenix.LiveView.Helpers
     @doc """
 
     Colors
