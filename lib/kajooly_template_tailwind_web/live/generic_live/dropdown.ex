@@ -40,9 +40,9 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
         @click="open = !open"
         @keydown.escape.window="open = false"
         @click.away="open = false"
-        class={"inline-flex items-center p-2 rounded-lg
+        class={"
         #{assigns[:classaddbutton] ||
-        "min-w-33"}
+        "min-w-33 inline-flex items-center p-2 rounded-lg"}
         #{assigns[:classbutton] ||
         "hover:bg-gray-100
         focus:bg-gray-100
