@@ -56,7 +56,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
           <div class="flex-1 pt-1 min-w-[60%]">
             <span class="sr-only"><%= assigns[:title] || "Options"  %></span>
             <div class={" #{assigns[:classbuttoncontent] || "md:flex md:flex-col md:items-end md:leading-tight"}"}>
-              <span class={"font-semibold min-w-50 #{assigns[:classbuttontitle]}"}>
+              <span class={" #{assigns[:classbuttontitle] || "font-semibold min-w-50" }"}>
                 <%= assigns[:title] || render_slot(@inner_block)  %>
               </span>
             </div>
