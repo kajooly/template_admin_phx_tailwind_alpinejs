@@ -18,7 +18,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Tabs do
   """
     def tabs(assigns) do
      ~H"""
-        <div x-data={"{ tab: window.location.hash ? window.location.hash.substring(1) : '#{ assigns[:open] }', isCompactMode: $persist(false).as('isCompactMode') }"} id={"tab_wrapper_#{gen_id_key()}"} class="mb-4 w-full">
+        <div x-data={"{ tab:  window.location.hash.substring(1).split(',')[0] !== '' ? window.location.hash.substring(1).split(',')[0] : '#{ assigns[:open] }', isCompactMode: $persist(false).as('isCompactMode') }"} id={"tab_wrapper_#{gen_id_key()}"} class="mb-4 w-full">
           <%= if @nav != nil do %>
             <%= for item <- @nav do %>
               <nav class={"#{assigns[:class] || "flex flex-wrap -mb-px text-sm font-medium text-center border-b border-gray-200 dark:border-gray-600"}"} >
