@@ -16,7 +16,7 @@ function TimeAgo(Alpine) {
                     locale,
                 });
             } catch (e) {
-                console.error(e, typeof date, date);
+                console.error(e);
             }
         }
 
