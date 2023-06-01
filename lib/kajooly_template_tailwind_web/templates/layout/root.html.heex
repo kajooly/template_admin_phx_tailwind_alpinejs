@@ -10,6 +10,7 @@
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/template/app.js")}></script>
   </head>
   <body>
+  <div class="h-screen w-screen bg-blue-800 change_ps_class_stop_one_ " id="splash_screen"></div>
     <div 
       class="flex bg-gray-100 text-gray-600 dark:bg-gray-800 h-screen" 
       x-data="{   isSidebarExpanded: $persist(true).as('isSidebarExpanded') , isCompactMode: $persist(false).as('isCompactMode') , isLiquidPage: $persist(false).as('isLiquidPage') }"         _estados

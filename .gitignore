@@ -38,3 +38,4 @@ assets/package-lock.json
 assets/package-lock.json
 priv/static/assets/.DS_Store
 .elixir_ls/
+.DS_Store

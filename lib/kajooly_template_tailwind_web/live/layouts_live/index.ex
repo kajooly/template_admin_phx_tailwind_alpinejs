@@ -21,6 +21,18 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.Index do
     {:noreply, apply_action(socket, socket.assigns.live_action, params)}
   end
 
+
+  @impl true
+  def handle_event("readqr", params, socket) do
+    # En`params` esta la info que hay que actualizar en los datos en "owners.devices" Campo metadata
+    # IO.inspect "---params sync_device---"
+    # IO.inspect params
+    params_device = %{"hi" => params}
+
+    {:reply, params_device, socket}
+  end
+
+
   defp apply_action(socket, :index, _params) do
     socket
     |> assign(:page_title, "Lista")

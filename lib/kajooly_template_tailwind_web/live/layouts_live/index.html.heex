@@ -24,6 +24,30 @@
   class="flex flex-wrap "
   :class=" isCompactMode ? 'mt-2 mb-0': 'mt-4 mb-4'"
 >
+Pruebas
+<input type="text" name="user[phone_number]" id="user-phone-number" phx-hook="PhoneNumber" class="dark:bg-black"  />
+
+  <div class="h-20 w-20 bg-amber-300 change_ps_class_stop opacity-0" id="splash_show" phx-update="ignore">
+
+  </div>
+  <div class="h-20 w-20 bg-red-500 change_ps_class_start opacity-0" id="splash_show_a" phx-update="ignore">
+
+  </div>
+  <div class="h-20 w-20 bg-indigo-500 change_ps_class_stop_one opacity-0" id="splash_show_b" phx-update="ignore">
+
+  </div>
+  <div class="h-20 w-20 bg-fuchsia-500 change_ps_class_start_one opacity-0" id="splash_show_c" phx-update="ignore">
+
+  </div>
+  <div class=" bg-gray-500 change_ps_class_start_one " id="scanQrDiv" phx-hook="ScanQr" data-width="500" data-fps="10" >
+
+  </div>
+</div>
+<!-- top buttons -->
+<div 
+  class="flex flex-wrap "
+  :class=" isCompactMode ? 'mt-2 mb-0': 'mt-4 mb-4'"
+>
   <div class="w-full mb-3 md:flex-1">
     <.button_group 
       buttons={[
