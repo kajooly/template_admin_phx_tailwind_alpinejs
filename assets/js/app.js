@@ -139,18 +139,21 @@ window.pageState = {
     stop_one: false
 };
 
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
 function change_ps_class(name, value) {
     let e = window.document.getElementsByClassName(name);
     //console.log("change_ps_class", name, value, e);
     for (let i = 0; i < e.length; i++) {
         const el = e[i];
-        //console.log("change_ps_class", name, value, el);
+        console.log("change_ps_class", name, value, el);
+        sleep(80)
         if (!value) {
-            window.document.getElementById(el.id).classList.remove("opacity-0");
-            window.document.getElementById(el.id).classList.add("opacity-100");
+            window.document.getElementById(el.id).classList.remove("opacity-0", "h-0", "w-0", "hidden");
+            window.document.getElementById(el.id).classList.add("opacity-100", "h-screen", "w-screen", "inline");
         } else {
-            window.document.getElementById(el.id).classList.remove("opacity-100");
-            window.document.getElementById(el.id).classList.add("opacity-0");
+            window.document.getElementById(el.id).classList.remove("opacity-100", "h-screen", "w-screen", "inline");
+            window.document.getElementById(el.id).classList.add("opacity-0", "h-0", "w-0", "hidden");
         }
 
     }

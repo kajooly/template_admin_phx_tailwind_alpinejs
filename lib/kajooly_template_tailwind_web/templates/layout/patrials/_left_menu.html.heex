@@ -19,11 +19,13 @@ x-transition:leave-end="transform opacity-0 scale-95"
         id="asdasd"
         
         >
-        <%= if assigns.conn.assigns.company[:isotipo_url] != nil do %>
-            <img src={Routes.static_path(@conn, assigns.conn.assigns.company[:isotipo_url])} style="margin: auto; height: 98%;"/>
-        <% else %>
-            <%= raw assigns.conn.assigns.company.isotipo %>
-        <% end  %>
+        <div class="max-h-8 max-w-8">
+            <%= if assigns.conn.assigns.company[:isotipo_url] != nil do %>
+                <img src={Routes.static_path(@conn, assigns.conn.assigns.company[:isotipo_url])} style="margin: auto; height: 98%;"/>
+            <% else %>
+                <%= raw assigns.conn.assigns.company.isotipo %>
+            <% end  %>
+        </div>
         <span 
             class=" font-medium duration-200 ease-in-out --hidden --md:inline ml-2" 
             :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0 hidden', isCompactMode ? 'ml-1 text-md' : 'ml-2 text-xl' ">

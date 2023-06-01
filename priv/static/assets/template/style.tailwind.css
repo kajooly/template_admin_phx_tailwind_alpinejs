@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 /* This file is for your main application CSS */
+.animate-ease-in-out {
+  transition: all 0.23s ease-in-out;
+}
+
 /* Alerts and form errors used by phx.new */
 .alert:empty {
   display: none;
