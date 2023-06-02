@@ -95,19 +95,18 @@ import { Html5QrcodeScanner } from 'html5-qrcode';
 
 Hooks.ScanQr = {
     mounted() {
-        console.log(this.el.id);
-        console.log(this.el.dataset);
+        //console.log(this.el.id);
+        //console.log(this.el.dataset);
         //this.pushEvent("readqr", { hi: "hi !" }, (reply, ref) => console.log(reply));
         const _this = this;
 
         function onScanSuccess(decodedText, decodedResult) {
-            console.log(`Code scanned = ${decodedText}`, decodedResult);
-            // this.pushEvent("readqr", decodedResult)
+            //console.log(`Code scanned = ${decodedText}`, decodedResult);
             _this.pushEvent("readqr", { decodedText: decodedText, decodedResult: decodedResult }, (reply, ref) => console.log(reply));
         }
         //console.log({ fps: parseInt(this.el.dataset.fps || 10), qrbox: parseInt(this.el.dataset.width || 400), showTorchButtonIfSupported: true, showZoomSliderIfSupported: true, defaultZoomValueIfSupported: true });
         var html5QrcodeScanner = new Html5QrcodeScanner(
-            this.el.id, { fps: parseInt(this.el.dataset.fps || 10), qrbox: parseInt(this.el.dataset.width || 400), showTorchButtonIfSupported: true, showZoomSliderIfSupported: true, defaultZoomValueIfSupported: true });
+            this.el.id, { fps: 20, qrbox: parseInt(this.el.dataset.width || 400), showTorchButtonIfSupported: true, showZoomSliderIfSupported: true, defaultZoomValueIfSupported: true });
         html5QrcodeScanner.render(onScanSuccess);
     },
     updated() {
