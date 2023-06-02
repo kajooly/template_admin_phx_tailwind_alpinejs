@@ -1,6 +1,4 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Text do
-  import Phoenix.LiveView
-  import Phoenix.LiveView.Helpers
 
   @doc """
 

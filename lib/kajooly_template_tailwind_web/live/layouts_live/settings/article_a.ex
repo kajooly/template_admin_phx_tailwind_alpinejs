@@ -2,7 +2,6 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.SettingsArticleA do
   use KajoolyTemplateTailwindWeb, :live_view
 
   import KajoolyTemplateTailwindWeb.GenericLive.Icons
-  import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
   import KajoolyTemplateTailwindWeb.GenericLive.Cards
 
@@ -59,5 +58,9 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.SettingsArticleA do
 
     """
   end
-
+  def render(assigns) do
+    ~H"""
+    ...
+    """
+  end
 end

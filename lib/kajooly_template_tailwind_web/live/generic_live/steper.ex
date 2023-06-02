@@ -1,7 +1,5 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Steper do
-  import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
-  import KajoolyTemplateTailwindWeb.GenericLive.Icons
 
   @doc """
 

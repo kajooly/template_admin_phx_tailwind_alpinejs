@@ -2,17 +2,12 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.IssuesShow do
   use KajoolyTemplateTailwindWeb, :live_view
 
   import  KajoolyTemplateTailwindWeb.GenericLive.Breadcrum
-  import KajoolyTemplateTailwindWeb.GenericLive.Table
-  import KajoolyTemplateTailwindWeb.GenericLive.Button
   import KajoolyTemplateTailwindWeb.GenericLive.ButtonGroup
   import KajoolyTemplateTailwindWeb.GenericLive.Dropdown
   import KajoolyTemplateTailwindWeb.GenericLive.Cards
-  import KajoolyTemplateTailwindWeb.GenericLive.Search
   import KajoolyTemplateTailwindWeb.GenericLive.Icons
-  import KajoolyTemplateTailwindWeb.GenericLive.Carousel
   import KajoolyTemplateTailwindWeb.GenericLive.Modal
   import KajoolyTemplateTailwindWeb.GenericLive.Timeline
-  import KajoolyTemplateTailwindWeb.LayoutsLive.VerticalNavigationGh
   import KajoolyTemplateTailwindWeb.LayoutsLive.HorizontalNavigationGh
 
   import KajoolyTemplateTailwindWeb.LayoutsLive.FakeDb

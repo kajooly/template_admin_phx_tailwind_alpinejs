@@ -1,6 +1,6 @@
 defmodule KajoolyTemplateTailwindWeb.TemplateConfig do
 
-  def template_config(assigns) do
+  def template_config(_assigns) do
     %{
       lang: "es",
       head: %{

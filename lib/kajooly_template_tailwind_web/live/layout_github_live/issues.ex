@@ -7,12 +7,7 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.Issues do
   import KajoolyTemplateTailwindWeb.GenericLive.ButtonGroup
   import KajoolyTemplateTailwindWeb.GenericLive.Dropdown
   import KajoolyTemplateTailwindWeb.GenericLive.Badges
-  import KajoolyTemplateTailwindWeb.GenericLive.Search
-  import KajoolyTemplateTailwindWeb.GenericLive.Icons
-  import KajoolyTemplateTailwindWeb.GenericLive.Carousel
-  import KajoolyTemplateTailwindWeb.LayoutsLive.VerticalNavigationGh
   import KajoolyTemplateTailwindWeb.LayoutsLive.HorizontalNavigationGh
-  import KajoolyTemplateTailwindWeb.LayoutsLive.FilesIcons
 
   import KajoolyTemplateTailwindWeb.LayoutsLive.FakeDb
 

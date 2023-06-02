@@ -7,9 +7,6 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.PortalClientesLista do
   import KajoolyTemplateTailwindWeb.GenericLive.ButtonGroup
   import KajoolyTemplateTailwindWeb.GenericLive.Dropdown
   import KajoolyTemplateTailwindWeb.GenericLive.Badges
-  import KajoolyTemplateTailwindWeb.GenericLive.Search
-  import KajoolyTemplateTailwindWeb.GenericLive.Icons
-  import KajoolyTemplateTailwindWeb.GenericLive.Carousel
 
   import KajoolyTemplateTailwindWeb.LayoutsLive.FakeDb
 

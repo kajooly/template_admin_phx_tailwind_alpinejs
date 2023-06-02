@@ -1,5 +1,4 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Timeline do
-  import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
   import KajoolyTemplateTailwindWeb.GenericLive.Icons
 

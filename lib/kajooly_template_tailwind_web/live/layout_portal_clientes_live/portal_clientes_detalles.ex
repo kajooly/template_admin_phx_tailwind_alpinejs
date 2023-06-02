@@ -2,12 +2,8 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.PortalClientesDetalles do
   use KajoolyTemplateTailwindWeb, :live_view
 
   import  KajoolyTemplateTailwindWeb.GenericLive.Breadcrum
-  import KajoolyTemplateTailwindWeb.GenericLive.Table
   import KajoolyTemplateTailwindWeb.GenericLive.Button
-  import KajoolyTemplateTailwindWeb.GenericLive.ButtonGroup
-  import KajoolyTemplateTailwindWeb.GenericLive.Dropdown
   import KajoolyTemplateTailwindWeb.GenericLive.Badges
-  import KajoolyTemplateTailwindWeb.GenericLive.Search
   import KajoolyTemplateTailwindWeb.GenericLive.Icons
   import KajoolyTemplateTailwindWeb.GenericLive.Timeline
 

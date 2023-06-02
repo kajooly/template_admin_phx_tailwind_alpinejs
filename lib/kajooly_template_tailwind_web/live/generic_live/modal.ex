@@ -55,7 +55,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Modal do
     </div>
     """
   end
-  @impl true
+
   def modal_footer(assigns) do
     assigns = assign_new(assigns, :return_to, fn -> nil end)
     ~H"""

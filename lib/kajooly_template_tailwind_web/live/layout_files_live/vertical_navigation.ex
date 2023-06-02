@@ -1,8 +1,6 @@
 defmodule KajoolyTemplateTailwindWeb.LayoutFilesLive.VerticalNavigationFiles do
-  import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
 
-  import KajoolyTemplateTailwindWeb.GenericLive.Button
   import KajoolyTemplateTailwindWeb.GenericLive.ButtonGroup
   import KajoolyTemplateTailwindWeb.GenericLive.Icons
 

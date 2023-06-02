@@ -1,5 +1,4 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.List do
-  import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
   import KajoolyTemplateTailwindWeb.GenericLive.Icons
 

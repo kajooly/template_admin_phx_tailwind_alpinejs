@@ -1,7 +1,6 @@
 defmodule KajoolyTemplateTailwindWeb.LayoutsLive.Icons do
   use KajoolyTemplateTailwindWeb, :live_view
 
-  import  KajoolyTemplateTailwindWeb.GenericLive.Breadcrum
 
   import KajoolyTemplateTailwindWeb.LayoutsLive.FakeDb
 

@@ -105,7 +105,7 @@
       </div>
     </div>
   </:col>
-  <:col let={item} class="w-1/12 text-right">
+  <:col let={_item} class="w-1/12 text-right">
     <.dropdown {%{
       title: "opciones",
         buttons: [
@@ -185,7 +185,6 @@
             class: "hidden md:block",
             to: "#",
             borderradius: "center",
-            class: ""
           },
           %{ 
             title: "Siguente >", 

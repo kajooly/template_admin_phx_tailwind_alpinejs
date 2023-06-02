@@ -1,7 +1,5 @@
 defmodule KajoolyTemplateTailwindWeb.LayoutsLive.FilesIcons do
-  import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
-  import KajoolyTemplateTailwindWeb.GenericLive.Button
   import KajoolyTemplateTailwindWeb.GenericLive.Icons
 
   @doc """
@@ -70,9 +68,8 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.FilesIcons do
           """
       _ ->
         ~H"""
-        <.icons_document_text class="mt-2"/>
-
-          """
+          <.icons_document_text class="mt-2"/>
+        """
       end
     end
 

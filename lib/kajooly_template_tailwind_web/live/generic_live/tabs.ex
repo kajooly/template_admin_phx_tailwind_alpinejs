@@ -1,7 +1,5 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Tabs do
-  import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
-  import KajoolyTemplateTailwindWeb.GenericLive.Icons
   import KajoolyTemplateTailwindWeb.GenericLive.Text
 
   @doc """

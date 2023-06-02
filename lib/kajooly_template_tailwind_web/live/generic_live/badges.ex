@@ -1,5 +1,4 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Badges do
-  import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
 
   @doc """

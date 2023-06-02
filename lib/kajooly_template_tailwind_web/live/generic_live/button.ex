@@ -1,5 +1,4 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
-  import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
   import KajoolyTemplateTailwindWeb.GenericLive.Text
   import KajoolyTemplateTailwindWeb.GenericLive.Badges
@@ -190,7 +189,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
 
   ## Examples
 
- <div class={default_class_content_list_button(%{ class: "" })}>
+    <div class ={default_class_content_list_button(%{ class: "" })}>
     <div class={default_class_list_button(%{  class: "" , state: "nil,active,disabled", position, "nil,top,bottom"})}>
       ...
     </div>

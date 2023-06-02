@@ -1,8 +1,5 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Carousel do
-  import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
-  import KajoolyTemplateTailwindWeb.GenericLive.Button
-  import KajoolyTemplateTailwindWeb.GenericLive.Dropdown
 
   @doc """
 

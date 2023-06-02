@@ -1,9 +1,7 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.ButtonGroup do
-  import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
   import KajoolyTemplateTailwindWeb.GenericLive.Button
   import KajoolyTemplateTailwindWeb.GenericLive.Dropdown
-  import KajoolyTemplateTailwindWeb.GenericLive.Text
 
   @doc """
 
@@ -40,7 +38,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.ButtonGroup do
 
   """
   def button_group(assigns) do
-    buttons = @buttons || assigns[:buttons]
+    buttons = assigns[:buttons]
     ~H"""
     <div class="hidden md:inline w-full">
       <div class={" #{assigns[:class]||"inline-flex rounded-md shadow w-full"}"} role="group">

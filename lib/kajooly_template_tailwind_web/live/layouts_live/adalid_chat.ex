@@ -1,8 +1,6 @@
 defmodule KajoolyTemplateTailwindWeb.LayoutsLive.Aladidchat do
   use KajoolyTemplateTailwindWeb, :live_view
 
-  import  KajoolyTemplateTailwindWeb.GenericLive.Breadcrum
-  import KajoolyTemplateTailwindWeb.GenericLive.Tabs
 
   import KajoolyTemplateTailwindWeb.LayoutsLive.FakeDb
 

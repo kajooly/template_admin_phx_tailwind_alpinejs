@@ -1,7 +1,5 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Search do
-  import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
-  import KajoolyTemplateTailwindWeb.GenericLive.Button
 
   @doc """
 

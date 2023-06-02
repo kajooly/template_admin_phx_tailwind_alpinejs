@@ -1,8 +1,5 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
-  import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
-  import KajoolyTemplateTailwindWeb.GenericLive.Button
-  import KajoolyTemplateTailwindWeb.GenericLive.Text
 
   @doc """
 
@@ -107,7 +104,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
   ## Examples
 
 
- <.simple_accordion class="flex-1">
+ <. simple_accordion class="flex-1">
     <:item title="Titulo del ... asdasdasd asda sdasdasd asds d" position="top" show={true}>
       html...asdasdasasdasd asda sdas d asdasdas da sd dasdfasdfasdf
       a sdf

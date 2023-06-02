@@ -4,7 +4,6 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.SettingsArticleB do
   import KajoolyTemplateTailwindWeb.GenericLive.Icons
   import KajoolyTemplateTailwindWeb.GenericLive.Button
   import KajoolyTemplateTailwindWeb.GenericLive.List
-  import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
 
 
@@ -66,5 +65,9 @@ defmodule KajoolyTemplateTailwindWeb.LayoutsLive.SettingsArticleB do
 
     """
   end
-
+  def render(assigns) do
+    ~H"""
+    ...
+    """
+  end
 end
