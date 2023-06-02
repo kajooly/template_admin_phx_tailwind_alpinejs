@@ -13,13 +13,11 @@ x-transition:leave-end="transform opacity-0 scale-95"
     <a href={Routes.static_path(@conn, "/")} 
         class="flex items-center px-2 bg-white text-gray-600 dark:text-gray-300  dark:bg-gray-800 hover:text-gray-700 
         hover:bg-opacity-50 focus:outline-none focus:text-gray-900   focus:bg-opacity-50 overflow-hidden  "
-        :class="isCompactMode ? 'h-10 md:ml-0 min-h-[40px]' : 'h-12 md:ml-0 min-h-[48px]'" 
-        
-        x-init="console.log('I can initialize too', this.classList); "
-        id="asdasd"
-        
+        :class="isCompactMode ? 'h-10 md:ml-0 min-h-[40px]' : 'h-12 md:ml-0 min-h-[48px]'"         
+        x-init="console.log('Aljs Run'); "
+        id="asdasd"        
         >
-        <div class="max-h-8 max-w-8">
+        <div class="max-h-8 max-w-8 mr-2" :class="isCompactMode ? 'h-6 w-6' : 'h-8 w-8'" >
             <%= if assigns.conn.assigns.company[:isotipo_url] != nil do %>
                 <img src={Routes.static_path(@conn, assigns.conn.assigns.company[:isotipo_url])} style="margin: auto; height: 98%;"/>
             <% else %>
