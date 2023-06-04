@@ -59,7 +59,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
             <button @click="expanded = ! expanded" class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 w-full"><%= item[:title] || "título" %>
             <svg sidebar-toggle-item class="w-6 h-6 ml-auto mr-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             </button>
-            <ul class={" py-2 space-y-2 w-full #{ if assigns[:border] do "border-l-2 ml-4" end }"} x-show="expanded" x-collapse>
+            <ul class={" py-2 space-y-2 w-full #{ if assigns[:border] do "border-l-2 ml-4" end }"} x-show="expanded" x-transition>
               <%= for subitem <- item[:list]  do %>
                 <%= if subitem[:list] != nil  do %>
                   <%= for sublist <- item[:list]  do %>
@@ -191,7 +191,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
           <svg data-accordion-icon="" class="w-6 h-6 flex-0 shrink-0 cursor-pointer" :class=" expanded ? 'rotate-180' : '' "
           fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" @click="expanded = ! expanded" ><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </div>
-        <div x-show="expanded" x-collapse
+        <div x-show="expanded"
           x-transition:enter="transition ease-out duration-800"
           x-transition:enter-start="transform opacity-0 scale-95"
           x-transition:enter-end="transform opacity-100 scale-100"
