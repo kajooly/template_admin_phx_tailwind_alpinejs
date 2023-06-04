@@ -55,7 +55,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
 
 
   def default_class_copact() do
-    "isCompactModeButton ? 'pt-2 pb-2 text-xs':'py-2 text-sm'"
+    "isCompactMode ? 'pt-2 pb-2 text-xs':'py-2 text-sm'"
   end
 
   # ej. <%= link to: "#", class: default_class_button(%{ borderradius: "left", color: "green" } ), ":class": default_class_copact() do %> <% end %>
