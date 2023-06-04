@@ -107,7 +107,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
   def circle_button(assigns) do
     id = assigns[:id] || gen_id_key()
     ~H"""
-      <div x-data="{ isCompactMode: $persist(false).as('isCompactMode'), tooltip : false  }" x-on:mouseout="{tooltip = false}">
+      <div x-data="{ isCompactMode: $persist(false).as('isCompactMode'), tooltip : false  }" x-on:mouseout="tooltip = false">
         <span class="absolute" style={assigns[:tooltip_style] || "margin-top: -20px;"} x-show="tooltip" x-collapse>
           <.badge color={"#{assigns[:color_tooltip] || "info"}"} type="div">
             <%= assigns[:description] || assigns[:title] %>
