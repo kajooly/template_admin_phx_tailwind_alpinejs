@@ -63,5 +63,9 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Text do
     |> :rand.uniform()
     |> Kernel.+(min)
   end
+  def text do
+      """
 
+      """
+    end
 end
