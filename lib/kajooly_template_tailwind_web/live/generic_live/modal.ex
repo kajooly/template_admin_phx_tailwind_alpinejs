@@ -26,26 +26,30 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Modal do
   def modal_template(assigns) do
     assigns = assign_new(assigns, :return_to, fn -> nil end)
     #IO.inspect assigns, label: "assigns modal"
+    header = if assigns[:title] != nil and @return_to != nil do true else false end
     ~H"""
       <div id="modal" class="phx -modal fade-in z-40 backdrop-blur-sm bg-white/30 dark:bg-gray-900/30  w-[99%] lg:w-[94%] xl:w-[96%] bottom-0 absolute top-10 left-0 sm:left-6 md:left-14 "  phx-remove={hide_modal()}>
         <div class="absolute top-2 inset-x-3 bg-white rounded-lg shadow-lg dark:bg-gray-700 mx-auto md:max-w-[80%] lg:max-w-[70%] xl:max-w-[50%] ">
-        <!-- Modal header -->
-        <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-              <%= assigns[:title] %>
-          </h3>
-          <%= if @return_to do %>
-            <%= live_patch to: @return_to,
-              id: "close",
-              class: "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white",
-              phx_click: hide_modal() do
-            %>
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+
+        <%= if header do %>
+          <!-- Modal header -->
+          <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                <%= assigns[:title] %>
+            </h3>
+            <%= if @return_to do %>
+              <%= live_patch to: @return_to,
+                id: "close",
+                class: "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white",
+                phx_click: hide_modal() do
+              %>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+              <% end %>
+            <% else %>
+              <a id="close" href="#" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" phx-click={hide_modal()}><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></a>
             <% end %>
-          <% else %>
-            <a id="close" href="#" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" phx-click={hide_modal()}><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></a>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
         <!-- Modal body -->
         <div class="p-2 md:p-4 lg:p-6 space-y-2 md:space-y-4 lg:space-y-6">
           <%= render_slot(@inner_block) %>
