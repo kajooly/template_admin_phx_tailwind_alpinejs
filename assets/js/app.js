@@ -60,7 +60,7 @@ Hooks.PhoneNumber = {
             this.el.value = o;
             console.log(f, m, o.length);
             if (f != undefined && m != undefined)
-                if (m > o.length)
+                if (m < o.length)
                     window.document.getElementById(f).focus();
         })
     }
