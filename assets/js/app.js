@@ -61,7 +61,9 @@ Hooks.PhoneNumber = {
             if (f != undefined && m != undefined)
                 if (m < o.length) {
                     console.log(f, m, o.length);
+                    this.el.value = o;
                     window.document.getElementById(f).focus();
+                    this.el.value = o;
                 }
         })
     }
