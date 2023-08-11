@@ -58,10 +58,12 @@ Hooks.PhoneNumber = {
                 o = `${match[1]}-${match[2]}-${match[3]}`
             }
             this.el.value = o;
-            console.log(f, m, o.length);
             if (f != undefined && m != undefined)
-                if (m < o.length)
-                    window.document.getElementById(f).focus();
+                if (m < o.length) {
+                    console.log(f, m, o.length);
+
+
+                }
         })
     }
 }
