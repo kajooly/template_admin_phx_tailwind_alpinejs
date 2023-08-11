@@ -50,11 +50,12 @@ let Hooks = (window.outHooks) ? window.outHooks : {};
 Hooks.PhoneNumber = {
     mounted() {
         this.el.addEventListener("input", e => {
-            this.el.value = this.el.value.replace(/[^\d]+/g, '');
-            let match = this.el.value.replace(/\D/g, "").match(/^(\d{3})(\d{3})(\d{4})$/)
+            let o = this.el.value.replace(/[^\d]+/g, '');
+            let match = o.replace(/\D/g, "").match(/^(\d{3})(\d{3})(\d{4})$/)
             if (match) {
-                this.el.value = `${match[1]}-${match[2]}-${match[3]}`
+                o = `${match[1]}-${match[2]}-${match[3]}`
             }
+            this.el.value = o;
         })
     }
 }
