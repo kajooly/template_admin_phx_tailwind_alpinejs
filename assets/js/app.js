@@ -52,15 +52,15 @@ Hooks.PhoneNumber = {
         this.el.addEventListener("input", e => {
             let o = this.el.value.replace(/[^\d]+/g, '');
             let f = this.el.dataset["focus"];
-            let m = this.el["max"];
+            let m = Number(this.el["max"]);
             let match = o.replace(/\D/g, "").match(/^(\d{3})(\d{3})(\d{4})$/)
             if (match) {
                 o = `${match[1]}-${match[2]}-${match[3]}`
             }
             this.el.value = o;
-            console.log(m, o.length);
+            console.log(f, m, o.length);
             if (f != undefined && m != undefined)
-                if (m >= o.length)
+                if (m > o.length)
                     window.document.getElementById(f).focus();
         })
     }
