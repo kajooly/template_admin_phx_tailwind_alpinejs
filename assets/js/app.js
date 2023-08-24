@@ -41,11 +41,13 @@ Alpine.plugin(TimeAgo.configure({
 Alpine.start();
 console.log("Alpine");
 
+import BSKHooks from "./bsk_hooks"
 
 
 console.log("Out Hooks", window.outHooks);
 
-let Hooks = (window.outHooks) ? window.outHooks : {};
+let Hooks = (window.outHooks) ? window.outHooks : BSKHooks;
+
 
 Hooks.PhoneNumber = {
     mounted() {
