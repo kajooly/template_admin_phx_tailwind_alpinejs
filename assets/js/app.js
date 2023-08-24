@@ -41,30 +41,29 @@ Alpine.plugin(TimeAgo.configure({
 Alpine.start();
 console.log("Alpine");
 
+import BSKHooks from "./bsk_hooks"
 
 
 console.log("Out Hooks", window.outHooks);
 
-let Hooks = (window.outHooks) ? window.outHooks : {};
+let Hooks = (window.outHooks) ? window.outHooks : BSKHooks;
+
 
 Hooks.PhoneNumber = {
     mounted() {
         this.el.addEventListener("input", e => {
             let o = this.el.value.replace(/[^\d]+/g, '');
             let f = this.el.dataset["focus"];
-            let m = Number(this.el["max"]);
+            let m = this.el["max"];
             let match = o.replace(/\D/g, "").match(/^(\d{3})(\d{3})(\d{4})$/)
             if (match) {
                 o = `${match[1]}-${match[2]}-${match[3]}`
             }
             this.el.value = o;
+            console.log(m, o.length);
             if (f != undefined && m != undefined)
-                if (m < o.length) {
-                    console.log(f, m, o.length);
-                    this.el.value = o;
+                if (m >= o.length)
                     window.document.getElementById(f).focus();
-                    this.el.value = o;
-                }
         })
     }
 }
