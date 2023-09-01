@@ -31,6 +31,7 @@
     dark:border-gray-800  
     dark:bg-gray-800
     ">
+    <!--Boton vista compacta-->
     <%= if assigns.conn.assigns.left_aside.options.isCompactMode.display do %>
         <button 
             @click="isCompactMode = !isCompactMode"
@@ -39,6 +40,7 @@
             x-text={"isCompactMode ? '#{assigns.conn.assigns.left_aside.options.isCompactMode.title_on}':'#{assigns.conn.assigns.left_aside.options.isCompactMode.title_off}'"}
         ></button>
     <% end %>
+    <!--Menu contraido-->
     <%= if assigns.conn.assigns.left_aside.options.isSidebarExpanded.display do %>
         <button 
             @click="isSidebarExpanded = !isSidebarExpanded"
@@ -47,6 +49,7 @@
             x-text={"isSidebarExpanded ? '#{assigns.conn.assigns.left_aside.options.isSidebarExpanded.title_on}':'#{assigns.conn.assigns.left_aside.options.isSidebarExpanded.title_off}'"}
         ></button>
     <% end %>
+    <!--Contenido fijo-->
     <%= if assigns.conn.assigns.left_aside.options.isLiquidPage.display do %>
         <button 
             @click="isLiquidPage = !isLiquidPage"
