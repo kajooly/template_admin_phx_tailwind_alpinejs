@@ -178,7 +178,6 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
             end}
         " }
         :class="expanded ? isCompactMode ? 'px-2 py-1 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white': 'px-3 py-2 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white'  : isCompactMode ? 'px-2 py-1': 'px-3 py-2'"
-        :class=" isCompactMode ? 'px-2 py-1': 'px-3 py-2'"
         >
           <span class="flex-0 cursor-pointer" @click="expanded = ! expanded" ><%= assigns[:title] %></span>
           <%= if assigns[:head_title] != nil do %>
