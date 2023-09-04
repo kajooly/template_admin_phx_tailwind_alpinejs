@@ -1752,6 +1752,10 @@ input:checked + .toggle-bg {
   min-height: 48px;
 }
 
+.min-h-\[630px\] {
+  min-height: 630px;
+}
+
 .w-6 {
   width: 1.5rem;
 }
