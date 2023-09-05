@@ -233,5 +233,24 @@ BSKHooks.shortUrlToLatlon = {
     }
 }
 
+BSKHooks.InfiniteScroll = {
+    page() { return this.el.dataset.page },
+    mounted() {
+        const puEv = this.el.dataset["pushevent"] || null;
+        const target = this.el.dataset["target"] || null;
+        const percentscroll = this.el.dataset["percentscroll"] || 90;
+        this.pending = this.page()
+        window.addEventListener("scroll", e => {
+            console.log(this.page(), scrollAt(), percentscroll);
+            if (this.pending == this.page() && scrollAt() > percentscroll) {
+                this.pending = this.page() + 1
+                this.pushEventTo(target, puEv, {})
+            }
+        })
+    },
+    reconnected() { this.pending = this.page() },
+    updated() { this.pending = this.page() }
+}
+
 
 export default BSKHooks;
