@@ -247,12 +247,16 @@ BSKHooks.InfiniteScroll = {
         const puEv = this.el.dataset["pushevent"] || null;
         const target = this.el.dataset["target"] || null;
         const percentscroll = this.el.dataset["percentscroll"] || 90;
-        this.pending = this.page()
+        this.pending = this.page();
+        console.log(this.page(), scrollAt(), percentscroll);
         window.addEventListener("scroll", e => {
             console.log(this.page(), scrollAt(), percentscroll);
             if (this.pending == this.page() && scrollAt() > percentscroll) {
-                this.pending = this.page() + 1
-                this.pushEventTo(target, puEv, {})
+                this.pending = this.page() + 1;
+                if (target != undefined)
+                    this.pushEventTo(target, puEv, {});
+                else
+                    this.pushEvent(puEv, {});
             }
         })
     },
