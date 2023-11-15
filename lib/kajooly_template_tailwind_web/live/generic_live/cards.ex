@@ -82,7 +82,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
      #{assigns[:m] || "mb-3"}
      #{assigns[:w] || "w-full"}
      #{assigns[:shadow] || "shadow-md"}
-     #{assigns[:border] || "rounded-lg border border-gray-200"}
+     #{assigns[:border] || "rounded-lg border border-gray-200 dark:border-gray-700"}
      #{assigns[:bg] || "bg-white dark:bg-gray-800 dark:border-gray-700"}
      #{assigns[:class]}"
   end
