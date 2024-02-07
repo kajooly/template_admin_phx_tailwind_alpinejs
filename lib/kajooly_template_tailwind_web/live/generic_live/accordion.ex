@@ -150,7 +150,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
     ~H"""
       <div x-data="{ open: false , isCompactMode: $persist(false).as('isCompactMode') }">
         <div class="flex">
-          <div class={"flex-1 #{ assigns[:class_m] ||  "mt-2" } text-sm text-clip overflow-hidden #{ assigns[:class_text] || "text-gray-700 dark:text-gray-400" }"} :class={" open ? '' : '#{assigns[:h] || "h-5"}' "}><%=
+          <div class={"flex-1 #{ assigns[:class_m] ||  "mt-2" } text-sm text-clip overflow-hidden #{ assigns[:class_text] || "text-gray-700 dark:text-gray-400" }"} ><%=
           if assigns[:text] == nil do
             render_slot(@inner_block)
           else
@@ -180,7 +180,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
             _ -> "border-b-0"
             end}
         " }
-        :class="expanded ? isCompactMode ? 'px-2 py-1 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white': 'px-3 py-2 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white'  : isCompactMode ? 'px-2 py-1': 'px-3 py-2'"
+
         >
           <span class="flex-0 cursor-pointer" @click="expanded = ! expanded" ><%= assigns[:title] %></span>
           <%= if assigns[:head_title] != nil do %>
@@ -190,7 +190,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
               </span>
             <% end %>
           <% end %>
-          <svg data-accordion-icon="" class="w-6 h-6 flex-0 shrink-0 cursor-pointer" :class=" expanded ? 'rotate-180' : '' "
+          <svg data-accordion-icon="" class="w-6 h-6 flex-0 shrink-0 cursor-pointer"
           fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" @click="expanded = ! expanded" ><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </div>
         <div x-show="expanded"

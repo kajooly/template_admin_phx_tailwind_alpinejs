@@ -1,5 +1,5 @@
 defmodule KajoolyTemplateTailwindWeb.LayoutsLive.IssuesNew do
-  use KajoolyTemplateTailwindWeb, :live_view
+  #use KajoolyTemplateTailwindWeb, :live_view
 
   import  KajoolyTemplateTailwindWeb.GenericLive.Breadcrum
   import KajoolyTemplateTailwindWeb.GenericLive.Cards

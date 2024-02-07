@@ -50,7 +50,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
         dark:hover:bg-gray-900
         dark:focus:bg-gray-900 "}
         "}
-        :class="isCompactMode ? 'p-0 px-2' : 'p-2'"
+
         >
         <div class="flex w-full">
           <%= if  assigns[:title] != "" do %>
