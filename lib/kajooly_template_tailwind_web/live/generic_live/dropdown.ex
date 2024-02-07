@@ -1,5 +1,8 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
-  import Phoenix.LiveView.Helpers
+  #import Phoenix.LiveView.Helpers
+  use Phoenix.Component
+
+  alias Phoenix.LiveView.JS
 
   @doc """
 
@@ -90,8 +93,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Dropdown do
           <%= for item <- @buttons do %>
             <%= if item[:hidden] == nil do %>
               <%= if item[:group_title] != nil do %>
-                  <h2 class={dropdown_default_class_classdrop_title(assigns)}
-                  :class={dropdown_default_class_copact(assigns)}  >
+                  <h2 class={dropdown_default_class_classdrop_title(assigns)} :class={dropdown_default_class_copact(assigns)}  >
                   <%= item[:group_title] %>
                 </h2>
               <% end %>
