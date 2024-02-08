@@ -1,5 +1,8 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.ButtonGroup do
-  import Phoenix.LiveView.Helpers
+  #import Phoenix.LiveView.Helpers
+  use Phoenix.Component
+
+  #alias Phoenix.LiveView.JS
   import KajoolyTemplateTailwindWeb.GenericLive.Button
   import KajoolyTemplateTailwindWeb.GenericLive.Dropdown
 
@@ -79,7 +82,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.ButtonGroup do
         <span x-data="{ isCompactMode: $persist(false).as('isCompactMode') }" >
           <div
             class={"flex -space-x-4 ml-6 #{assigns[:class]}"}
-            :class="isCompactMode ? '-space-x-2':'-space-x-3'"
+
             role="group">
             <%= if @buttons != nil do %>
               <%= for item <- @buttons do %>

@@ -14,7 +14,7 @@
       class="flex bg-gray-100 text-gray-600 dark:bg-gray-800 h-screen" 
       x-data={"{ isSidebarExpanded: $persist(#{assigns["default_ui"]["isSidebarExpanded"]||"false"}).as('isSidebarExpanded') , isCompactMode: $persist(#{assigns["default_ui"]["isCompactMode"]||"false"}).as('isCompactMode') , isLiquidPage: $persist(#{assigns["default_ui"]["isLiquidPage"]||"false"}).as('isLiquidPage') }"}>
       
-        <main class="m-auto" :class="isLiquidPage ? 'container sm:px-8 md:px-10':''">
+        <main class="m-auto" >
           <%= @inner_content %>
         </main>
     </div>

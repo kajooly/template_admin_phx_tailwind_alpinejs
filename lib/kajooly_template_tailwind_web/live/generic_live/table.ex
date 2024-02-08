@@ -1,5 +1,9 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
-  import Phoenix.LiveView.Helpers
+
+  #import Phoenix.LiveView.Helpers
+  use Phoenix.Component
+
+  #alias Phoenix.LiveView.JS
 
   @doc """
 
@@ -33,22 +37,20 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
         <% end %>
         <tbody class={assigns[:class_body]} style={assigns[:style_body]}>
           <%= for row <- @rows do %>
-            <tr class={"#{assigns[:tbody_bg] || "bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"} #{assigns[:tbody_border] || "border-b  dark:border-gray-700 "}"}
-                :class="isCompactModeButton ? ' md:leading-3':' md:leading-5'" >
+            <tr class={"#{assigns[:tbody_bg] || "bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"} #{assigns[:tbody_border] || "border-b  dark:border-gray-700 md:leading-3"}"}>
               <%= for col <- @col do %>
                 <%= if col[:th]!=nil do %>
                   <th scope="row"
                       style={col[:style] || "__no_style: false;"}
-                      class={"px-4  md:py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap #{col[:class]}"}
-                      :class="isCompactModeButton ? ' py-2':' py-3'"
+                      class={"px-4  md:py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap #{col[:class]} py-2"}
                     >
                     <%= render_slot(col, row) %>
                   </th>
                 <% else %>
                 <td
                   style={col[:style] || "__no_style: false;"}
-                  class={"px-4 md:py-0  dark:text-gray-100 text-gray-900 #{col[:class]}"}
-                  :class="isCompactModeButton ? ' py-2':' py-3'">
+                  class={"px-4 md:py-0  dark:text-gray-100 text-gray-900 #{col[:class]} py-2"}
+                  >
                     <%= render_slot(col, row) %>
                   </td>
                 <% end %>
@@ -57,8 +59,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Table do
             <% end %>
             <%= if length(@rows) < 1  && assigns[:hidden_empty_text] == nil do %>
 
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
-            :class="isCompactModeButton ? ' md:leading-3':' md:leading-5'" >
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 md:leading-3">
               <td scope="row"
               class={"px-4  md:py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap py-4"}
               colspan={length(@col)}

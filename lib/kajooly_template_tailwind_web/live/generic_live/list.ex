@@ -1,5 +1,8 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.List do
-  import Phoenix.LiveView.Helpers
+  #import Phoenix.LiveView.Helpers
+  use Phoenix.Component
+
+  #alias Phoenix.LiveView.JS
   import KajoolyTemplateTailwindWeb.GenericLive.Icons
 
   @doc """
@@ -18,6 +21,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.List do
 
   """
   def list(assigns) do
+              ###<.name_user text={item[:title]} />
     ~H"""
     <div class="w-full ">
 
@@ -27,7 +31,8 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.List do
         <%= for item <- assigns[:list] do %>
           <li class="w-full px-4 py-2 border-b border-gray-200 rounded-t-lg dark:border-gray-600 flex">
             <div class="flex-0 mr-3 pt-1">
-              <.name_user text={item[:title]} />
+
+              <div class="rounded-full h-8 w-8 bg-gray-500">--</div>
             </div>
             <div class="flex-1">
               <h4><%= item[:title] %></h4>

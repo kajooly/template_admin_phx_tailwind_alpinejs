@@ -1,5 +1,8 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Icons do
-  import Phoenix.LiveView.Helpers
+  #import Phoenix.LiveView.Helpers
+  use Phoenix.Component
+
+  #alias Phoenix.LiveView.JS
   import KajoolyTemplateTailwindWeb.GenericLive.Colors
   import KajoolyTemplateTailwindWeb.GenericLive.Text
 
@@ -35,92 +38,19 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Icons do
 
 
   def name_user(assigns) do
-    text =  text_to_two_char(assigns[:text])
-    cicle_color =   assigns[:cicle_color] || rand_color_leter(text)[:color]
-    border_color =  assigns[:border_color] || rand_color_leter(text)[:border_color]
-    border_size =   assigns[:border_size] || "1.2001"
-    text_color =    assigns[:text_color] || "#f4ffffdd"
-    width =   assigns[:width] || "32"
-    height =  assigns[:height] || "32"
-    class =   assigns[:class]||""
-    id = assigns[:id] || gen_id_key()
-    ~H"""
-      <svg
-        width={width}
-        height={height}
-        class={class}
-        viewBox="0 0 16.933333 16.933334"
-        version="1.1"
-        id={id}
-        inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
-        sodipodi:docname="user_circle.svg"
-        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-        xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:svg="http://www.w3.org/2000/svg">
-        <sodipodi:namedview
-          id={"namedview12517#{id}"}
-          pagecolor="#505050"
-          bordercolor="#ffffff"
-          borderopacity="1"
-          inkscape:pageshadow="0"
-          inkscape:pageopacity="0"
-          inkscape:pagecheckerboard="1"
-          inkscape:document-units="mm"
-          showgrid="false"
-          units="px"
-          inkscape:zoom="3.4066218"
-          inkscape:cx="27.153"
-          inkscape:cy="25.244951"
-          inkscape:window-width="1386"
-          inkscape:window-height="679"
-          inkscape:window-x="0"
-          inkscape:window-y="25"
-          inkscape:window-maximized="0"
-          inkscape:current-layer={"layer1#{id}"} />
-        <defs
-          id={"defs12512#{id}"}>
-          <filter
-            inkscape:collect="always"
-            style="color-interpolation-filters:sRGB"
-            id={"filter11352#{id}"}
-            x="-0.010374064"
-            y="-0.016006365"
-            width="1.0207481"
-            height="1.0320127">
-            <feGaussianBlur
-              inkscape:collect="always"
-              stdDeviation="0.098723798"
-              id={"feGaussianBlur11354#{id}"} />
-          </filter>
-        </defs>
-        <g
-          inkscape:label="Capa 1"
-          inkscape:groupmode="layer"
-          id={"layer1#{id}"}>
-          <ellipse
-            style={"fill:#{cicle_color};stroke:#{border_color};stroke-width:#{border_size};stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"}
-            id={"path8295#{id}"}
-            cx="8.4657431"
-            cy="8.4657431"
-            rx="7.9593506"
-            ry="7.9531631" />
-          <text
-            xml:space="preserve"
-            style={"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.3599px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:-1px;opacity:0.8;fill:#{text_color};fill-opacity:1;stroke:none;filter:url(#filter11352#{id})"}
-            x="2.2092044"
-            y="23.6318"
-            id={"text1713#{id}"}
-            transform="matrix(0.42059316,0,0,0.44182358,2.0728769,1.3151794)"><tspan
-              sodipodi:role="line"
-              id={"tspan1711#{id}"}
-              x="2.2092044"
-              y="23.6318"
-              style={"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.3599px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#{text_color};fill-opacity:1"}
-              dx="-0.059999999"><%= text %></tspan></text>
-        </g>
-      </svg>
-    """
+    text = text_to_two_char(assigns[:text])
+    %{
+      text: text_to_two_char(assigns[:text]),
+      cicle_color:  assigns[:cicle_color] || rand_color_leter(text)[:color],
+      border_color: assigns[:border_color] || rand_color_leter(text)[:border_color],
+      border_size:  assigns[:border_size] || "1.2001",
+      text_color:   assigns[:text_color] || "#f4ffffdd",
+      width:  assigns[:width] || "32",
+      height: assigns[:height] || "32",
+      class:  assigns[:class]||"",
+      id: assigns[:id] || gen_id_key(),
+      assigns: assign(assigns, :text, text_to_two_char(assigns[:text]))
+    }
   end
   def icons_dots_vertical(assigns) do
     ~H"""

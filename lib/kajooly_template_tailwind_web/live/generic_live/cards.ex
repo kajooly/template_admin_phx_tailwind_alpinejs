@@ -1,5 +1,8 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Cards do
-  import Phoenix.LiveView.Helpers
+  #import Phoenix.LiveView.Helpers
+  use Phoenix.Component
+
+  #alias Phoenix.LiveView.JS
   import KajoolyTemplateTailwindWeb.GenericLive.Icons
 
   @doc """

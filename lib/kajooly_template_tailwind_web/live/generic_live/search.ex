@@ -1,5 +1,8 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Search do
-  import Phoenix.LiveView.Helpers
+  #import Phoenix.LiveView.Helpers
+  use Phoenix.Component
+
+  #alias Phoenix.LiveView.JS
 
   @doc """
 
@@ -43,20 +46,20 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Search do
     <div class="flex" x-data="{ openSearch: false, isCompactMode: $persist(false).as('isCompactMode') }">
       <div
         class="flex-1 my-auto "
-          :class=" !openSearch ? '':'hidden' "
+
           >
           <span
-          :class=" isCompactMode ? 'text-lg' : 'text-2xl' "
+
           >
           <%= render_slot(@title) %>
           </span>
         </div>
         <div
-          :class=" !openSearch ? '':'hidden' "
+
           class="flex-0"
           >
         <button type="button" class="text-purple-600 hover:text-white border border-purple-600 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-4  text-center mr-2  dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-gray-600 dark:hover:bg-yellow-400 dark:focus:ring-yellow-900 "
-        :class=" isCompactMode ? 'max-h-8 py-1.5' : 'max-h-10 py-2.5 mb-1'"
+
         @click="openSearch = !openSearch"
 
         >
@@ -65,7 +68,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Search do
 
         </div>
         <div
-          :class=" openSearch ? '':'hidden' "
+
           class="flex-1"
 
           x-transition:enter="transition ease-out duration-100"
@@ -85,9 +88,9 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Search do
 
         </div>
         <div
-          :class=" openSearch ? '':'hidden' "
+
           class="flex-0"
-          :class=" isCompactMode ? '' : 'pt-2'"
+
           x-transition:enter="transition ease-out duration-100"
           x-transition:enter-start="transform opacity-0 scale-95"
           x-transition:enter-end="transform opacity-100 scale-100"
@@ -96,7 +99,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Search do
           x-transition:leave-end="transform opacity-0 scale-95"
           >
             <button type="button" class="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 text-center mr-2  dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-gray-600 dark:hover:bg-yellow-400 dark:focus:ring-yellow-900"
-            :class=" isCompactMode ? 'max-h-8 py-1.5' : 'max-h-10 py-2.5'"
+
             @click="openSearch = !openSearch"
 
             >

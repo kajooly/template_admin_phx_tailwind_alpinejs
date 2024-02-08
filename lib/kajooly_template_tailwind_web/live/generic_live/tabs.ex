@@ -1,5 +1,9 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Tabs do
-  import Phoenix.LiveView.Helpers
+
+  #import Phoenix.LiveView.Helpers
+  use Phoenix.Component
+
+  #alias Phoenix.LiveView.JS
   import KajoolyTemplateTailwindWeb.GenericLive.Text
 
   @doc """
@@ -35,7 +39,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Tabs do
 
     def tab(assigns) do
       ~H"""
-        <a :class={"  tab == '#{assigns[:id]}' ? 'border-sky-500' : 'border-gray-500' "} @click.prevent={"tab = '#{assigns[:id]}'; window.location.hash = '#{assigns[:id]}'"} href="#" class={" #{assigns[:class] || "mr-2 inline-block p-4 rounded-t-lg border-b-2" } "}><%= assigns[:title] || render_slot(@inner_block)%></a>
+        <a  @click.prevent={"tab = '#{assigns[:id]}'; window.location.hash = '#{assigns[:id]}'"} href="#" class={" #{assigns[:class] || "mr-2 inline-block p-4 rounded-t-lg border-b-2" } "}><%= assigns[:title] || render_slot(@inner_block)%></a>
        """
     end
 

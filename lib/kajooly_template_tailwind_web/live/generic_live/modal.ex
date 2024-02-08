@@ -1,6 +1,6 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Modal do
-  import Phoenix.LiveView
-  import Phoenix.LiveView.Helpers
+  #import Phoenix.LiveView.Helpers
+  use Phoenix.Component
 
   alias Phoenix.LiveView.JS
 
@@ -24,21 +24,20 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Modal do
       </.modal>
   """
   def modal_template(assigns) do
-    assigns = assign_new(assigns, :return_to, fn -> nil end)
+    #assigns = assign_new(assigns, :return_to, fn -> nil end)
     #IO.inspect assigns, label: "assigns modal"
-    header = if assigns[:title] != nil and @return_to != nil do true else false end
     ~H"""
       <div id="modal" class="phx -modal fade-in z-40 backdrop-blur-sm bg-white/30 dark:bg-gray-900/30  w-[99%] lg:w-[94%] xl:w-[96%] bottom-0 absolute top-10 left-0 sm:left-6 md:left-14 "  phx-remove={hide_modal()}>
         <div class="absolute top-2 inset-x-3 bg-white rounded-lg shadow-lg dark:bg-gray-700 mx-auto md:max-w-[80%] lg:max-w-[70%] xl:max-w-[50%] ">
 
-        <%= if header do %>
+        <%= if assigns[:title] != nil and assigns[:return_to] != nil  do %>
           <!-- Modal header -->
           <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                 <%= assigns[:title] %>
             </h3>
-            <%= if @return_to do %>
-              <%= live_patch to: @return_to,
+            <%= if assigns[:return_to] do %>
+              <%= live_patch to: assigns[:return_to],
                 id: "close",
                 class: "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white",
                 phx_click: hide_modal() do
@@ -61,7 +60,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Modal do
   end
 
   def modal_footer(assigns) do
-    assigns = assign_new(assigns, :return_to, fn -> nil end)
+    #assigns = assign_new(assigns, :return_to, fn -> nil end)
     ~H"""
       <div class="flex justify-end pt-2 mt-4 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
 

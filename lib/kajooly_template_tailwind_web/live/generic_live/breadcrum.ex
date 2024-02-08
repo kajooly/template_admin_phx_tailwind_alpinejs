@@ -1,7 +1,8 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Breadcrum do
-  import Phoenix.LiveView
-  import Phoenix.LiveView.Helpers
+  #import Phoenix.LiveView.Helpers
+  use Phoenix.Component
 
+  #alias Phoenix.LiveView.JS
   import KajoolyTemplateTailwindWeb.GenericLive.Icons
   @doc """
 
@@ -39,13 +40,12 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Breadcrum do
     <span
     x-data="{  isCompactMode: $persist(false).as('isCompactMode')  }"
     >
-      <nav class="md:flex pl-2 md:pl-0" aria-label="Breadcrumb"
-      :class=" isCompactMode ? 'mb-2' : 'mb-6'"
+      <nav class="md:flex pl-2 md:pl-0 mb-2" aria-label="Breadcrumb"
       >
         <%=  if assigns[:title] != nil do %>
           <h1 class="text-2xl">
             <%= assigns[:title]  %>
-            <br :class="isCompactMode ? 'hidden' : ''" /><span class="text-gray-500" :class="!isCompactMode ? 'hidden' : ''"> | </span>
+            <br /><span class="text-gray-500"> | </span>
             <small><%= assigns[:subtitle]  %></small>
           </h1>
         <% end %>
@@ -71,8 +71,8 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Breadcrum do
                   <%=  if item[:icon] == "chevron" do %>
                     <.icons_chevron_right class="flex-0 w-6 h-6 text-gray-400"/>
                   <% end %>
-                    <span class="flex-1 mt-1"
-                    :class=" isCompactMode ? 'text-xs':'text-xs' "
+                    <span class="flex-1 mt-1 text-xs"
+
                     ><%= item[:title] || render_slot(item) %></span>
                   <% end %>
                 </div>
@@ -87,8 +87,8 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Breadcrum do
                     <.icons_chevron_right class="w-6 h-6 text-gray-400"/>
                   <% end %>
                   <span
-                    class="ml-1  text-gray-400 dark:text-gray-500 md:ml-2 dark:text-gray-400"
-                    :class=" isCompactMode ? 'text-xs':'text-sm ' "
+                    class="ml-1  text-gray-400 dark:text-gray-500 md:ml-2 dark:text-gray-400 text-xs"
+
                     > <%= item[:title] || render_slot(item) %></span>
                 </div>
               </li>

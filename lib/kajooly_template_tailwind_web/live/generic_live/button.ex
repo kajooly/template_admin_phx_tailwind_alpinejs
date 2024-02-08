@@ -1,5 +1,8 @@
 defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
-  import Phoenix.LiveView.Helpers
+  #import Phoenix.LiveView.Helpers
+  use Phoenix.Component
+
+  #alias Phoenix.LiveView.JS
   import KajoolyTemplateTailwindWeb.GenericLive.Text
   import KajoolyTemplateTailwindWeb.GenericLive.Badges
 
@@ -105,7 +108,6 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
 
   """
   def circle_button(assigns) do
-    id = assigns[:id] || gen_id_key()
     ~H"""
       <div x-data="{ isCompactMode: $persist(false).as('isCompactMode'), tooltip : false  }" x-on:mouseout="tooltip = false">
         <span class="absolute" style={assigns[:tooltip_style] || "margin-top: -20px;"} x-show="tooltip">
@@ -119,7 +121,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
             style: assigns[:style] || "__no_style: false;",
             type: "button",
             title: assigns[:description] || assigns[:title] || "",
-            id: id,
+            id:  assigns[:id] || gen_id_key(),
             "x-on:mouseover": "tooltip = true",
             "x-on:mouseout": "tooltip = false"
             do %>
@@ -131,11 +133,10 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Button do
           <% end %>
         <% else %>
           <div class={default_class_circle_button(assigns)}
-            :class={default_class_copact_circle_button()}
             style= {assigns[:style] || "__no_style: false;"}
             type="button"
             title= {assigns[:description] || assigns[:title] || ""}
-            id= {id}
+            id= { assigns[:id] || gen_id_key()}
             @click="tooltip = !tooltip"
             x-on:mouseover= "tooltip = true"
             x-on:mouseout= "tooltip = false"

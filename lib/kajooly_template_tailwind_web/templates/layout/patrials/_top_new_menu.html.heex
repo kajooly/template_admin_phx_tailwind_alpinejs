@@ -3,7 +3,6 @@
 <div class="border-r border-l border-gray-200 dark:border-gray-700 pl-0 ml-0 space-x-1">
   <div x-data="{ open: false }" 
     class="relative text-left"
-    :class="isCompactMode ? 'p-2 mt-1' : 'p-0'"
     >
     <button
       @click="open = !open"
@@ -23,12 +22,11 @@
         rounded
         flex
         "
-        :class="isCompactMode ? 'p-2  text-xs mb-1' : 'p-3 text-sm'"
         >
         
         <span class="sr-only"><%= @assigns[:title] %></span>
 
-         <svg xmlns="http://www.w3.org/2000/svg"  :class="isCompactMode ? 'h-3.5 w-3.5 mt-0 mr-1.5' : 'h-4 w-4 mt-0.5 mr-1.5'"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+         <svg xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
         </svg>
         <span class="flex-1 mr-1 hidden md:inline"><%= @assigns[:title] %></span>
@@ -44,7 +42,6 @@
       x-transition:leave="transition ease-in duration-75"
       x-transition:leave-start="transform opacity-100 scale-100"
       x-transition:leave-end="transform opacity-0 scale-95"
-      :class="isCompactMode ? 'top-8 left-0' : 'top-10 left-0'"
       class="absolute z-50  flex flex-col min-w-lg mt-2 border rounded-md  shadow-lg p-2
       border-gray-100  
       bg-white
@@ -58,7 +55,7 @@
             </svg>
             <span class="flex-1"><%= @assigns[:title] %></span>
         </h5>
-        <ul :class="isCompactMode ? 'my-2 space-y-3' : 'my-4 space-y-3'">
+        <ul >
         <%= if length(@assigns[:list]) > 0 do %>
             <%= for item <- @assigns[:list] do %>
                 <li>

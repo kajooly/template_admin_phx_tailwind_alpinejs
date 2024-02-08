@@ -2,7 +2,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
   #import Phoenix.LiveView.Helpers
   use Phoenix.Component
 
-  alias Phoenix.LiveView.JS
+  #alias Phoenix.LiveView.JS
 
   @doc """
 
@@ -52,11 +52,12 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
 
   """
   def accordion(assigns) do
-    list = assigns.accordions || assigns.list
+    assigns = assign(assigns, :list, assigns.accordions || assigns.list)
+
     #IO.inspect list, label: "LIST ---"
     ~H"""
     <ul class={"space-y-2 #{assigns[:class]}"}>
-      <%= for item <- list  do %>
+      <%= for item <- @list  do %>
         <li x-data={"{ expanded: #{item[:expanded] || "false"} }"} class=" items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group ">
           <%= if item[:list] != nil  do %>
             <button @click="expanded = ! expanded" class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 w-full"><%= item[:title] || "título" %>
@@ -94,7 +95,7 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
 
 
 
-  @doc """
+@doc """
 
   Sitemap
 
@@ -107,26 +108,26 @@ defmodule KajoolyTemplateTailwindWeb.GenericLive.Accordion do
   ## Examples
 
 
- <. simple_accordion class="flex-1">
-    <:item title="Titulo del ... asdasdasd asda sdasdasd asds d" position="top" show={true}>
-      html...asdasdasasdasd asda sdas d asdasdas da sd dasdfasdfasdf
-      a sdf
-      as
-      floor(ad sfasfa sdf)
-    </:item>
-    <:item title="Titulo del ... asdasdasd asda sdasdasd asds d">
-      html...asdasdasasdasd asda sdas d asdasdas da sd dasdfasdfasdf
-      a sdf
-      as
-      floor(ad sfasfa sdf)
-    </:item>
-    <:item title="Titulo del ... asdasdasd asda sdasdasd asds d" position="bottom" >
-      html...asdasdasasdasd asda sdas d asdasdas da sd dasdfasdfasdf
-      a sdf
-      as
-      floor(ad sfasfa sdf)
-    </:item>
-  </.simple_accordion>
+  <.simple_accordion class="flex-1">
+      <:item title="Titulo del ... asdasdasd asda sdasdasd asds d" position="top" show={true}>
+        html...asdasdasasdasd asda sdas d asdasdas da sd dasdfasdfasdf
+        a sdf
+        as
+        floor(ad sfasfa sdf)
+      </:item>
+      <:item title="Titulo del ... asdasdasd asda sdasdasd asds d">
+        html...asdasdasasdasd asda sdas d asdasdas da sd dasdfasdfasdf
+        a sdf
+        as
+        floor(ad sfasfa sdf)
+      </:item>
+      <:item title="Titulo del ... asdasdasd asda sdasdasd asds d" position="bottom" >
+        html...asdasdasasdasd asda sdas d asdasdas da sd dasdfasdfasdf
+        a sdf
+        as
+        floor(ad sfasfa sdf)
+      </:item>
+    </.simple_accordion>
 
   """
   def simple_accordion (assigns) do
