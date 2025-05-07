@@ -128,6 +128,8 @@ Hooks.ScanQr = {
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {
     params: { _csrf_token: csrfToken },
+    reconnectAfterMs: ms => Math.min(ms + 200, 5000),
+    heartbeatIntervalMs: 30000,
     hooks: Hooks,
     dom: {
         onBeforeElUpdated(from, to) {
